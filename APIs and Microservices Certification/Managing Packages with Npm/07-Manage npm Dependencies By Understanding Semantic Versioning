@@ -1,0 +1,24 @@
+{
+	"name": "fcc-learn-npm-package-json",
+	"dependencies": {
+		"express": "^4.14.0",
+    "moment":"2.10.2"
+	},
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": "8.11.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://idontknow/todo.git"
+	},
+  "author":"Anuj Yadav (yadavanuj1996)",
+  "description":"This is a starter project created for practicing concepts of npm (node package manager).",
+  "keywords":["freecodecamp","npm","nodejs"],
+  "license": "MIT",
+   "version": "0.0.1"
+}
+
