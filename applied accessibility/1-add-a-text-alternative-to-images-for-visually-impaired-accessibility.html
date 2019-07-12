@@ -1,0 +1,1 @@
+<img src="doingKarateWow.jpeg" alt="Camper Cat is doing karate">
