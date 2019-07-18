@@ -1,0 +1,71 @@
+/* display: flex is used*/
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+body{
+ margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffb24f;
+  font-family: 'Raleway', Helvetica, sans-serif,Arial;
+}
+#main{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   background-color: white;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px;
+}
+header{
+  text-align: center;
+  
+}
+main{
+  display: flex;
+  display-direction: row;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.bottom-top-padding{
+ padding-top: 10px;
+ padding-bottom: 10px;
+ display: flex;
+  
+}
+
+.label-div{
+  width: 50%;
+  text-align: right;
+  padding-right: 8px;
+}
+.input-div{
+  width: 50%;
+  text-align: left;
+  padding-left: 8px;
+}
+#submit-div{
+ display: flex;
+  justify-content: center;
+  
+}
+.input-text, select, textarea{
+  width: 60%;
+  height: 100%;
+}
+#submit{
+  background-color: #ffb24f;
+  color: white;
+  height: 35px;
+  width: 200px;
+  border-radius: 8px;
+  font-size: 20px; 
+  border: 0px;
+    font-family: 'Raleway', Helvetica, sans-serif,Arial;
+}
+
