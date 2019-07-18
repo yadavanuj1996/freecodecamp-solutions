@@ -1,0 +1,62 @@
+/*declaring css variables*/ 
+:root {
+    --direction-of-flex: row;
+  }
+  
+  @media (max-width: 650px) {
+    :root {
+      --direction-of-flex: column;
+    }
+  }
+body {
+  margin: 0px;
+}
+h1 {
+  font-size: 58px;
+  margin: 0px;
+}
+header {
+  text-align: center;
+  margin: 0px;
+  background-color: #373535;
+  color: white;
+}
+.no-top-margin {
+  margin-top: 0px;
+}
+.bold-font {
+  font-weight: bold;
+}
+#page-subtitle {
+  padding-bottom: 10px;
+}
+figure {
+  min-height: 400px;
+  display: flex;
+  flex-direction: var(--direction-of-flex,row);
+  justify-content: space-around;
+  align-items: center;
+}
+figcaption {
+  font-size: 20px;
+}
+img{
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+#tribute-info{
+  padding: 25px;
+  background-color: #373535;
+  color: white;
+}
+h2{
+  text-align: center;
+}
+a{
+  color: white;
+}
+#img-caption{
+  color: #373535;
+}
