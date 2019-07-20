@@ -15,6 +15,7 @@
   --display-ls-flex-sm-none: flex;
   --footer-logo-div-right-border: 1px solid white;
   --lg-flex-start-sm-center: flex-start;
+  --width-lg-50per-sm-100per:50%;
 }
 body {
   font-family: "Work Sans", sans-serif;
@@ -47,6 +48,7 @@ a {
     --display-ls-flex-sm-none: none;
     --footer-logo-div-right-border: none;
     --lg-flex-start-sm-center: center;
+    --width-lg-50per-sm-100per:100%;
 }
   #nav-links #logo-head a.nav-link{
     display: none;
@@ -155,7 +157,7 @@ button {
   padding: 20px 0px 20px 0px;
 }
 #landing-img-div {
-  width: 50%;
+  width: var(--width-lg-50per-sm-100per,50%);
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
@@ -408,6 +410,7 @@ i{
   color: #50e3c2;
 }
 #news-letter-email{
+   height: 15px;
   border-radius: 2px;
   border: 2px solid #50e3c2;
   padding: 4px;
