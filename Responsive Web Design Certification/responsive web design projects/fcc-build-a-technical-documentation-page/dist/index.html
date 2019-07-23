@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>FCC:  Build a Technical Documentation Page</title>
+  
+  
+  
+      <link rel="stylesheet" href="./style.css">
+
+  
+</head>
+
+<body>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!Doctype html>
+<html lang="en-US">
+<head>
+  <title>Technical Documentation Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Anuj Yadav">
+  <meta name="description" content="Technical Documentation Page">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ba3646b588.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="module-border-wrap">
+    <div class="module" id="technical-doc-div">  
+    <nav id="navbar">
+
+        <header id="index-header">
+         
+          <h1 id="main-heading">Full Stack Web Development Resources</h1>
+          <h4 class="navbar-headings"><a class="nav-link" href="#html_5">HTML 5</a></h4>
+          <h4 class="navbar-headings"><a class="nav-link" href="#css_3">CSS 3</a></h4>
+          <h4 class="navbar-headings"><a class="nav-link" href="#es_5">ES 5</a></h4>
+          <h4 class="navbar-headings"><a class="nav-link" href="#es_6">ES 6</a></h4>
+          <h4 class="navbar-headings"><a class="nav-link" href="#git">git</a></h4>
+
+        </header>
+      </nav>
+    <main id="main-doc">
+
+      <article>
+      <section  id="html_5" class="main-section">
+        <header><h3>HTML 5</h3></header>
+        <p class="support-text">
+          1) &lt;!Doctype html&gt;</br>
+	is written so that the browser know the doctument has to be rendered according to the full standard mode decided by W3C for HTML ,CSS
+	there are three modes:- quirks, almost standard and full standard as in starting the standard was for netscape browser and msft browser internet explorer.</p>
+        <p class="support-text">2)	Nowdays most of the browsers use full standard mode </p>
+        <p class="support-text">3) <code>&lt;title&gt;, &lt;meta&gt;</code> 		tags link for favicon and author name.</br>
+<code>
+	&lt;title&gt; will define title for the page that will be displayed on tab of browser and on bookmarks.</br>
+	&lt;meta charset="utf-8"&gt; </br>will let our web page containg all sort of characters available including all makor languages of the world.</br>
+	&lt;meta name="author" content="Chris Mills"&gt; </br>   AUTHOR NAME</br>
+	&lt;meta name="description" content="The MDN Web Docs Learning Area aims to provide complete beginners to the Web with all they need to 			know to get started with developing web sites and applications."&gt; </br>for defining description that will also play role in SEO.</br>
+
+	&lt;link rel="shortcut icon" href="favicon.ico" type="image/x-icon"&gt;  </br>  for displaying favicon</br>
+	&lt;link rel="stylesheet" href="css/style.css"&gt;</br>
+	&lt;script src="jsfolder/comp.js"&gt;</br>
+	&lt;html lang="en-US"&gt; </br>for defining the standard language for our web page.</br>
+    </code>  
+      </p>
+        <p class="support-text">4) 	Block Elements vs Inline Elements</br>
+          Block Element	</br>
+          a) Block elements are the ones which contain all the space of parent element(container) they usually break the line and start from new line.</br>
+          b) Block level may contain other block element, data or any inline element.</br>
+          c) By default, block-level elements begin on new lines, but inline elements can start anywhere in a line.</br>
+          ex:- &lt;div&gt;,&lt;p&gt;,&lt;ul&gt;,&lt;ol&gt;,&lt;lo&gt;,&lt;table&gt;,&lt;section&gt;</br></p>
+        <p class="support-text">5) 	&lt;div&gt; is a block element,&lt;span&gt; is inline.</br>
+          This means that to use them semantically, divs should be used to wrap sections of a document, while spans should be used to wrap small portions of text, images, etc.</br></p>
+        <p class="support-text">6) 	Forms</br>
+          HTML Forms are one of the main points of interaction between a user and a web site or application. They allow users to send data to 		the web site. Most of the time that data is sent to the web server, but the web page can also intercept it to use it on its own.</br>	
+          <code>
+          &lt;form action="/my-handling-form-page" method="post"&gt;</br>
+            &lt;div&gt;</br>
+              &lt;label for="name"&gt;Name:&lt;/label&gt;</br>
+              &lt;input type="text" id="name" name="user_name"&gt;</br>
+            &lt;/div&gt;</br>
+            &lt;div&gt;</br>
+              &lt;label for="mail"&gt;E-mail:&lt;/label&gt;</br>
+              &lt;input type="email" id="mail" name="user_mail"&gt;</br>
+            &lt;/div&gt;</br>
+            &lt;div&gt;</br>
+              &lt;label for="msg"&gt;Message:&lt;/label&gt;</br>
+              &lt;textarea id="msg" name="user_message"&gt;&lt;/textarea&gt;</br>
+            &lt;/div&gt;</br>
+          &lt;/form&gt;</br>
+</code></p>
+        <p class="support-text">7) 	Form Validation</br>
+          Client-side validation is validation that occurs in the browser before the data has been submitted to the server. Client-side validation is more user-friendly than server-side validation because it gives an instant response. </br>
+          a) Client-side validation is further subdivided into the following categories:</br>
+            -JavaScript validation is coded using JavaScript. This validation is completely customizable.</br>
+            -Built-in form validation uses HTML5 form validation features. </br>
+          b) Server-side validation is validation that occurs on the server after the data has been submitted.</br>
+          required keyword is used in html 5 to make it required , min length will determine minimum length that has to be entered max length is maximum length that has to be entered while min and max are for numbers.</br>
+          type="password" type="number" type="text" type="email" are all valid for putting in input element</br>
+  <code>
+            &lt;form&gt;</br>
+              &lt;div&gt;</br>
+                &lt;label for="choose"&gt;Would you prefer a banana or a cherry?&lt;/label&gt;</br>
+                &lt;input type="text" id="choose" name="i_like" required minlength="6" maxlength="6"&gt;</br>
+              &lt;/div&gt;</br>
+              &lt;div&gt;</br>
+                &lt;label for="number"&gt;How many would you like?&lt;/label&gt;</br>
+                &lt;input type="number" id="number" name="amount" value="1" min="1" max="10"&gt;</br>
+              &lt;/div&gt;</br>
+              &lt;div&gt;</br>
+                &lt;button&gt;Submit&lt;/button&gt;</br>
+              &lt;/div&gt;</br>
+            &lt;/form&gt;</br>
+</code></p>
+        <p class="support-text">8)	Some important tags for html forms</br>
+          &lt;input&gt; it is a self closing tag</br>
+          &lt;textarea&gt;&lt;/textarea&gt;</br>
+          &lt;label&gt;&lt;/label&gt;</br>
+
+          &lt;input type="radio" name="gender" value="male" checked&gt; Male&lt;br&gt;</br>
+            &lt;input type="radio" name="gender" value="female"&gt; Female&lt;br&gt;  </br>
+
+          &lt;input type="password" minlength="8"&gt;</br>
+
+          &lt;input type="checkbox" name="vehicle1" value="Bike"&gt; I have a bike&lt;br&gt;</br>
+          &lt;input type="checkbox" name="vehicle2" value="Car"&gt; I have a car&lt;br&gt;</br>
+</p>
+        <p class="support-text">9) 	The web is based on a very basic client/server architecture that can be summarized as follows: a client (usually a Web browser) sends a request to a server (most of the time a web server like Apache, Nginx, IIS, Tomcat, etc.), using the HTTP protocol. The server 	 answers the request using the same protocol.</br>
+
+
+          On the client side, an HTML form is nothing more than a convenient user-friendly way to configure an HTTP request to send data to a server. This enables the user to provide information to be delivered in the HTTP request.</br>
+
+          &lt;form action="http://foo.com" method="get"&gt;</br>
+          action will contain the target api url or script where the data will go and method will contain the type of HTTP request most common ones that we will be using are (get) and (post).</br>
+
+          required and </br></p>
+        <p class="support-text">10)     For Get request the data goes in the parameter GET  (abc.com?say=Hi&to=mom)</br>
+
+          Get request looks like </br>
+          /?say=Hi&to=Mom HTTP/2.0</br>
+          Host: foo.com</br>
+
+          Post request looks like</br>
+          POST / HTTP/2.0</br>
+          Host: foo.com</br>
+          Content-Type: application/x-www-form-urlencoded</br>
+          Content-Length: 13</br>
+
+          say=Hi&to=Mom</br>
+
+          Get is used when updates or insertion are made while POST is used when we have to pass data and expect something from server. Post sends the data in body so it is more secure so we should use post if data is critical.</br>
+</p>
+        <p class="support-text">11) 	The enctype attribute Section.This attribute lets you specify the value of the Content-Type HTTP header included in the request generated when the form is submitted. This header is very important because it tells the server what kind of data is being sent. By default, its value is application/x-www-form-urlencoded. In human terms, this means: "This is form data that has been encoded into URL parameters."</br>
+
+        If you want to send files, you need to take three extra steps:</br>
+
+        <li class="li-text">Set the method attribute to POST because file content can't be put inside URL parameters.</li></br>
+        <li class="li-text">Set the value of enctype to multipart/form-data because the data will be split into multiple parts, one for each file plus one for the text data included in the form body (if text is also entered into the form).</li></br>
+        <li class="li-text">Include one or more File picker widgets to allow your users to select the file(s) that will be uploaded.</li></br>
+        For example:</br>
+  <code>
+        &lt;form method="post" enctype="multipart/form-data"&gt;</br>
+          &lt;div&gt;</br>
+            &lt;label for="file"&gt;Choose a file&lt;/label&gt;</br>
+            &lt;input type="file" id="file" name="myFile"&gt;</br>
+          &lt;/div&gt;</br>
+          &lt;div&gt;</br>
+            &lt;button&gt;Send the file&lt;/button&gt;</br>
+          &lt;/div&gt;</br>
+        &lt;/form&gt;</br>
+</code>
+</p>
+        <p class="support-text">12) Meta tags</br>
+<code>
+          &lt;meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScrit" &gt; for SEO </br>
+          &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;	</br>
+</code>
+
+</p>
+      </section>
+      <section id="css_3" class="main-section">
+         <header><h3>CSS 3</h3></header>
+        </br>								
+</br>
+</br>								CSS 3 (Front End)
+</br>
+</br><p class="support-text">1) Box properties Section
+</br>	Every element within a document is structured as a rectangular box inside the document layout, the size and "onion layers" of which 		can be tweaked using some specific CSS properties.
+</br>
+</br>  width and height
+</br>	The width and height properties set the width and height of the content box, which is the area in which the content of the box is 		displayed — this content includes both text content set inside the box, and other boxes representing nested child elements.
+</br>
+</br>
+</br>  Padding
+</br>	Padding refers to the inner margin of a CSS box — between the outer edge of the content box and the inner edge of the border. The size 		of this layer can be set on all four sides at once with the padding shorthand property, or one side at a time with the padding-top, 		padding-right, padding-bottom and padding-left properties.
+</br>
+</br>  Border
+</br>	The border of a CSS box sits between the outer edge of the padding and the inner edge of the margin. By default the border has a size 		of 0 — making it invisible — but you can set the thickness, style and color of the border to make it appear. The border shorthand 		property allows you to set all of these on all four sides at once, for example border: 1px solid black. 
+</br> 
+</br>  Margin
+</br>	The margin surrounds a CSS box, and pushes up against other CSS boxes in the layout. It behaves rather like padding; the shorthand 		property is margin and the individual properties are margin-top, margin-right, margin-bottom, and margin-left.
+</br>
+</br>
+</br>  Overflow
+</br>	When you set the size of a box with absolute values (e.g. a fixed pixel width/height), the content may not fit within the allowed 		size, in which case the content overflows the box. To control what happens in such cases, we can use the overflow property. It takes 		several possible values, but the most common are:
+</br>
+</br>	auto: If there is too much content, the overflowing content is hidden and scroll bars are shown to let the user scroll & view content.
+</br>	hidden: If there is too much content, the overflowing content is hidden.
+</br>	visible: If there is too much content, the overflowing content is shown outside of the box (this is usually the default behavior)
+</br>
+</br>  Types of Boxes a) inline b) block c) inline-block
+</br>	
+</br>	A block box is defined as a box that's stacked upon other boxes (i.e. content before and after the box appears on a separate line), 		and can have width and height set on it. The whole box model as described above applies to block boxes.
+</br>
+</br>	An inline box is the opposite of a block box: it flows with the document's text (i.e. it will appear on the same line as surrounding 		text and other inline elements, and its content will break with the flow of the text, like lines of text in a paragraph.) Width and 		height settings have no effect on inline boxes; any padding, margin and border set on inline boxes will update the position of 		surrounding text, but will not affect the position of surrounding block boxes.
+</br>	
+</br>	An inline-block box is something in between the first two: It flows with surrounding text and other inline elements without creating 		line breaks before and after it unlike a block box, but it can be sized using width and height and maintains its block integrity like 		a block box. It won't be broken across paragraph lines like an inline box. In the below example the inline-block box goes onto the 2nd 		line of text while keeping the shape of a box as there is not enough space for it on the first line, whereas inline box does break on 		multiple lines if there is not enough space — it loses the shape of a box.
+</br>
+</br>	Note: By default, block level elements have display: block; set on them, and inline elements have display: inline; set on them.
+</br></p>
+</br><p class="support-text">2)  Box-sizing property set to border-box. This makes sure that the padding and border are included in the total width and height of the 		elements.
+</br>
+</br>
+</br>	Grid View
+</br>	A responsive grid-view often has 12 columns, and has a total width of 100%, and will shrink and expand as you resize the browser 	 window.
+</br>	First ensure that all HTML elements have the box-sizing property set to border-box. This makes sure that the padding and border are 		included in the total width and height of the elements.
+</br>
+</br>	Add the following code in your CSS:
+</br>
+</br>	* {
+</br>	  box-sizing: border-box;
+</br>	}
+</br>
+</br>	.col-1 {width: 8.33%;}
+</br>	.col-2 {width: 16.66%;}
+</br>	.col-3 {width: 25%;}
+</br>	.col-4 {width: 33.33%;}
+</br>	.col-5 {width: 41.66%;}
+</br>	.col-6 {width: 50%;}
+</br>	.col-7 {width: 58.33%;}
+</br>	.col-8 {width: 66.66%;}
+</br>	.col-9 {width: 75%;}
+</br>	.col-10 {width: 83.33%;}
+</br>	.col-11 {width: 91.66%;}
+</br>	.col-12 {width: 100%;}
+</br>
+</br>	[class*="col-"] {
+</br>	  float: left;
+</br>	  padding: 15px;
+</br>	  border: 1px solid red;
+</br>	}
+</br>
+</br>	&lt;div class="row"&gt;
+</br>	  &lt;div class="col-3"&gt;...&lt;/div&gt; &lt;!-- 25% --&gt;
+</br>	  &lt;div class="col-9"&gt;...&lt;/div&gt; &lt;!-- 75% --&gt;
+</br>	&lt;/div&gt;
+</br></p>
+</br><p class="support-text">3) 9 basic principles of responsive web design
+</br>	a) Responsive vs Adaptive web design
+</br>	b) The flow
+</br>	c) Relative units
+</br>	d) Breakpoints
+</br>	e) Max and Min values
+</br>	f) Nested objects
+</br>	g) Mobile or Desktop first
+</br>	h) Web fonts vs System fonts
+</br>	i) Bitmap images vs Vectors		(Always process pictures first)
+</br></p>
+</br><p class="support-text">4) Flex Box
+</br>
+</br>	#pond {
+</br>	  display: flex;
+</br>	}
+</br>
+</br>	flex-direction :  row | row-reverse | column | column-reverse
+</br>	justify-content:  flex-start | flex-end | center | space-between | space-around
+</br>	align-items: 	  flex-start | flex-end | center | baseline | stretch
+</br>	order  :(...,-2,-1,0,1,2,...) 
+</br>		 takes up the number default:0  higher the order it will switch towards (not just right but rather 			 			 towards flex-end) and we get it -ve it will go (not just left but rather flex-start)
+</br>		 align-self    applied on sub elements takes input same as align-items but works only for single element;
+</br>	flex-wrap: nowrap | wrap | wrap-reverse
+</br>		nowrap: Every item is fit to a single line. (default)
+</br>		wrap: Items wrap around to additional lines.
+</br>		wrap-reverse: Items wrap around to additional lines in reverse.
+</br>
+</br>	 align-content: same as align-items; 
+</br>		This can be confusing, but align-content determines the spacing between lines, while align-items determines how the items as a 			whole are aligned within the container. When there is only one line, align-content has no effect.
+</br>
+</br>	align-self align-items feature for particular item
+</br>	flex-basis
+</br>		The flex-basis property specifies the initial size of the item before CSS makes adjustments with flex-shrink or flex-grow.
+</br>		The units used by the flex-basis property are the same as other size properties (px, em, %, etc.). The value auto sizes items  			based on the content.
+</br>	flex-grow
+</br>		flex-grow value of 1 and the other has a flex-grow value of 3, the one with the value of 3 will grow three times as much as 			the other.
+</br>	flex-shrink 
+</br>		vice versa of flex-grow with same concept.
+</br>	flex
+</br>		flex: flex-grow-value flex-basis; shorthand of flex-grow and flex-basis combined
+</br></p>
+</br><p class="support-text">5) Overriding CSS
+</br>	the class property will override body style if two classes are added and are overlapping properties then the one declared last in
+</br>	&lt;style&gt; tag will given preference to apply the style property, the id will override on classes but if a class property has 
+</br>	!important tied to it it will be given preference.
+</br>
+</br>   em and rem are used for relative units in css
+</br>
+</br>   Use variable in css
+</br>	Declare var using --penguin-skin: gray;    	
+</br>	background: var(--penguin-skin); to change the background with color of penguin skin variable color
+</br>	IE does not support css variables so use fallbacks while using the variable
+</br>	
+</br>   By creating your variables in :root, they will be available throughout the whole web page.
+</br>	:root {
+</br>    	    --penguin-belly: pink;
+</br>	}
+</br>	we can override the variables in nested classes or other classes and can override :root defined value
+</br>	
+</br>   use position relative and then provide value to move the element relative to other elements in html
+</br>	h2 {
+</br>    		position: relative;
+</br>   		top: 25px;
+</br>  	}
+</br>
+</br>   The position:fixed keeps the block element fixed even when scrolling and top, bottom, left, right property can be used with it to move
+</br>   the elements or change their layout position position of element with respect to BROWSER, it also moves it out of general flow of html    	document, the position :absolute also moves the element out of normal flow of html document and we can use same left, right, top and      	bottom to move the position of element with respect to PARENT element.
+</br>
+</br>   margin: auto will move the block element in center of page. we can also center an image with this while along with this just use 
+</br>   display: block;
+</br>
+</br>   The color wheel is a useful tool to visualize how colors relate to each other - it's a circle where similar hues are neighbors
+</br>   and different hues are farther apart. When two colors are opposite each other on the wheel, they are called complementary colors.
+</br>   They have the characteristic that if they are combined, they "cancel" each other out and create a gray color. However, when placed 
+</br>   side-by- side, these colors appear more vibrant and produce a strong visual contrast
+</br>
+</br>   One final point, each page should always have one (and only one) h1 element, which is the main subject of your content. This and the other 	 headings are used in part by search engines to understand the topic of the page.
+</br>   </p>
+      </section>
+      <section id="es_5" class="main-section">
+         <header><h3>ES 5</h3></header>
+        </br>
+</br>							ES5(ECMA Script 5)
+</br>
+</br>TODO : Improve the structuring
+</br>
+</br>							 <li class="li-text">ES 5 PART I</li>
+</br><p class="support-text">1) Null vs Undefined
+</br>    null is an assigned value. It means nothing.
+</br>    undefined means a variable has been declared but not defined yet.
+</br>    null is an object. undefined is of type undefined.
+</br>    null !== undefined but null == undefined.
+</br>
+</br>Statement does logical thing
+</br>If else or condition statement or loop
+</br>A statement is chained with ; while expression with , (comma)
+</br>A statement is such that it can be placed where a value is required
+</br>myVar
+</br>x+3
+</br>Bar(2,3)
+</br>statement 
+</br>>console.log("a", "b");
+</br>b
+</br>Object literal vs block 
+</br>{ foo: bar(3, 5) }
+</br>The above line is both statement and expression 
+</br>function test(printTwo) { printing: { console.log("One"); if (!printTwo) break printing; console.log("Two"); } console.log("Three"); }
+</br>
+</br>function () {   }   function expression 
+</br>function foo() {  } named function expression 
+</br>
+</br>Control flow statements
+</br>That change the flow of program on certain conditions or  Control Flow is a fundamental concept in programming that allows you to dictate how your code runs under different conditions or until a certain condition is met.
+</br>if else 
+</br>switch 
+</br>for 
+</br>for in
+</br>nested if else 
+</br>while, do while, break, &&, ||
+</br>for in   (for parsing objects ) 
+</br>
+</br>Code could be self explanatory 
+</br>2 types of comment 
+</br>-Documentation comments 
+</br>-- Clarification comments 
+</br>Don't comment obvious things 
+</br>Comment if you have wasted lot of time to create a better solution and realize why I won't work and I is most likely otherwise developer too view code will also try to improve that particular code without thinking of the loophole. 
+</br>
+</br>Strict mode makes several changes to normal JavaScript semantics:
+</br>
+</br>Eliminates some JavaScript silent errors by changing them to throw errors.
+</br>
+</br>Fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+</br>
+</br>Prohibits some syntax likely to be defined in future versions of ECMAScript.
+</br>
+</br>'use strict'  in script
+</br>'use strict'  in function
+</br>Modules are auto strict 
+</br>
+</br>If a global variable is updated accidentally in some file it will throw error 
+</br>
+</br>strict mode makes assignments which would otherwise silently fail to throw an exception. For example, NaN is a non-writable global variable. In normal code assigning to NaN does nothing; the developer receives no failure feedback. In strict mode assigning to NaN throws an exception. 
+</br>
+</br>JavaScript’s types:-
+</br>The ECMAScript language types are
+</br>Undefined,
+</br>Null,
+</br>Boolean
+</br>String,
+</br>Number,
+</br>Object
+</br>
+</br>Static versus dynamic
+</br>Static        - >  compile time
+</br>Dynamic  - >   runtime 
+</br>
+</br>JavaScript is dynamically typed, types of variables are generally not known at compile time
+</br>
+</br>Statically type-checked languages perform this kind of check at compile time, dynamically type-checked languages at runtime
+</br>JavaScript performs a very limited kind of dynamic type checking,
+</br>
+</br>> var foo = null; > foo.prop TypeError: Cannot read property 'prop' of null Mostly, however, things silently fail or work. 
+</br>
+</br>
+</br>coersion
+</br> JavaScript, the main way of dealing with a value whose type doesn’t fit is to coerce it to the correct type. Coercion means implicit type conversion. Most operands coerce: > '3' * '4' 12 JavaScript has internal functions for performing this kind of conversion explicitly [1]. Some of them can be accessed in the language, via the functions Boolean, Number, String, Object. > Number(true) 1 > Number('123') 123 > String(true) 'true'
+</br>typeof([1,2,3])  is object as its an ordered list of values mapped to index for JS
+</br>
+</br>Object is reference type all other types mentioned above are primitives including a new element named symbol 
+</br>
+</br>// Outputs: "Objects coerce to true." if ({}) { console.log("Objects coerce to true."); }
+</br>
+</br>var functionTrue = Boolean(true); var functionFalse = Boolean(false); 
+</br>
+</br>But the Boolean function can also be used as a constructor with the new keyword:
+</br>
+</br>var constructorTrue = new Boolean(true); var constructorFalse = new Boolean(false); 
+</br>
+</br>The tricky thing here is that when Booleanis used as a constructor, it doesn't return a primitive. Instead it returns an object.
+</br>
+</br>// Outputs: true console.log(primitiveTrue); // Outputs: true console.log(functionTrue); // Outputs: Boolean {} console.log(constructorTrue);
+</br>
+</br>// Two approaches to coercing 0 into false var byFunction = Boolean(0); var byNotNot = !!0;
+</br>
+</br>// Outputs: "My false Boolean object is truthy!" if (constructorFalse) { console.log("My false Boolean object is truthy!"); } else { console.log("My false Boolean object is falsy!"); }
+</br>
+</br>Use valueOf() for correct truthy false value in case of Boolean Object 
+</br>
+</br>Null
+</br>
+</br>Null means an empty or non-existent value. Null is assigned, and explicitly means nothing.null is also an object 
+</br>console.log(typeof test1);
+</br>// object
+</br>
+</br>USE === instead of ==  triple === checks both data type and value comparison 
+</br>
+</br>In JavaScript there are only six falsy values.
+</br>
+</br>false
+</br>
+</br>0 (zero)
+</br>
+</br>“” (empty string)
+</br>
+</br>null
+</br>
+</br>undefined
+</br>
+</br>NaN (Not A Number)
+</br>
+</br>Comparing false, 0, and "" with loose equality (==) will result in equality:
+</br>
+</br>false == 0
+</br>// true0 == ""
+</br>// true"" == false
+</br>// true
+</br>
+</br>null and undefined are only equal to themselves:
+</br>
+</br>null == null
+</br>undefined == undefined
+</br>null == undefined// true
+</br>
+</br>NaN isn’t equivalent to anything (not even itself!):
+</br>
+</br>NaN == null
+</br>NaN == undefined
+</br>NaN == NaN
+</br>// false
+</br>
+</br>3 === '3'
+</br>// false (Number compared to String)3 == '3'
+</br>// true
+</br>
+</br>Logical operators 
+</br>&& logical AND 
+</br>||    logical OR
+</br>!     logical NOT
+</br>
+</br>Short circuit evaluation 
+</br>
+</br>function potentiallyBuggyCodeAvailable(){
+</br>
+</br>code;
+</br>
+</br>debugger;
+</br>
+</br>}
+</br>
+</br>
+</br>When the debugger is invoked, execution is paused at the debugger statement. It is like a breakpoint in the script source.
+</br>Use debugging tools in web browser developers tools 
+</br>
+</br>Parameters are used to define a function. They are also called formal parameters and formal arguments. In the following example, param1 and param2 are parameters:
+</br>
+</br>function foo(param1, param2) {...} 
+</br>
+</br>Arguments are used to invoke a function. They are also called actual parameters and actual arguments. In the following example, 3 and 7 are arguments:
+</br>
+</br>foo(3, 7);
+</br>
+</br>Defining Functions
+</br>
+</br>All functions are objects, instances of Function:
+</br>
+</br>function id(x) { return x; } console.log(id instanceof Function); // true 
+</br>
+</br>Therefore, functions get their methods from Function.prototype.
+</br>
+</br>Function Expressions
+</br>
+</br>A function expression produces a value—a function object. For example:
+</br>
+</br>var add = function (x, y) { return x + y }; console.log(add(2, 3)); // 5
+</br>
+</br>The value produced by a function expression can be assigned to a variable (as shown in the example), passed as an argument to another function, and more. Because normal function expressions don’t have a name, they are also called anonymous function expressions.
+</br>
+</br>Named function expressions
+</br>
+</br>You can give a function expression a name. Named function expressions allow a function expression to refer to itself, which is useful for self-recursion:
+</br>
+</br>var fac = function me(n) { if (n > 0) { return n * me(n-1); } else { return 1; } }; console.log(fac(3)); // 6 
+</br>
+</br>NOTE
+</br>
+</br>The name of a named function expression is only accessible inside the function expression:
+</br>
+</br>
+</br>Function Declarations/statement 
+</br>The following is a function declaration:
+</br>function add(x, y) { return x + y; }
+</br>
+</br>The Function Constructor
+</br>
+</br>The constructor Function() evaluates JavaScript code stored in strings. For example, the following code is equivalent to the previous example:
+</br>
+</br>var add = new Function('x', 'y', 'return x + y');
+</br>
+</br>
+</br>foo(); // TypeError
+</br> bar(); // ReferenceError
+</br> var foo = function bar() { 	// ... };
+</br>
+</br>This snippet is more accurately interpreted (with hoisting) as:
+</br>
+</br>var foo; foo(); // TypeError bar(); // ReferenceError foo = function() { 	var bar = ...self... 	// ... }
+</br>
+</br>First JS code compiles and then function declarations and variable declarations are hoisted i.e., the declaration part is seen on the top of the scope and assignment remains at same place except function expressions.
+</br>
+</br>for undefined value type error comes this the case when we try to print variable that is declared but the not initialized while in case of function expression referenced error comes 
+</br>
+</br>
+</br>Functions First
+</br>
+</br>Both function declarations and variable declarations are hoisted. But a subtle detail (that can show up in code with multiple "duplicate" declarations) is that functions are hoisted first, and then variables.
+</br>
+</br>Consider:
+</br>
+</br>foo(); // 1 var foo; function foo() { 	console.log( 1 ); } foo = function() { 	console.log( 2 ); };
+</br>
+</br>1 is printed instead of 2! This snippet is interpreted by the Engineas:
+</br>
+</br>function foo() { 	console.log( 1 ); } foo(); // 1 foo = function() { 	console.log( 2 ); };
+</br>
+</br>While multiple/duplicate vardeclarations are effectively ignored, subsequent function declarations dooverride previous ones.
+</br>
+</br>
+</br>foo(); // 3 function foo() { 	console.log( 1 ); } var foo = function() { 	console.log( 2 ); }; function foo() { 	console.log( 3 ); }
+</br>
+</br>We can be tempted to look at var a = 2; as one statement, but the JavaScript Engine does not see it that way. It sees var a and a = 2as two separate statements, the first one a compiler-phase task, and the second one an execution-phase task.
+</br>
+</br>What this leads to is that all declarations in a scope, regardless of where they appear, are processed first before the code itself is executed. You can visualize this as declarations (variables and functions) being "moved" to the top of their respective scopes, which we call "hoisting".
+</br>
+</br>
+</br>this keyword in JavaScript 
+</br>In functions: this is an extra, often implicit, parameter.
+</br>
+</br>Outside functions (in the top-level scope): thisrefers to the global object in browsers and to a module’s exports in Node.js.
+</br>
+</br>In a string passed to eval(): eval() either picks up the current value of this or sets it to the global object, depending on whether it is called directly or indirectly.
+</br>
+</br>
+</br>First-Class Functions vs Higher-Order Functions
+</br>
+</br>What’s the difference?
+</br>
+</br>First class functions are treated like objects. Higher order functions either accept a function as an argument, return a function, or both.
+</br>
+</br>
+</br>
+</br> real functions, the value of this depends on the mode one is in:
+</br>
+</br>Sloppy mode: this refers to the global object(window in browsers). function sloppyFunc() { console.log(this === window); // true } sloppyFunc(); 
+</br>
+</br>Strict mode: this has the value undefined. function strictFunc() { 'use strict'; console.log(this === undefined); // true } strictFunc();
+</br>
+</br>Functions become constructors if you invoke them via the new operator. That operator creates a new object and passes it to the constructor via this: var savedThis; function Constr() { savedThis = this; } var inst = new Constr(); console.log(savedThis === inst); // true
+</br>
+</br>this in methods
+</br>
+</br>In methods, things are similar to more traditional object-oriented languages: this refers to the receiver, the object on which the method has been invoked. var obj = { method: function () { console.log(this === obj); // true } } obj.method();
+</br>
+</br>this in the top-level scope
+</br>
+</br>In browsers, the top-level scope is the global scope and this refers to the global object (like window does): &lt;script&gt; console.log(this === window); // true &lt;/script&gt; In Node.js, you normally execute code in modules. Therefore, the top-level scope is a special module scope: // `global` (not `window`) refers to global object: console.log(Math === global.Math); // true // `this` doesn’t refer to the global object: console.log(this !== global); // true // `this` refers to a module’s exports: console.log(this === module.exports); // true
+</br>
+</br>eval() can be called either directly (via a real function call) or indirectly (via some other means). The details are explained here.
+</br>
+</br>If eval() is called indirectly, this refers to the global object:
+</br>
+</br>> (0,eval)('this === window') true
+</br>
+</br>JS don't have block scope it's either local scope or global scope and if we don't define variable using var or let keyword it get s declared in global scope. 
+</br>
+</br>For browser or for web developer per se the global scope is windows object and( global object for nodejs). 
+</br>
+</br>setTimeout Variables are Executed in the Global Scope, this keyword used in setTimeout refers to the global object not to var object it is declared in
+</br>
+</br>Scope and closures
+</br>JavaScript falls under the general category of "dynamic" or "interpreted" languages, it is in fact a compiled language. It is notcompiled well in advance, as are many traditionally-compiled languages, nor are the results of compilation portable among various distributed systems.
+</br>
+</br>
+</br>Let's meet the cast of characters that interact to process the program var a = 2;, so we understand their conversations that we'll listen in on shortly:
+</br>
+</br>Engine: responsible for start-to-finish compilation and execution of our JavaScript program.
+</br>
+</br>Compiler: one of Engine's friends; handles all the dirty work of parsing and code-generation (see previous section).
+</br>
+</br>Scope: another friend of Engine; collects and maintains a look-up list of all the declared identifiers (variables), and enforces a strict set of rules as to how these are accessible to currently executing code.
+</br>
+</br>var a = 2;.
+</br>
+</br>The first thing Compiler will do with this program is perform lexing to break it down into tokens, which it will then parse into a tree. 
+</br>
+</br>To summarize: two distinct actions are taken for a variable assignment: First, Compiler declares a variable (if not previously declared in the current scope), and second, when executing, Engine looks up the variable in Scopeand assigns to it, if found
+</br>
+</br>LHS and RHS lookup 
+</br>When I say:
+</br>
+</br>console.log( a );
+</br>
+</br>The reference to a is an RHS reference, because nothing is being assigned to a here. Instead, we're looking-up to retrieve the value of a, so that the value can be passed to console.log(..).
+</br>
+</br>By contrast:
+</br>
+</br>a = 2;
+</br>
+</br>The reference to a here is an LHS reference, because we don't actually care what the current value is, we simply want to find the variable as a target for the = 2 assignment operation.
+</br>
+</br>
+</br>
+</br>Engine scope and compiler
+</br>function foo(a) { 	console.log( a ); // 2 } foo( 2 );
+</br>
+</br>Let's imagine the above exchange (which processes this code snippet) as a conversation. The conversation would go a little something like this:
+</br>
+</br>Engine: Hey Scope, I have an RHS reference for foo. Ever heard of it?
+</br>
+</br>Scope: Why yes, I have. Compiler declared it just a second ago. He's a function. Here you go.
+</br>
+</br>Engine: Great, thanks! OK, I'm executing foo.
+</br>
+</br>Engine: Hey, Scope, I've got an LHS reference for a, ever heard of it?
+</br>
+</br>Scope: Why yes, I have. Compiler declared it as a formal parameter to foo just recently. Here you go.
+</br>
+</br>Engine: Helpful as always, Scope. Thanks again. Now, time to assign 2 to a.
+</br>
+</br>Engine: Hey, Scope, sorry to bother you again. I need an RHS look-up for console. Ever heard of it?
+</br>
+</br>Scope: No problem, Engine, this is what I do all day. Yes, I've got console. He's built-in. Here ya go.
+</br>
+</br>Engine: Perfect. Looking up log(..). OK, great, it's a function.
+</br>
+</br>Engine: Yo, Scope. Can you help me out with an RHS reference to a. I think I remember it, but just want to double-check.
+</br>
+</br>Scope: You're right, Engine. Same guy, hasn't changed. Here ya go.
+</br>
+</br>Engine: Cool. Passing the value of a, which is 2, into log(..).
+</br>
+</br>
+</br>If an RHS look-up fails to ever find a variable, anywhere in the nested Scopes, this results in a ReferenceError being thrown by the Engine. It's important to note that the error is of the type ReferenceError.
+</br>
+</br>By contrast, if the Engine is performing an LHS look-up and arrives at the top floor (global Scope) without finding it, and if the program is not running in "Strict Mode" [^note-strictmode], then the global Scopewill create a new variable of that name in the global scope, and hand it back to Engine.
+</br>
+</br>"No, there wasn't one before, but I was helpful and created one for you."
+</br>
+</br>"Strict Mode" [^note-strictmode], which was added in ES5, has a number of different behaviors from normal/relaxed/lazy mode. One such behavior is that it disallows the automatic/implicit global variable creation. In that case, there would be no global Scope'd variable to hand back from an LHS look-up, and Engine would throw a ReferenceError similarly to the RHS case.
+</br>
+</br>Now, if a variable is found for an RHS look-up, but you try to do something with its value that is impossible, such as trying to execute-as-function a non-function value, or reference a property on a null or undefined value, then Engine throws a different kind of error, called a TypeError.
+</br>
+</br>ReferenceError is Scoperesolution-failure related, whereas TypeError implies that Scoperesolution was successful, but that there was an illegal/impossible action attempted against the result
+</br>
+</br>Lexical scope is used in JS
+</br>eval is used to cheat the lexical scope that states that first innermost scope will check and so on lastly the global scope 
+</br>And shadowing can also be done that is naming the same variable in different scopes 
+</br>function foo(str, a) { 	eval( str ); // cheating! 	console.log( a, b ); } var b = 2; foo( "var b = 3;", 1 ); // 1 3
+</br>
+</br>function foo(str) { "use strict"; eval( str ); console.log( a ); // ReferenceError: a is not defined } foo( "var a = 2"
+</br>
+</br>with (keyword ) is other way of cheating lexical scope 
+</br>function foo(obj) { 	with (obj) { 		a = 2; 	} } var o1 = { 	a: 3 }; var o2 = { 	b: 3 }; foo( o1 ); console.log( o1.a ); // 2 foo( o2 ); console.log( o2.a ); // undefined console.log( a ); // 2 -- Oops, 
+</br>Lexical scope means that scope is defined by author-time decisions of where functions are declared
+</br>
+</br>
+</br>JS compiler does
+</br>1) Lexing
+</br>2) parsing ( taking token and creating AST Abstract Syntax Tree) 
+</br>3) Code-Generation: the process of taking an AST and turning it into executable code. 
+</br>
+</br>
+</br>function sayHello() { console.log("hello");};var func = sayHello;
+</br>
+</br>You are assigning the variable func a reference to the function sayHello, nota copy. Here, func is simply an alias to sayHello. Anything you do on the alias you will actually be doing on the original function. For example:
+</br>
+</br>func.answer = 42;console.log(sayHello.answer); // prints 42
+</br>
+</br>Scopes have a lifetime
+</br>
+</br>When you call a function, you create a scope during the execution of that function. Then that scope goes away.
+</br>
+</br>When you call the function a second time, you create a new different scope during the second execution. Then this second scope goes away as well.
+</br>
+</br>function printA() { console.log(answer); var answer = 1;};printA(); // this creates a scope which gets discarded right afterprintA(); // this creates a new different scope which also gets discarded right after;
+</br>
+</br>Closures span multiple scopes
+</br>
+</br>When you define a function, a closure gets created
+</br>
+</br>Unlike scopes, closures are created when you define a function, not when you execute it. Closures also don’t go away after you execute that function.
+</br>
+</br>You can access the data in a closure long after a function is defined and after it gets executed as well.
+</br>
+</br>A closures encompasses everything the defined function can access. This means the defined function’s scope, and all the nested scopes between the global scope and the defined function scope plus the global scope itself.
+</br>
+</br>var G = 'G';// Define a function and create a closurefunction functionA() { var A = 'A' // Define a function and create a closure function functionB() { var B = 'B' console.log(A, B, G); } functionB(); // prints A, B, G // functionB closure does not get discarded A = 42; functionB(); // prints 42, B, G}functionA();
+</br>
+</br>But the relation between scopes and closures is not always simple like this. Things become different when the defining and invoking of functions happen in different scopes. Let me explain that with an example:
+</br>
+</br>var v = 1;var f1 = function () { console.log(v);}var f2 = function() { var v = 2; f1(); // Will this print 1 or 2?};f2();
+</br>
+</br>
+</br>
+</br>
+</br>
+</br></p>
+</br>							 <li class="li-text">ES5 Part II </li>
+</br>
+</br>
+</br><p class="support-text">
+</br>But the relation between scopes and closures is not always simple like this. Things become different when the defining and invoking of functions happen in different scopes. Let me explain that with an example:
+</br>
+</br>var v = 1;var f1 = function () { console.log(v);}var f2 = function() { var v = 2; f1(); // Will this print 1 or 2?};f2();
+</br>
+</br>What do you think the above example will print? The code is simple, f1()prints the value of v, which is 1 on the global scope, but we execute f1()inside of f2(), which has a different vthat’s equal to 2. Then we execute f2().
+</br>
+</br>Will this code print 1 or 2?
+</br>
+</br>If you’re tempted to say 2, you’ll be surprised. This code will actually print 1. The reason is, scopes and closures are different. The console.log line will use the closure of f1(), which is created when we define f1(), which means the closure of f1() gives us access to only the scope of f1() plus the global scope. The scope where we execute f1() does not affect that closure. In fact, the closure of f1() will not give us access to the scope of f2() at all. If you remove the global v variable and execute this code, you’ll get a reference error:
+</br>
+</br>var f1 = function () { console.log(v);}var f2 = function() { var v = 2; f1(); // ReferenceError: v is not defined};f2();
+</br>
+</br>Since closures give us references to variables in scopes, the access that they give us means both read and write, not just read.
+</br>
+</br>// ReferenceError: funcName is not defined funcName(); // TypeError: undefined is not a function varName(); var varName = function funcName() { console.log("Definition not hoisted!"); }; 
+</br>
+</br>As you can see, the function's name doesn't get hoisted if it is part of a function expression.
+</br>
+</br>A Tricky problem in JS 
+</br>// interviewer: what will the following code output?const arr = [10, 12, 15, 21];for (var i = 0; i < arr.length; i++) { setTimeout(function() { console.log('Index: ' + i + ', element: ' + arr[i]); }, 3000);}
+</br>
+</br>This question deals with the topics: closures, setTimeout, and scoping. The correct answer to this is question is:
+</br>
+</br>Index: 4, element: undefined(printed 4 times).
+</br>
+</br>setTimeout(function() {//code}, 1000) 
+</br>setInterval
+</br>clearInterval(timeoutId) ;
+</br>
+</br>
+</br>JavaScript is designed on a simple object-based paradigm. An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method
+</br>
+</br>Unassigned properties of an object are undefined (and not null).
+</br>However, any property name that is not a valid JavaScript identifier (for example, a property name that has a space or a hyphen, or that starts with a number) can only be accessed using the square bracket notation. 
+</br>
+</br>JavaScript object property names (keys) can only be strings or Symbols You can also access properties by using a string value that is stored in a variable:
+</br>
+</br>var propertyName = 'make';
+</br>myCar[propertyName] = 'Ford';
+</br>
+</br>Starting with ECMAScript 5, there are three native ways to list/traverse object properties:
+</br>for...in loop
+</br>Object.keys(o) 
+</br>Object.getOwnPropertyNames(o)
+</br>
+</br>To create new variable 
+</br>1) use object initializers
+</br>		{s:2,p:3} 
+</br>2) Using constructor
+</br>			function Car(make, model, year) {
+</br>				this.make = make;
+</br>				this.model = model; 
+</br>				this.year = year; 
+</br>			}
+</br>var mycar = new Car('Eagle', 'Talon TSi', 1993);
+</br>
+</br>JavaScript is a prototype-based language, meaning object properties and methods can be shared through generalized objects that have the ability to be cloned and extended. This is known as prototypical inheritance and differs from class inheritance. 
+</br>
+</br>let x = new Object().
+</br>
+</br>The double square brackets that enclose [[Prototype]] signify that it is an internal property, and cannot be accessed directly in code.
+</br>
+</br>To find the [[Prototype]] of this newly created object, we will use the getPrototypeOf() method.
+</br>
+</br>Object.getPrototypeOf(x);
+</br>JavaScript has a [[Prototype]] as it creates a way for any two or more objects to be linked.
+</br>
+</br>When you attempt to access a property or method of an object, JavaScript will first search on the object itself, and if it is not found, it will search the object's [[Prototype]]. If after consulting both the object and its [[Prototype]] still no match is found, JavaScript will check the prototype of the linked object, and continue searching until the end of the prototype chain is reached.
+</br>
+</br>When you attempt to access a property or method of an object, JavaScript will first search on the object itself, and if it is not found, it will search the object's [[Prototype]]. If after consulting both the object and its [[Prototype]] still no match is found, JavaScript will check the prototype of the linked object, and continue searching until the end of the prototype chain is reached.
+</br>
+</br>
+</br>Introduction
+</br>
+</br>JavaScript is a prototype-based language, meaning object properties and methods can be shared through generalized objects that have the ability to be cloned and extended. This is known as prototypical inheritance and differs from class inheritance. Among popular object-oriented programming languages, JavaScript is relatively unique, as other prominent languages such as PHP, Python, and Java are class-based languages, which instead define classes as blueprints for objects.
+</br>
+</br>In this tutorial, we will learn what object prototypes are and how to use the constructor function to extend prototypes into new objects. We will also learn about inheritance and the prototype chain.
+</br>
+</br>JavaScript Prototypes
+</br>
+</br>In Understanding Objects in JavaScript, we went over the object data type, how to create an object, and how to access and modify object properties. Now we will learn how prototypes can be used to extend objects.
+</br>
+</br>Every object in JavaScript has an internal property called [[Prototype]]. We can demonstrate this by creating a new, empty object.
+</br>
+</br>let x = {}; 
+</br>
+</br>This is the way we would normally create an object, but note that another way to accomplish this is with the object constructor: let x = new Object().
+</br>
+</br>The double square brackets that enclose [[Prototype]] signify that it is an internal property, and cannot be accessed directly in code.
+</br>
+</br>To find the [[Prototype]] of this newly created object, we will use the getPrototypeOf() method.
+</br>
+</br>Object.getPrototypeOf(x); 
+</br>
+</br>The output will consist of several built-in properties and methods.
+</br>
+</br>Output
+</br>
+</br>{constructor: ƒ, _defineGetter: ƒ, __defineSetter_: ƒ, …} 
+</br>
+</br>Another way to find the [[Prototype]]is through the _proto_ property. _proto_ is a property that exposes the internal [[Prototype]] of an object.
+</br>
+</br>It is important to note that ._proto_is a legacy feature and should not be used in production code, and it is not present in every modern browser. However, we can use it throughout this article for demonstrative purposes.
+</br>
+</br>x._proto_; 
+</br>
+</br>The output will be the same as if you had used getPrototypeOf().
+</br>
+</br>Output
+</br>
+</br>{constructor: ƒ, _defineGetter: ƒ, __defineSetter_: ƒ, …} 
+</br>
+</br>It is important that every object in JavaScript has a [[Prototype]] as it creates a way for any two or more objects to be linked.
+</br>
+</br>Objects that you create have a [[Prototype]], as do built-in objects, such as Date and Array. A reference can be made to this internal property from one object to another via the prototypeproperty, as we will see later in this tutorial.
+</br>
+</br>Prototype Inheritance
+</br>
+</br>When you attempt to access a property or method of an object, JavaScript will first search on the object itself, and if it is not found, it will search the object's [[Prototype]]. If after consulting both the object and its [[Prototype]] still no match is found, JavaScript will check the prototype of the linked object, and continue searching until the end of the prototype chain is reached.
+</br>
+</br>At the end of the prototype chain is Object.prototype. All objects inherit the properties and methods of Object. Any attempt to search beyond the end of the chain results in null.
+</br>
+</br>In our example, x is an empty object that inherits from Object. x can use any property or method that Object has, such as toString().
+</br>
+</br>x.toString(); 
+</br>
+</br>Output
+</br>
+</br>[object Object] 
+</br>
+</br>This prototype chain is only one link long. x -> Object. We know this, because if we try to chain two [[Prototype]]properties together, it will be null.
+</br>
+</br>x._proto.proto_; 
+</br>
+</br>Output
+</br>
+</br>null 
+</br>
+</br>Let's look at another type of object. If you have experience Working with Arrays in JavaScript, you know they have many built-in methods, such as pop() and push(). The reason you have access to these methods when you create a new array is because any array you create has access to the properties and methods on the Array.prototype.
+</br>
+</br>We can test this by creating a new array.
+</br>
+</br>let y = []; 
+</br>
+</br>Keep in mind that we could also write it as an array constructor, let y = new Array().
+</br>
+</br>If we take a look at the [[Prototype]] of the new y array, we will see that it has more properties and methods than the xobject. It has inherited everything from Array.prototype.
+</br>
+</br>y._proto_; [constructor: ƒ, concat: ƒ, pop: ƒ, push: ƒ, …]
+</br>This is the reason we can push and pop from the array 
+</br>
+</br>y._proto_ === Array.prototype; // true y._proto.proto_ === Object.prototype; // true 
+</br>
+</br>We can also use the isPrototypeOf()method to accomplish this.
+</br>
+</br>Array.prototype.isPrototypeOf(y); // true Object.prototype.isPrototypeOf(Array); // true
+</br>
+</br>We can use the instanceof operator to test whether the prototype property of a constructor appears anywhere within an object's prototype chain.
+</br>
+</br>y instanceof Array; // true
+</br>
+</br>To summarize, all JavaScript objects have a hidden, internal [[Prototype]]property (which may be exposed through _proto_ in some browsers). Objects can be extended and will inherit the properties and methods on [[Prototype]] of their constructor.
+</br>
+</br>These prototypes can be chained, and each additional object will inherit everything throughout the chain. The chain ends with the Object.prototype.
+</br>
+</br>We have seen some built-in JavaScript constructors, such as new Array() and new Date(), but we can also create our own custom templates from which to build new objects.
+</br>
+</br>// Add greet method to the Hero prototype Hero.prototype.greet = function () { return `${this.name} says hello.`; }
+</br>
+</br>function Point(x, y) { this.x = x; this.y = y; } Point.prototype = { dist: function () { return Math.sqrt((this.x*this.x)+(this.y*this.y)); }, toString: function () { return "("+this.x+", "+this.y+")"; } } We assign an object to Point.prototype, via an object initializer with two properties dist and toString. Now there is a clear separation of responsibility: The constructor is responsible for setting up instance-specific data, the prototype contains shared data (i.e., the methods). Note that prototypes are highly optimized in JavaScript engines, so there is usually no performance penalty for putting methods there. Methods are called just like before, you don’t notice whether they are stored in the instance or in the prototype
+</br>
+</br>To fix extend(), we must ensure that only own properties of source are considered. function extend(target, source) { for (var propName in source) { // Is propName an own property of source? if (source.hasOwnProperty(propName)) { // (1) target[propName] = source[propName]; } } return target; } There is one more problem: The above code fails if source has an own property whose name is “hasOwnProperty” [3]:
+</br>
+</br>var proto = { bla: true }; var obj = Object.create(proto); obj.foo = 123; obj.bar = "abc"; obj has both inherited and own properties: > obj.bla true > obj.foo 123
+</br>
+</br>var obj = Object.create(proto, { foo: { value: 123 }, bar: { value: "abc" } });
+</br>
+</br>Object.keys()
+</br>const object1 = {
+</br>  a: 'somestring',
+</br>  b: 42,
+</br>  c: false
+</br>};
+</br>
+</br>console.log(Object.keys(object1));
+</br>// expected output: Array ["a", "b", "c"]
+</br>
+</br> language = {
+</br>  set current(name) {
+</br>    this.log.push(name);
+</br>  },
+</br>  log: []
+</br>}
+</br>
+</br>language.current = 'EN';
+</br>language.current = 'FA';
+</br>
+</br>console.log(language.log);
+</br>// expected output: Array ["EN", "FA"]
+</br>
+</br>var obj = {
+</br>  log: ['a', 'b', 'c'],
+</br>  get latest() {
+</br>    if (this.log.length == 0) {
+</br>      return undefined;
+</br>    }
+</br>    return this.log[this.log.length - 1];
+</br>  }
+</br>}
+</br>
+</br>console.log(obj.latest);
+</br>// expected output: "c"
+</br>
+</br>
+</br>if (somethingBadHappened) { throw new Error('Something bad happened'); }
+</br>
+</br>Any value can be thrown:
+</br>
+</br>function throwIt(exception) { try { throw exception; } catch (e) { console.log('Caught: '+e); } }
+</br>
+</br>Array 
+</br>Array in JS are non homogeneous and non contiguous and the memory allocation is not together 
+</br>var array1 = [1, 4, 9, 16];
+</br>
+</br>// pass a function to map
+</br>const map1 = array1.map(x => x * 2);
+</br>
+</br>console.log(map1);
+</br>// expected output: Array [2, 8, 18, 32]
+</br>
+</br>const array1 = [1, 2, 3, 4];
+</br>const reducer = (accumulator, currentValue) => accumulator + currentValue;
+</br>
+</br>// 1 + 2 + 3 + 4
+</br>console.log(array1.reduce(reducer));
+</br>// expected output: 10
+</br>
+</br>// 5 + 1 + 2 + 3 + 4
+</br>console.log(array1.reduce(reducer, 5));
+</br>// expected output: 15
+</br>
+</br>var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+</br>
+</br>const result = words.filter(word => word.length > 6);
+</br>console.log(result);
+</br>// expected output: Array ["exuberant", "destruction", "present"]
+</br>
+</br>var array1 = ['a', 'b', 'c'];
+</br>
+</br>array1.forEach(function(element) {
+</br>  console.log(element);
+</br>});
+</br>
+</br>// expected output: "a"
+</br>// expected output: "b"
+</br>// expected output: "c"
+</br>
+</br>var array1 = ['a', 'b', 'c'];
+</br>
+</br>Mutating
+</br>array.push() and array.ushift().
+</br>array.pop() removes an item at the end of the array
+</br>array.shift() removes an item at the beginning of the array.
+</br>
+</br>let mutatingRemove = ['a', 'b', 'c', 'd', 'e']; mutatingRemove.splice(0,2 ); // ['c', 'd', 'e'] 
+</br>array.splice() 
+</br>
+</br>
+</br>Non-Mutating 
+</br> array.concat()
+</br>... Spread operator 
+</br>// use const const arr1 = ['a', 'b', 'c', 'd', 'e']; const arr2 = arr1.filter(a => a !== 'e'); // ['a', 'b', 'c', 'd'] // OR const arr2 = arr1.filter(a => { return a !== 'e'; }); // ['a', 'b', 'c', 'd'] 
+</br>
+</br>
+</br>array.slice() takes two parameters.
+</br>
+</br>The first parameter is the index where the copy should begin.
+</br>
+</br>The second parameter is the index where the copy should end. This end index is non-inclusive.
+</br>array.map
+</br>
+</br>To create a regular expression 
+</br>1)var re = /ab+c/;  //using enclosing slashes 
+</br>2) var re = new RegExp('ab+c'); //using RegExp constructor 
+</br>
+</br>match a single 'a' followed by zero or more 'b's followed by 'c', you'd use the pattern /ab*c
+</br>
+</br>
+</br>Date Object
+</br>let now = new Date(); // will display method call time date and time
+</br>
+</br>var today = new Date();
+</br>var birthday = new Date('December 17, 1995 03:24:00');
+</br>var birthday = new Date('1995-12-17T03:24:00');
+</br>var birthday = new Date(1995, 11, 17);
+</br>var birthday = new Date(1995, 11, 17, 3, 24, 0);
+</br>
+</br>var date1 = new Date('December 17, 1995 03:24:00');
+</br>// Sun Dec 17 1995 03:24:00 GMT...
+</br>
+</br>var date2 = new Date('1995-12-17T03:24:00');
+</br>// Sun Dec 17 1995 03:24:00 GMT...
+</br>
+</br>console.log(date1 === date2);
+</br>// expected output: false;
+</br>
+</br>console.log(date1 - date2);
+</br>// expected output 0
+</br>
+</br>JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
+</br>
+</br>JSON is built on two structures:
+</br>
+</br>A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
+</br>An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
+</br>
+</br>
+</br>Working with JSON
+</br>
+</br>parse
+</br>
+</br>stringify
+</br>
+</br>difference between objects and JSON
+</br>
+</br>
+</br>-Sharing global variables between unrelated code is a big no-no in development.
+</br>
+</br>Modules are reusablw chunk of code in ES5 that we can reuse in any project and in the same project the dependency of one module should be
+</br>very less on other modules.
+</br>
+</br>we can use closure based way of creating and using functions to avoid global namespacing pollution using 
+</br>
+</br>var myGradesCalculate = (function () {
+</br>    
+</br>  // Keep this variable private inside this closure scope
+</br>  var myGrades = [93, 95, 88, 0, 55, 91];
+</br>  
+</br>  var average = function() {
+</br>    var total = myGrades.reduce(function(accumulator, item) {
+</br>      return accumulator + item;
+</br>      }, 0);
+</br>      
+</br>    return'Your average grade is ' + total / myGrades.length + '.';
+</br>  };
+</br>
+</br>  var failing = function() {
+</br>    var failingGrades = myGrades.filter(function(item) {
+</br>        return item < 70;
+</br>      });
+</br>
+</br>    return 'You failed ' + failingGrades.length + ' times.';
+</br>  };
+</br>
+</br>  // Explicitly reveal public pointers to the private functions 
+</br>  // that we want to reveal publicly
+</br>
+</br>  return {
+</br>    average: average,
+</br>    failing: failing
+</br>  }
+</br>})();
+</br>
+</br>myGradesCalculate.failing(); // 'You failed 2 times.' 
+</br>myGradesCalculate.average(); // 'Your average grade is 70.33333333333333.'
+</br>
+</br>or ew can also use commonJS that works like NodeJs modeule approach.
+</br>
+</br>commonJS code
+</br>function myModule() {
+</br>  this.hello = function() {
+</br>    return 'hello!';
+</br>  }
+</br>
+</br>  this.goodbye = function() {
+</br>    return 'goodbye!';
+</br>  }
+</br>}
+</br>
+</br>module.exports = myModule;
+</br>
+</br>There are two obvious benefits to this approach over the module patterns we discussed before:
+</br>
+</br>1. Avoiding global namespace pollution
+</br>2. Making our dependencies explicit
+</br>
+</br>AMD
+</br>CommonJS is all well and good, but what if we want to load modules asynchronously? The answer is called Asynchronous Module Definition, or AMD for short.
+</br>
+</br>Loading modules using AMD looks something like this:
+</br>
+</br>define(['myModule', 'myOtherModule'], function(myModule, myOtherModule) {
+</br>  console.log(myModule.hello());
+</br>});
+</br>
+</br>Creating and using code using ES6 Modules
+</br>
+</br>// lib/counter.js
+</br>
+</br>var counter = 1;
+</br>
+</br>function increment() {
+</br>  counter++;
+</br>}
+</br>
+</br>function decrement() {
+</br>  counter--;
+</br>}
+</br>
+</br>module.exports = {
+</br>  counter: counter,
+</br>  increment: increment,
+</br>  decrement: decrement
+</br>};
+</br>
+</br>
+</br>// src/main.js
+</br>
+</br>var counter = require('../../lib/counter');
+</br>
+</br>counter.increment();
+</br>console.log(counter.counter); // 1
+</br>
+</br>
+</br>Module bundling
+</br>
+</br>What is module bundling?
+</br>On a high level, module bundling is simply the process of stitching together a group of modules (and their dependencies) into a single file (or group of files) in the correct order.
+</br>
+</br>As with all aspects of web development, the devil is in the details. :)
+</br>
+</br>Why bundle modules at all?
+</br>When you divide your program into modules, you typically organize those modules into different files and folders. Chances are, you’ll also have a group of modules for the libraries you’re using, like Underscore or React.
+</br>
+</br>As a result, each of those files has to be included in your main HTML file in a &lt;script&gt; tag, which is then loaded by the browser when a user visits your home page. Having separate &lt;script&gt; tags for each file means that the browser has to load each file individually: one… by… one.
+</br>
+</br>…Which is bad news for page load time.
+</br>
+</br>To get around this problem, we bundle, or “concatenate” all our files into one big file (or a couple files as the case may be) in order to reduce the number of requests. When you hear developers talking about the “build step” or “build process,” this is what they’re talking about.
+</br>
+</br>
+</br>Task runners like Gulp and Grunt make concatenation and minification straightforward for developers, ensuring that human-readable code stays exposed for developers while machine-optimized code gets bundled for browsers.
+</br>
+</br>What are the different ways to bundle modules?
+</br>Concatenating and minifying your files works great when you’re using one of the standard module patterns (discussed in the previous post) to define your modules. All you’re really doing is mashing together a bunch of plain vanilla JavaScript code.
+</br>
+</br>However, if you’re adhering to non-native module systems that browsers can’t interpret like CommonJS or AMD (or even native ES6 module formats), you’ll need to use a specialized tool to convert your modules into properly-ordered browser-friendly code. That’s where Browserify, RequireJS, Webpack, and other “module bundlers” or “module loaders” come into play.
+</br>
+</br>In addition to bundling and/or loading your modules, module bundlers offer a ton of additional features like auto-recompiling code when you make a change or producing source maps for debugging.
+</br>
+</br>Here are a couple of the options for building/converting ES6 modules to work in the browser, with #1 being the most common approach today:
+</br>
+</br>Use a transpiler (e.g. Babel or Traceur) to transpile your ES6 code to ES5 code in either CommonJS, AMD, or UMD format. Then pipe the transpiled code through a module bundler like Browserify or Webpack to create one or more bundled files.
+</br>
+</br>Deep Copy and shallow copy
+</br>1) when we initialize one object variable with another we just pass the reference.
+</br>2) every object in JS has Object class in it's prototype chain.
+</br>3) On using a for in loop to individually copy all the elements 
+</br>	objCopy object has a new Object.prototype method different from the mainObj object prototype method, which is not what we want. We 		want an exact copy of the original object.
+</br>
+</br>
+</br>https://scotch.io/bar-talk/copying-objects-in-javascript
+</br>
+</br>
+</br>instanceof, typeof, new
+</br>
+</br>
+</br>Pure, total and partial functions
+</br>
+</br>Pure Functions
+</br>They also makes maintaining and refactoring code much easier. You can change a pure function and not have to worry about unintended side effects messing up the entire application and ending up in debugging hell.
+</br>
+</br>When used correctly the use of pure functions produces better quality code. It’s a cleaner way of working with lots of benefits.
+</br>
+</br>
+</br></p>
+      </section>
+      <section id="es_6" class="main-section">
+         <header><h3>ES 6</h3></header>
+         </br>
+</br>							ES 6 (ECMA SCRIPT 6) (In Progress)
+</br>
+</br><p class="support-text">1) let vs var
+</br>	var has enclosing function scope while let has block scope (block scope is introduced in ES6). 
+</br>	function varTest() {
+</br>	  var x = 1;
+</br>	  if (true) {
+</br>	    var x = 2;  // same variable!
+</br>	    console.log(x);  // 2
+</br>	  }
+</br>	  console.log(x);  // 2
+</br>	}
+</br>
+</br>	function letTest() {
+</br>	  let x = 1;
+</br>	  if (true) {
+</br>	    let x = 2;  // different variable
+</br>	    console.log(x);  // 2
+</br>	  }
+</br>	  console.log(x);  // 1
+</br>	}
+</br>
+</br>  let does not create global scope variables
+</br>	var x = 'global';
+</br>	let y = 'global';
+</br>	console.log(this.x); // "global"
+</br>	console.log(this.y); // undefined
+</br></p>
+</br><p class="support-text">2) string literals
+</br>	var a = 5;
+</br>	var b = 10;
+</br>	console.log(`Fifteen is ${a + b} and
+</br>	not ${2 * a + b}.`);
+</br>	// "Fifteen is 15 and
+</br>	// not 20."
+</br>
+</br>
+</br>
+</br>
+</br></p>
+</br>
+</br>
+      </section>
+      <section id="git" class="main-section"> 
+        <header><h3>git</h3></header>
+        </br><p class="support-text">1) Centralized Version Control 	
+</br>	Centralized version control systems are based on the idea that there is a single “central” copy of your project somewhere (probably 		on a server), and programmers will “commit” their changes to this central copy.
+</br>	“Committing” a change simply means recording the change in the central system. Other programmers can then see this change. They can 		also pull down the change, and the version control tool will automatically update the contents of any files that were changed. Ex:- 	    Subversion
+</br>    Distributed Version Control
+</br>	These systems do not necessarily rely on a central server to store all the versions of a project’s files. Instead, every developer 		“clones” a copy of a repository and has the full history of the project on their own hard drive. This copy (or “clone”) has all of the 		metadata of the original.ex:- Git
+    </br></p>
+        </br> <p class="support-text">2)   Central Repository 	
+        </br>	Having a central repository is optional in distributed version control system.In both pulling and pushing you move changesets 	 	 (changes to files groups as coherent wholes), not single-file diffs.
+        </br></p>
+        </br><p class="support-text">3) Advantages of DVCS over CVCS
+        </br>	Performing actions other than pushing and pulling changesets is extremely fast because the tool only needs to access the hard drive, 		not a remote server.
+        </br>	Committing new changesets can be done locally without anyone else seeing them. Once you have a group of changesets ready, you can push 		all of them at once.
+        </br>	Everything but pushing and pulling can be done without an internet connection. So you can work on a plane, and you won’t be forced to 		commit several bugfixes as one big changeset.
+        </br>	Since each programmer has a full copy of the project repository, they can share changes with one or two other people at a time if they 		want to get some feedback before showing the changes to everyone.
+        </br></p>
+        </br><p class="support-text">4) Branching 
+        </br>	Branches in Git are incredibly lightweight as well. They are simply pointers to a specific commit
+        </br>	branch name should follow camel case convention
+        </br>	To merge two project branches we can use merge operation or rebasing.
+        </br>	Each branch provide us to work on our project without messing with our main production line code.
+        </br></p>
+        </br><p class="support-text">5) Commands (Important)
+        </br>	a) git checkout branch-name to move to other branch	
+        </br>	b) git commit   (to make commit)
+        </br>	c) git commit -m "commit message"  to commit with message
+        </br>	d) git branch	to display all the branches
+        </br>	e) git branch branch-name 	to create new branch 
+        </br>	f) git merge br-name this will merge the branch br-name in the branch you have called this command.
+        </br>	g) git init 	to initialize a new repository
+        </br>	h) git clone url	to clone the remote repository in yout local system 
+        </br>	i) git rebase master 			
+        </br>		
+        </br>	will combine and move the present series of commmits from the point they have divergered from master and will put
+        </br>	them in front of master and msater will become their ancestor and the old series of commits will be left where they were.
+        </br>
+        </br>	</p>
+        </br><p class="support-text">6) HEAD   
+        </br>	HEAD is the symbolic name for the currently checked out commit -- it's essentially what commit you're working on top of. 
+        </br>	git checkout commit-hash will take our HEAD to particular commit
+        </br>	relative refs 
+        </br>	instead of moving head to a commit using hash value which is very long we use relative refs
+        </br>	git checkout hash-code to move to commit (detaching from branch and moving to commit)
+        </br>	git checkout HEAD^  move to parent commit of present HEAD or commit
+        </br>	git checkout HEAD~4 move to present commit's 4th previous commit from HEAD.
+        </br>
+        </br>
+        </br>	To move a branch to different commit we have to use
+        </br>	git branch -f master HEAD
+        </br>	git branch -f bugFix HEAD~3
+        </br>
+        </br>	To move or roll back the changes
+        </br>	git reset HEAD^ for local system  this will delete the new commit
+        </br>	git revert HEAD for remote branch  this cannot delete as others are usign that commit so it creates a new commit with old value
+        </br>	
+        </br>	Other way of using git reset:- 
+        </br>	git reset --soft commit-hash
+        </br>	git reset --soft commit-hash
+        </br>	git reset --soft commit-hash
+        </br>	In other words, --soft is discarding last commit, --mix is discarding last commit and add, --hard is discarding last commit,add and 		any changes you made on the codes which is the same with git checkout HEAD
+        </br></p>
+        </br><p class="support-text">7) git cherry pick c4 c7
+        </br>	 when called after taking HEAD to master will copy and create new commits on master an move head to c7'
+        </br>	to check commit history use
+        </br></p>
+        </br><p class="support-text">8) git log
+        </br>	git log - p commit to history with patch outputs
+        </br>	git log - - stat  show statistics of modified flies
+        </br>	git log  - - shortstat display only the changes lines insertion /deletion of got log - - stat
+        </br>	git log - 2 shows last two commits 
+        </br>	git log - -pretty=oneline 
+        </br>	git log - -pretty=short/full
+        </br></p>
+        </br><p class="support-text">9) Branch 
+        </br>	Branch is a way to request new working directory, staging area and project history it is a independent line of development  
+        </br>	Branch servers as abstraction to edit /stage /commit process 
+        </br>	git branch - d branch-name  
+        </br>	safe delete send error of branch notification merged 
+        </br>	git branch - D branch-name FORCED Delete
+        </br>	git branch - m new-name-for-branch 
+        </br>	git branch - a     list all remote branches
+        </br></p>
+        </br><p class="support-text">10) git remote add new-remote-repo https://bitbucket.com/user/repo.git
+        </br>	 # Add remote repo to local repo config
+        </br>	 git push <new-remote-repo> crazy-experiment
+        </br>	 # pushes the crazy-experiment branch to new-remote-repo
+        </br></p>
+        </br><p class="support-text">11) To delete remote repo 
+        </br>	git push origin - -delete remote-branch-name
+        </br>	Or git push origin :branchName
+        </br>	If you forget to add a file in recently made commit or added wronf message then stage the files using git add and then make 
+        </br>	git commit --amend 
+        </br>	to make change in the last commit only without creating new commit
+        </br></p>
+        </br><p class="support-text">12)  To make changes in previous commit or change staging area
+        </br>	git commit - -amend 
+        </br>	git remote lists all the remote handles you have specified. 
+        </br>	git remote add new-remote-name https://github.com/paulboone/ticgit 
+        </br>	git remote -v
+        </br></p>
+        </br><p class="support-text">13) git fetch 	
+        </br>	git fetch pb
+        </br>	Will fetch all the code and branches of pb remote made by (Paul Branson ) and we can inspect all the changes and code of his branches 		(pb/master and pb/local-branch-names will be available for us ) 
+        </br></p>
+        </br><p class="support-text">14) Remote 
+        </br>	When we clone a project a new remote automatically gets created named origin
+        </br>	git fetch <remote >
+        </br>	git fetch origin fetches all the changes that have been Made in server after your last fetch 
+        </br>	NOTE : fetch command just download the data from server but does not merge it with your work on the other hand git pull command will 		fetch the changesets introduced on serve will fetch it and then merge it in your project.
+        </br>
+        </br> 	git remote show <remote > will stat all info about particular remote along with all the remotest branches for that remote. 
+        </br>
+        </br> 	
+        </br>   Renaming Remote
+        </br> 	git remote rename pb paul
+        </br>   	Will change remote branch name from pb to Paul 
+        </br>	
+        </br>	git remote rename <remote >
+        </br>	git remote remove <remote >
+        </br>	git remote show <remote>
+        </br>       	For git remote show origin it will show the fetch and push URL for remote it will list all the remote repositories for remote also it  	   	is will state which local branches are tracking which remote for git push and git pull.
+        </br>
+        </br>
+        </br>
+        </br>   Removing Remote
+        </br>	git remote rm paul
+        </br>    	will remove reference to a remote branch, used when you don't want a mirror or a contributor has stopped contributing
+        </br></p>
+        </br><p class="support-text">15)     master branch is just like any another branch in git only difference is it gets created when we use git init command and most users 		does not choose to change it's name.
+        </br>
+        </br>	every commit is snapshot of files for a particular version, after we change our project for the first time let's say we have added 3 		new files so 5 things will be saved in the git 3 blobs that will contain the content of files 1 tree that will contain names of the 		files and which blob is refernced by which file and 5th one is commit that will point it to the tree.
+        </br></p>
+        </br><p class="support-text">16) Merging
+        </br>	Merging can be of two types using 
+        </br>	i) fast-forward
+        </br>	ii) Recursively merge
+        </br>	In fast-forward the two branches that have to be merged are on the same commit path i.e., there is no divergent path for two branches 
+        </br>	so the in such case the master is switched directly to the most recently added commit(in this case made by ohter branch).
+        </br>	While in Recursively merge a new commit is created that is called merge commit , this occurs when the development line is diverged so 		(the  two diverged development line will have a common ancestor somewhere in the past) both the branches will be merged and a new 	  commit known as merge commit is created. A merge commit has two parents instead of one.
+        </br>
+        </br>	If two diverged line of development represented by two different branches are merged and both have updated the same file and same 		piece or lines of code then merge conflict will occur and conflict resolution markers will be written in the file with HEAD section 	    conataing the branch in which we are merging code(i.e, generally master.)
+        </br>
+        </br>	After a hotfix is done delete the branch as it's purpose is completed.
+        </br></p>
+        </br><p class="support-text">17)	git branch -v will list all the last commits in all the local branch.
+        </br></p>
+        </br><p class="support-text">18) 	Remote tracking branches are local branches that mirror or track a remote branch and it's referenece cannot be changed by user.
+        </br></p>
+        </br><p class="support-text">19) 	git config --global credential.helper cache.
+        </br>	use this command to avoid entering git credentials every time you want to make a push on remote.
+        </br>
+        </br></p>
+        </br><p class="support-text">20) 	When you are using the concept of tracking a remote branch in a local branch the 
+        </br>	when we clone the remote repository the there are two reference created on out local system one is master and other is origin/master
+        </br>	when we made any commit in  our local branch that is tracking remote the master branch reference is moved and let's say there are some 		commits made on remote by other user we will use git fetch <remote-name> it will update our local repository and origin/master 		reference will move and the two branches are diverged in this case master and origin/master, origin/master cannot be changed by you it 		will alway point to the position of remote's last commit.
+        </br></p>
+        </br><p class="support-text">21) git checkout --track origin/serverfix
+        </br>	Branch serverfix set up to track remote branch serverfix from origin.
+        </br>	Switched to a new branch 'serverfix'
+        </br>
+        </br>	In fact, this is so common that there’s even a shortcut for that shortcut. If the branch name you’re trying to checkout 
+        </br>	(a)doesn’t exist and 
+        </br>	(b) exactly matches a name on only one remote,
+        </br>	Git will create a tracking branch for you:
+        </br>
+        </br>  	git checkout serverfix
+        </br>	
+        </br>	Branch serverfix set up to track remote branch serverfix from origin.
+        </br>	Switched to a new branch 'serverfix'
+        </br>
+        </br>	git checkout -b sf origin/serverfix
+        </br>	Branch sf set up to track remote branch serverfix from origin.
+        </br>	Switched to a new branch 'sf'
+        </br>    </p>
+        </br><p class="support-text">22) 	
+        </br>	git checkout bugFix
+        </br>	git rebase master
+        </br>	git checkout master
+        </br>	git merge bugFix
+        </br>
+        </br>	this series of commands will rebase the bugFix branch as a linear line of changes in master branch and on merge from master it will
+        </br>	do a simple fast forwarding merge. 	
+        </br>
+        </br>	Note that the snapshot pointed to by the final commit you end up with, whether it’s the last of the rebased commits for a rebase or 		the final merge commit after a merge, is the same snapshot — it’s only the history that is different. Rebasing replays changes from one 		line of work onto another in the order they were introduced, whereas merging takes the endpoints and merges them together
+        </br>	
+        </br>	git rebase --onto master server client
+        </br>	This basically says, “Take the client branch, figure out the patches since it diverged from the server branch, and replay these 	patches in the client branch as if it was based directly off the master branch instead.” It’s a bit complex, but the result is pretty 		cool.
+        </br>	Do not rebase commits that exist outside your repository and people may have based work on them.
+        </br>	
+        </br>	In general the way to get the best of both worlds is to rebase local changes you’ve made but haven’t shared yet before you push them 		in order to clean up your story, but never rebase anything you’ve pushed somewhere.	
+        </br></p>
+        </br><p class="support-text">23) Tagging
+        </br>	Like most VCSs, Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this 		functionality to mark release points (v1.0, v2.0 and so on). 
+        </br>	Listing Your Tags
+        </br>	Listing the existing tags in Git is straightforward. Just type git tag (with optional -l or --list):
+        </br>
+        </br>	git tag
+        </br>
+        </br>	Creating an annotated tag in Git is simple. The easiest way is to specify -a when you run the tag command:
+        </br>	
+        </br>	git tag -a v1.4 -m "my version 1.4"
+        </br></p>
+        </br><p class="support-text">24) Commit Guidelines
+        </br>	a) submissions should not contain any whitespace errors. 
+        </br>	b) Make one commit per issue with useful message per commit.
+        </br>	
+        </br>	The last thing to keep in mind is the commit message. Getting in the habit of creating quality commit messages makes using and 		collaborating with Git a lot easier. As a general rule, your messages should start with a single line that’s no more than about 50 		characters and that describes the changeset concisely, followed by a blank line, followed by a more detailed explanation. The Git 		project requires that the more detailed explanation include your motivation for the change and contrast its implementation with 	previous behavior — this is a good guideline to follow. Write your commit message in the imperative: "Fix bug" and not "Fixed bug" or 		"Fixes bug." 
+        </br>	i)   Separate subject from body with a blank line
+        </br>	ii)  Limit the subject line to 50 characters
+        </br>	iii) Capitalize the subject line
+        </br>	iv)  Do not end the subject line with a period
+        </br>	v)   Use the imperative mood in the subject line
+        </br>	vi)  Wrap the body at 72 characters
+        </br>	vii) Use the body to explain what and why vs. how
+        </br>
+        </br>	Here is a template originally written by Tim Pope:
+        </br>	
+        </br>		Capitalized, short (50 chars or less) summary
+        </br>
+        </br>		More detailed explanatory text, if necessary.  Wrap it to about 72
+        </br>		characters or so.  In some contexts, the first line is treated as the
+        </br>		subject of an email and the rest of the text as the body.  The blank
+        </br>		line separating the summary from the body is critical (unless you omit
+        </br>		the body entirely); tools like rebase can get confused if you run the
+        </br>		two together.
+        </br>
+        </br>		Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
+        </br>		or "Fixes bug."  This convention matches up with commit messages generated
+        </br>		by commands like git merge and git revert.
+        </br>
+        </br>		Further paragraphs come after blank lines.
+        </br>
+        </br>		- Bullet points are okay, too
+        </br>
+        </br>		- Typically a hyphen or asterisk is used for the bullet, followed by a
+        </br>		  single space, with blank lines in between, but conventions vary here
+        </br>
+        </br>		- Use a hanging indent
+        </br></p>
+        </br><p class="support-text">25) Stashing
+        </br>	When you are working on a branch and made some changes suddenly want to checkout to other branch for some urgent work like hotfix of 		any issue but your present branch is not clean as there must be some modified files which are not staged while some that are staged 		files but you do not want to commit so you can stash the files and commit it later.
+        </br>		git stash push				to save a stash
+        </br>		git stash list 				to list all the present stashes available
+        </br>		git stash apply stash@{2}		for applying particular stash		
+        </br>		git stash apply 			for applying last stash
+        </br>		git stash drop	stash@{0}		for deleting a particular mentioned stash
+        </br></p>
+        </br><p class="support-text">26) Issues
+        </br>	Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. They’re kind of like email—except they can be 		shared and discussed with the rest of your team. Most software projects have a bug tracker of some kind. GitHub’s tracker is called 		Issues, and has its own section in every repository.
+        </br>	-Milestones are groups of issues that correspond to a project, feature, or time period. People use them in many different ways in 	  software development,ex:- 
+        </br>	  -Beta Launch 
+        </br>	  -October Sprint
+        </br>	  -Redesign
+        </br>	-Labels
+        </br>	-Assignees
+        </br>
+        </br>
+        </br>	Github issues also have feature of
+        </br>	-Notifications
+        </br>	-@Mention
+        </br>	-Reference (to another issue)
+        </br>
+        </br></p>			
+</br>							
+</br>
+</br>				
+</br>
+      </section>
+      </article>
+     </main>
+  </div>
+  </div>
+</body>
+</html>
+  
+  
+
+    <script  src="./script.js"></script>
+
+
+
+
+</body>
+
+</html>
