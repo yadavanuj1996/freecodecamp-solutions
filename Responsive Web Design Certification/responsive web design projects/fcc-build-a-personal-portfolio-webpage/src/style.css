@@ -201,45 +201,69 @@ i:hover{
   height: 100%;  
 }
 #projects{
+  margin-top: 50px;
   padding: 20px 20px 20px 20px;
   background-color: #45567D;
-  display: grid;
-  grid-template-rows: 20vh 60vh 60vh;
-  grid-template-columns: 1fr 1fr 1fr;
+
+}
+#project-card-holder{
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 40px 2.5%;
-  grid-template-areas:
-    ". heading ."
-    "project1 project2 project3"
-    "project4 project5 project6";
     justify-items: center;
     align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  
 }
-#projects{
-  margin-top: 50px;
-}
+
 #projects-heading{
-  grid-area: heading;
+  text-align: center;
+  color: #fff;
 }
 
 .project-tile{
-  height: 100%;
+  height: 360px;
   width: 100%;
   display: grid;
   grid-template-rows: 80% 20%;
   grid-template-columns: 100%;
 }
 #project-1{
-  grid-area: project1;
+ 
 }
 #project-2{
-  grid-area: project2;
+
 }
 #project-3{
-  grid-area: project3;
+ 
+}
+#fcut-image{
+  width: 70% !important; 
+  padding-left:  15%;
+  padding-right:  15%;
+  background-color: white;
+}
+#costfinder-mobile-image{
+  width: 50% !important; 
+  padding-left:  25%;
+  padding-right:  25%;
+  background-color: var(--theme-black-text-color,#4F6990);
+}
+#pharmacy-image{
+  width: 70% !important; 
+  height: 70%;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  padding-left:  15%;
+  padding-right:  15%;
+  background-color: #fff;
+}
+#finadvisor-image{
+  background-color: white;
 }
 .project-title-div{
   background-color: #303841;
-  grid-row: 2 / 3;
   height: 100%;
   display: grid;
   justify-items: center;
