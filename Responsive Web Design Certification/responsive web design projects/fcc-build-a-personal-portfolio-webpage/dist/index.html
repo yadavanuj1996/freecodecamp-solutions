@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>FCC: Build a Personal Portfolio Webpage</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<!-- dots for section change heart animations
+ I am a software developer freelancer noob web designer
+add keywords in  html head tag,
+use keyword meta tag
+-->
+<!Doctype html>
+<html lang="en-US">
+  <head>
+    <title>Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Anuj Yadav">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anuj Yadav personal portfolio page, full stack web development, software developer">
+ 
+    <script src="https://kit.fontawesome.com/ba3646b588.js"></script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <navbar id="navbar">
+        <div id="navbar-links">
+          <img id="logo-image" alt="logo image" src="https://i.ibb.co/4NVSPGM/imageedit-3-6286965642.png">
+          <a class="navbar-link" id="navbar-about" href="#projects">About</a>
+          <a class="navbar-link" id="navbar-project" href="#projects">Work</a>
+          <a class="navbar-link" id="navbar-notes" href="#projects">Notes</a>
+        </div>
+      </navbar>
+    </header>
+    <div id="welcome-section">
+      <div id="welcome-content">
+      <img id="welcome-image" alt="welcome image" src="https://image.flaticon.com/icons/svg/1831/1831951.svg">
+      <h1>Hola Amigo</h1>
+      </div>
+    </div>
+    <div id="introduction">
+      <h3 id="introduction-heading">Hi</h3>
+      <p id="introduction-content">
+        I'm a software engineer specializing in   full stack web    development based in Mumbai, India. I have a passion for development and love to create web, desktop and mobile app projects.
+</p>
+    </div>
+    <div id="about">
+      <h2 id="about-heading">What I can Do</h2>
+      <div id="about-content-1">
+        <img id="about-content-image-1" src="https://image.flaticon.com/icons/svg/1197/1197511.svg" alt="computer image">
+        <h3 id="about-content-heading-1">Full Stack Web Development</h3>
+        <p id="about-content-subcontent-1">I am fully proficient with full stack web development and have experience of developing and delivering various responsive web applications to SMEs & startups across various business domains.</p>
+      </div>
+       <div id="about-content-2">
+        <img id="about-content-image-2" src="https://image.flaticon.com/icons/svg/1640/1640940.svg" alt="computer image">
+        <h3 id="about-content-heading-2">Desktop and Mobile App Development</h3>
+        <p id="about-content-subcontent-2">I have prior experience of developing  Desktop software applications and cross-platform mobile applications and have worked with clients across domains.</p>
+      </div>
+    </div>
+    <div id="skills">
+        <h2 id="skills-heading">Skills</h2>
+        <h3 class="skills-subheading">Programming Languages & Frameworks</h3>
+      <div class="skills-listing">
+      <i class="devicon-angularjs-plain colored"></i>
+      <i class="devicon-nodejs-plain-wordmark colored"></i>
+      <i class="devicon-express-original-wordmark colored"></i>
+      <i class="devicon-java-plain-wordmark"></i>
+      <i class="devicon-php-plain colored"></i>
+      <i class="devicon-bootstrap-plain-wordmark colored"></i>
+      <img class="skills-list-images" src="https://www.paceit.co.uk/wp-content/uploads/2019/04/nativescript-app-development.png" alt="nativescript">
+      <img class="skills-list-images" src="http://198.211.104.161/wp-content/uploads/2014/01/Hibernate-logo.png" alt="hibernate">
+      
+      <img class="skills-list-images"src="https://www.consolebit.com/media/technologies/logo-materialize.png" alt="materialize">
+        <img id="primeng" class="skills-list-images" src="https://i2.wp.com/www.primefaces.org/wp-content/uploads/2016/10/primeng.png?resize=250%2C250&ssl=1" alt="primeng">
+      </div>
+      <h3 class="skills-subheading"> Web Technologies & Databases</h3>
+      <div class="skills-listing">
+      <i class="devicon-html5-plain-wordmark colored"></i>
+      <i class="devicon-css3-plain-wordmark colored"></i>
+      <i class="devicon-javascript-plain colored"></i>
+      <i class="devicon-jquery-plain-wordmark colored"></i>
+      <i class="devicon-mysql-plain-wordmark colored"></i>
+      <i class="devicon-mongodb-plain-wordmark colored"></i>
+      <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-ar21.svg" alt="mysqlite">
+      </div>  
+      <h3 class="skills-subheading"> Version Control, Operating System and tools</h3>
+      <div class="skills-listing">
+      <i class="devicon-git-plain-wordmark colored"></i>
+      <i class="devicon-ubuntu-plain-wordmark colored"></i>
+      <i class="devicon-windows8-original colored"></i>
+      <i class="devicon-visualstudio-plain colored"></i>    
+      <i class="devicon-heroku-original-wordmark colored"></i>
+      </div>
+    </div>
+    <div id="projects">
+      <h2 id="projects-heading">Projects</h2>
+      <div id="project-1"  class="project-tile">
+        <img class="projects-image" src="https://cdn.lynda.com/course/482056/482056-636116937788487114-16x9.jpg" alt="project-tile-image"> 
+        <div class="project-title-div"> 
+          <p class="project-title">Project title</p>
+        </div>
+      </div>
+      <div id="project-2"  class="project-tile"><img class="projects-image" src="https://cdn.lynda.com/course/482056/482056-636116937788487114-16x9.jpg" alt="project-tile-image">
+        <div class="project-title-div"> 
+          <p class="project-title">Project title</p>
+        </div>
+      </div>
+      <div id="project-3"  class="project-tile"><img class="projects-image" src="https://cdn.lynda.com/course/482056/482056-636116937788487114-16x9.jpg" alt="project-tile-image">
+        <div class="project-title-div"> 
+          <p class="project-title">Project title</p>
+        </div>
+      </div>
+     
+    </div>
+    <div id="work-samples">
+      <a id="profile-link" href="https://codepen.io/yadavanuj1996/" target="_blank">Front End Design projects</a>
+    </div>
+  </body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
