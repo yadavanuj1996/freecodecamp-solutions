@@ -1,4 +1,6 @@
+
 							Basic Javascript (ES5)
+
 1) Variables which are used without the var keyword are automatically created in the global scope.
 2) Variables can contain alphabets,number $ and _ but cannot start with a number.
 3) js objects can contain number and strings and if it's single word or number quotes("") are not mandatory.
@@ -231,3 +233,120 @@ x = 3.14; // throws an error because x is not declared
 	import * as myMathModule from "math_functions";
 	myMathModule.add(2,3);
 	myMathModule.subtract(5,3);
+
+
+							Regular Expressions
+
+
+1) Regex are written between // and should not be placed in quotes (both single or double)
+	The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your 		pattern finds something or not.
+	test() returns true or false
+	
+	let testStr = "freeCodeCamp";
+	let testRegex = /Code/;
+	testRegex.test(testStr);
+	// Returns true
+
+2) OR for words and ignoring case	
+	/dog|cat|bird|fish/ 	"OR" search in regexp
+	/regexpcharacters/i	for ignoring case
+
+3) .match is other way of matching a regexp
+	
+	match() returns extracted word if we searcg /coding/i then if there is CoDiNG present it will return that string
+	checkingString.match(regExp); this will extrach the pattern
+
+	use /code/g with match()  to get all multiple matchings
+	and /code/gi 	for using two flags together i for ignoring case and g for multiple matches
+
+4) "." wild card operator 
+	let humStr = "I'll hum a song";
+	let hugStr = "Bear hug";
+	let huRegex = /hu./;
+	humStr.match(huRegex); // Returns ["hum"]
+	hugStr.match(huRegex); // Returns ["hug"]
+
+5) OR for characters and g global flag
+	/h[aeiou]m/ will search for either h_m as _ can either have any mentioned vowel
+	/[a-e]/ig will search for characters between a-e 
+	/[h-s2-6]/ig	 will match h to s characters or 2,3,4,5,6 numbers as an or
+	
+6) Caret operator or NOT INCLUDING (inside [])
+	/[^aeiou0-9]/ig		will exclude all vowels and all numbers
+	
+7) Search starting pattern  with Caret operator	
+	Earlier, you used the caret character (^) inside a character set to create a negated character set in the 
+	form [^thingsThatWillNotBeMatched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+	let firstString = "Ricky is first and can be found.";
+	let firstRegex = /^Ricky/;
+	firstRegex.test(firstString);
+	// Returns true
+	
+8) Search ending pattern with $ operator	
+	let caboose = "The last car on a train is the caboose";
+	let lastRegex = /caboose$/; // Change this line
+	let result = lastRegex.test(caboose);
+	console.log(result);
+8) 1 or more than one character , 0 or more than 0 character
+	/s+/ig	 		will give all matching of 1 or more than 1 s together
+	/[Aa]*/			for 0 or more than 0 A or a   /h[a*]s/ig	has,hAs,hAas
+	/h[a-i]*s/ig;		has,HaS,hAaS,his
+9) Greedy (default) vs lazy search
+	let text = "<h1>Winter is coming</h1>";
+
+	let myRegex = /<h.*1>/;  		//result=<h1>Winter is coming</h1>    // Default GREEDY search	
+	let myRegex = /<h.*?1>/; 		//result=<h1>			      // ? LAZY search (? should come afterwards not before *)
+	
+	let result = text.match(myRegex);
+10) \w alphanumeric class shortcut and not alphanumeric \W (capital W)
+	The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]
+	Note: _ (underscore) is also present
+	
+	\W will find all other characters such as . and " " space 
+
+	\d  is shortcut for [0-9]
+	\D  is shortcut for [^0-9]
+11) \s Searching Whitespces, tabs and carriages and \S for non-white spaces
+	You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, 		tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].	
+
+	\s for white spaces 
+	\S for non-space characters
+
+12) /ha{3-5}s/i Specify lower and upper number for repetitions of a character
+	let A4 = "aaaah";
+	let A2 = "aah";
+	let multipleA = /a{3,5}h/;
+	multipleA.test(A4); // Returns true
+	multipleA.test(A2); // Returns false
+
+    For ower number of repetition of characters
+	let haStr = "Hazzzzah";
+	let haRegex = /haz{4,}ah/i; // Change this line
+	let result = haRegex.test(haStr);
+
+    For minimum number of repetiton of a character
+	use /ha{100}s/	for exact 100 a's
+
+13) repeat function	 (Not part of Regex)
+	let timStr =  "h" + "a".repeat(100) + "h";
+	will create a string haaaaaa_______________________________aaaaaaaaas
+	100 times a
+
+14) optional character using ? (another use of ?)
+	let favWord = "favorite";
+	let favRegex = /favou?rite/; 
+	let result = favRegex.test(favWord);	// true
+
+15) ?= & ?! (positive and negative lookahead)
+	positive lookahead
+	let pwRegex = /(?=\w{6,})(?=\D*\d\d\D*)/i; 
+	this will match that a password or string should have 6 or more alphanumeric characters and out
+	of all	there should be 2 consecutive digits
+	
+	negative lookahead
+	?! is its representation and is just opposite of ?= (positive lookahead)
+16) replace to replace a regexp by new word or text	
+	let huhText = "This sandwich is good.";
+	let fixRegex = /good/; // Change this line
+	let replaceText = "okey-dokey"; // Change this line
+	let result = huhText.replace(fixRegex,replaceText);
