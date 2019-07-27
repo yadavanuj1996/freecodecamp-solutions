@@ -350,3 +350,47 @@ x = 3.14; // throws an error because x is not declared
 	let fixRegex = /good/; // Change this line
 	let replaceText = "okey-dokey"; // Change this line
 	let result = huhText.replace(fixRegex,replaceText);
+
+								Basic Data Structures
+
+1) Arrays are mutable in JS, arr.length returns the no of elements in array, JS array can contain items of different Data type elements.
+2) 
+	arr.push(2);		// push() adds element in end of array
+	arr.unshift(2);		// unshift() adds element in start of array
+	arr.pop();		// pop() removes element in end of array
+	arr.shift();		// shift() removes element in start of array
+3) splice()
+	let array = ['I', 'am', 'feeling', 'really', 'happy'];
+
+	let newArray = array.splice(3, 2);
+	// newArray equals ['really', 'happy']
+	// array equals ['I', 'am', 'feeling']
+4) slice()
+	let arrayData = ['I', 'am', 'feeling', 'really', 'happy'];
+	arr=arrayData.slice(3,5); or arr=arrayData.slice(3); 
+	//arr =['really', 'happy']
+	// arrayData = ['I', 'am', 'feeling', 'really', 'happy'];
+	arrayData will not be affected	
+5) indexOf() 	
+	let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+
+	fruits.indexOf('dates') // returns -1
+	fruits.indexOf('oranges') // returns 2
+
+	fruits.indexOf('pears') // returns 1, the first index at which the element exists
+6) 	Objects are nothing but key value pairs data
+7) hasOwnProperty()
+	users.hasOwnProperty('Alan');
+	'Alan' in users;
+	// both return true
+8)	
+	for (let user in users) {
+	  console.log(user);
+	};
+
+	// logs: Alan Jeff Sarah Ryan
+	Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which 		it appears, is irrelevant when referencing or accessing that key
+9) Object.keys()
+ 
+	Object.keys() method and passing in an object as the argument. This will return an array with strings representing each property in 		the object. Again, there will be no specific order to the entries in the array.
+10) use combination of . [] (dot & bracket) notation along with for in loop and push to alter an object's value.
