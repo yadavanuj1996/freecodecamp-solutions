@@ -18,6 +18,7 @@
     
    The function call looks like:
    parseInt(string, radix);
+   Number.isInteger(numVariable); will return boolean 
 
 							
 							ES6
@@ -88,6 +89,8 @@ x = 3.14; // throws an error because x is not declared
 	console.log(array1.reduce(reducer));	// expected output: 10
 	// 5 + 1 + 2 + 3 + 4
 	console.log(array1.reduce(reducer, 5));	// expected output: 15
+
+	NOTE: all 3 functions mentioned in this point does not alter the original array.
 
 9) Setting default parameter for your function
 	function greeting(name = "Anonymous") {
@@ -394,3 +397,55 @@ x = 3.14; // throws an error because x is not declared
  
 	Object.keys() method and passing in an object as the argument. This will return an array with strings representing each property in 		the object. Again, there will be no specific order to the entries in the array.
 10) use combination of . [] (dot & bracket) notation along with for in loop and push to alter an object's value.
+
+						
+
+							Basic Algorithm Scripting
+
+
+1) string to array and applying logic on each element
+	var str = 'The quick brown fox jumps over the lazy dog.';
+
+	var words = str.split(' ');
+	console.log(words[3]);
+
+	console.log(Array.from('foo'));
+	// expected output: Array ["f", "o", "o"]
+
+	console.log(Array.from([1, 2, 3], x => x + x));
+	// expected output: Array [2, 4, 6]
+
+	str.substring(startIndex, lastIndex+1);
+
+2) to reverse a string	
+	stringVal.split('') will split the string into array elements
+	arr.reverse();		will reverse the value of array [1,2,3] becomes [3,2,1]
+	arr.join('');		will unite a array elements into a new string
+4) arr.find(functionName) (without () call)
+	both functions will find and return first element that satisfies functions condition or else will return undefined.
+	const findElement=(arr, func) =>  arr.find(func);
+	const findElement=(arr, func) => arr.map(func).indexOf(true)>-1 ?arr[arr.map(func).indexOf(true)] :undefined;
+
+	console.log(findElement([1, 20, 3, 5], num => num % 5 === 0));
+
+	We can search a element in array using indexOf() if indexOf() returns > -1 then items exist
+
+	
+5) Capitalize a sentence	
+	toUpperCase()
+	toLowerCase()
+	
+	const titleCase=(str) => str.split(' ').map(x=> x.charAt(0).toUpperCase()+x.substring(1).toLowerCase()).join(' ');
+	const titleCase=(str) => str.toLowerCase().replace(/(^|\s)\w/g, (L)=> L.toUpperCase());
+
+6) truthy and falsy values
+	All the values in JS are truthy except 6 values.
+	Only 6 falsy values are:-
+	a) undefined 
+	b) null
+	c) NaN 
+	d) false
+	e) 0
+	f) ""	
+	arr.filter(Boolean);
+	to filter all the boolean type values in hs array
