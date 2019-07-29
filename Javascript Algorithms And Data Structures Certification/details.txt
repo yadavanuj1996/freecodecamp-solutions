@@ -722,3 +722,99 @@ x = 3.14; // throws an error because x is not declared
 
 	motionModule.glideMixin(duck);
 	duck.glide();
+
+				
+
+							Functional Programming
+
+1)	Functional programming is about:
+
+	a) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
+
+	b) Pure functions - the same input always gives the same output
+
+	c) Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully 		controlled
+
+2)	Callbacks are the functions that are slipped or passed into another function to decide the invocation of that function. You may have 		seen them passed to other methods, for example in filter, the callback function tells JavaScript the criteria for how to filter an 		array.
+	
+	Functions that can be assigned to a variable, passed into another function, or returned from another function just like any other 		normal value, are called first class functions. In JavaScript, all functions are first class functions.
+
+	The functions that take a function as an argument, or return a function as a return value are called higher order functions.
+	ex:- filter,map,reduce
+
+	When the functions are passed in to another function or returned from another function, then those functions which gets passed in or 		returned can be called a lambda
+
+3)	To concat 1 arrays not using spread operator
+	 this.tabs = tabsBeforeIndex.concat(tabsAfterIndex);
+
+4)	Recall that in functional programming, changing or altering things is called mutation, and the outcome is called a side effect. A 		function, ideally, should be a pure function, meaning that it does not cause any side effects.
+	
+	One of the core principle of functional programming is to not change things. Changes lead to bugs. It's easier to prevent bugs knowing 		that your functions don't change anything, including the function arguments or any global var
+	
+	Avoid for loops in functional programming and use functions like map().
+
+5)	Another principle of functional programming is to always declare your dependencies explicitly. This means if a function depends on a 		variable or object being present, then pass that variable or object directly into the function as an argument.
+
+6)	Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+
+7)	// the global Array
+	var s = [23, 65, 98, 5];
+
+	Array.prototype.myFilter = function(callback){
+	  var newArray = [];
+	  // Add your code below this line
+	    this.forEach(x=>{
+	      if(callback(x)){
+		newArray.push(x);
+	      }
+	    });
+	  // Add your code above this line
+	  return newArray;
+
+	};
+
+	var new_s = s.myFilter(function(item){
+	  return item % 2 === 1;
+	});
+
+8)	var arr = [1, 2, 3];
+	arr.push([4, 5, 6]);
+	// arr is changed to [1, 2, 3, [4, 5, 6]]
+	// Not the functional programming way
+	Concat offers a way to add new items to the end of an array without any mutating side effects.
+
+9)	function ascendingOrder(arr) {
+	  return arr.sort(function(a, b) {
+	    return a - b;
+	  });
+	}
+	ascendingOrder([1, 5, 2, 3, 4]);
+	// Returns [1, 2, 3, 4, 5]
+
+	function reverseAlpha(arr) {
+	  return arr.sort(function(a, b) {
+	    return a < b;
+	  });
+	}
+	reverseAlpha(['l', 'h', 'z', 'b', 's']);
+	// Returns ['z', 's', 'l', 'h', 'b']
+10)	Use of replace() function is ill advised in functional programming as it changes the original string.
+11)	Use trim() to replace trailing whitespaces
+12) every() and some() function	
+	The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values 		meet the criteria, false if not.
+
+	For example, the following code would check if every element in the numbers array is less than 10:
+
+	var numbers = [1, 5, 8, 0, 10, 11];
+	numbers.every(function(currentValue) {
+	  return currentValue < 10;
+	});
+
+	For example, the following code would check if any element in the numbers array is less than 10:
+
+	var numbers = [10, 50, 8, 220, 110, 11];
+	numbers.some(function(currentValue) {
+	  return currentValue < 10;
+	});
+	// Returns true
+	// Returns false
