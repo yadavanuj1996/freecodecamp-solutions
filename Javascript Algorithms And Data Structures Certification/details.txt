@@ -14,6 +14,10 @@
    Math.floor is used to round off a number to nearest whole number
 	Math.floor(Math.random()*10) will generate single digit integer number between 0 and 10 (10 is exclusive)
 	Math.floor((Math.random()*(max-min+1))+min); will generate a random number between min and max (inclusive both).
+   Math.round()
+	Mat.floor() will always round down ie., it returns LESSER integer. While Math.round() will return the NEAREST integer
+
+For ex, round(2.8) = 3 but floor(2.8) = 2
 7) The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the 	number in the string. The radix can be an integer between 2 and 36.
     
    The function call looks like:
@@ -71,6 +75,7 @@ x = 3.14; // throws an error because x is not declared
 
 	// test your code
 	console.log(myConcat([1, 2], [3, 4, 5]));
+	concat can similarly be used on string
 
 8) filter(), map(), reduce()
 	
@@ -353,6 +358,7 @@ x = 3.14; // throws an error because x is not declared
 	let fixRegex = /good/; // Change this line
 	let replaceText = "okey-dokey"; // Change this line
 	let result = huhText.replace(fixRegex,replaceText);
+	replace() word does not alter the original string as string are inmutable in JS.
 
 								Basic Data Structures
 
@@ -425,11 +431,11 @@ x = 3.14; // throws an error because x is not declared
 	both functions will find and return first element that satisfies functions condition or else will return undefined.
 	const findElement=(arr, func) =>  arr.find(func);
 	const findElement=(arr, func) => arr.map(func).indexOf(true)>-1 ?arr[arr.map(func).indexOf(true)] :undefined;
-
+	
 	console.log(findElement([1, 20, 3, 5], num => num % 5 === 0));
 
 	We can search a element in array using indexOf() if indexOf() returns > -1 then items exist
-
+	arr.filter() will run for complete array while find stops at first time the condition is met. 
 	
 5) Capitalize a sentence			
 	toUpperCase()
@@ -470,6 +476,12 @@ x = 3.14; // throws an error because x is not declared
 	Constructors define properties and behaviors instead of returning a value as other functions might.
 
 	let blueBird = new Bird(); //create a object using new keyword with constructor
+
+	IMPORTANT POINT-
+	if you want to declare the variables inside constructor as private i.e., you don't want them to be accessed by outside functions 
+	you shall then not use this keyword and declare it like normal variable using var or let and make sure inside the constructor 
+	call the variable without this keyword.
+
 
 2) instanceof	to check objects constructor	 (o in instaceof is lowercase)
 	let Bird = function(name, color) {
@@ -757,7 +769,43 @@ x = 3.14; // throws an error because x is not declared
 
 6)	Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
 
-7)	// the global Array
+7)	The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N 		functions of arity 1.
+
+	In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and 		so on.
+
+	Here's an example:
+
+	//Un-curried function
+	function unCurried(x, y) {
+	  return x + y;
+	}
+
+	//Curried function
+	function curried(x) {
+	  return function(y) {
+	    return x + y;
+	  }
+	}
+	curried(1)(2) // Returns 3
+	This is useful in your program if you can't supply all the arguments to a function at one time. You can save each function call into a 		variable, which will hold the returned function reference that takes the next argument when it's available. Here's an example using 		the curried function in the example above:
+
+	// Call a curried function in parts:
+	var funcForY = curried(1);
+	console.log(funcForY(2)); // Prints 3
+	Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function 		that is applied to more arguments.
+
+	Here's an example:
+
+	//Impartial function
+	function impartial(x, y, z) {
+	  return x + y + z;
+	}
+	var partialFn = impartial.bind(this, 1, 2);
+	partialFn(10); // Returns 13
+
+						Intermediate Algorithm Scripting				
+
+1)	// the global Array
 	var s = [23, 65, 98, 5];
 
 	Array.prototype.myFilter = function(callback){
@@ -777,13 +825,13 @@ x = 3.14; // throws an error because x is not declared
 	  return item % 2 === 1;
 	});
 
-8)	var arr = [1, 2, 3];
+2)	var arr = [1, 2, 3];
 	arr.push([4, 5, 6]);
 	// arr is changed to [1, 2, 3, [4, 5, 6]]
 	// Not the functional programming way
 	Concat offers a way to add new items to the end of an array without any mutating side effects.
 
-9)	function ascendingOrder(arr) {
+3)	function ascendingOrder(arr) {
 	  return arr.sort(function(a, b) {
 	    return a - b;
 	  });
@@ -798,9 +846,9 @@ x = 3.14; // throws an error because x is not declared
 	}
 	reverseAlpha(['l', 'h', 'z', 'b', 's']);
 	// Returns ['z', 's', 'l', 'h', 'b']
-10)	Use of replace() function is ill advised in functional programming as it changes the original string.
-11)	Use trim() to replace trailing whitespaces
-12) every() and some() function	
+4)	Use of replace() function is ill advised in functional programming as it changes the original string.
+5)	Use trim() to replace trailing whitespaces
+6) every() and some() function	
 	The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values 		meet the criteria, false if not.
 
 	For example, the following code would check if every element in the numbers array is less than 10:
@@ -818,3 +866,46 @@ x = 3.14; // throws an error because x is not declared
 	});
 	// Returns true
 	// Returns false
+
+7) arr.findIndex()
+	to find first vowel index in string, works similar to arr.find() function exceot this function returns index instead of first 		satisfied value
+	 let firstVowelIndex=str.split('').findIndex(x=>{
+	    return /[aeiou]/i.test(x);
+	  });
+
+8) charCodeAt()
+	console.log("ABC".charCodeAt(0)); //65
+	String.fromCharCode(65); // 65	//Note: String keyword should come for each call to function
+
+9) includes() to search an element in array & string
+	var array1 = [1, 2, 3];
+
+	console.log(array1.includes(2));
+	// expected output: true
+
+	var pets = ['cat', 'dog', 'bat'];
+
+	console.log(pets.includes('at'));
+	// expected output: false
+
+10)	Math.sqrt(9) // 2
+	Math.PI		// to get pi value in js
+
+11) continue keyword
+	var text = "";
+
+	for (var i = 0; i < 10; i++) {
+	  if (i === 3) {
+	    continue;
+	  }
+	  text = text + i;
+	}
+
+	console.log(text);
+	// expected output: "012456789"
+
+12) Array.isArray();
+	Array.isArray([1, 2, 3]);  // true
+	Array.isArray({foo: 123}); // false
+	Array.isArray('foobar');   // false
+	Array.isArray(undefined);  // false
