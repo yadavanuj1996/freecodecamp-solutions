@@ -252,3 +252,33 @@
 	    // Add your code above this line
 	    
 	    const output = yScale(411); // Returns 30
+
+
+						JSON APIs and AJAX
+1) onclick event and DOMContentLoaded event
+ 	// event listener that will be triggered when the DOM will be loaded
+	document.addEventListener('DOMContentLoaded',function(){
+    		// onclick event listener
+   		document.getElementById('getMessage').onclick=function(){}; 
+  	});
+2) textContent property to change text 
+	document.getElementsByClassName('message')[0].textContent="Here is the message";
+
+3) AJAX Call (Asynchronous JavaScript and XML)
+	req=new XMLHttpRequest();
+	req.open("GET",'/json/cats.json',true);
+	req.send();
+	req.onload=function(){
+	  json=JSON.parse(req.responseText);
+	  document.getElementsByClassName('message')[0].innerHTML=JSON.stringify(json);
+	};
+4) AJAX POST request and sending data 
+	req=new XMLHttpRequest();
+	req.open("POST",url,true);
+	req.setRequestHeader('Content-Type','text/plain');
+	req.onreadystatechange=function(){
+	  if(req.readyState==4 && req.status==200){
+	    document.getElementsByClassName('message')[0].innerHTML=req.responseText;
+	  }
+	};
+	req.send(userName);
