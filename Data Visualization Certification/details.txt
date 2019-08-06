@@ -239,8 +239,8 @@
 21)	linking range and domain to actual input to actual space on web page
 
 	    const xScale = d3.scaleLinear()
-                    .domain([0, d3.max(dataset, (d) => d[0])])
-                    .range([padding, w - padding]);
+                    .domain([0, d3.max(dataset, (d) => d[0])])		// domain is input or input data
+                    .range([padding, w - padding]);			// range is output data
     
 	    // Add your code below this line
 	    
