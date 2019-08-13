@@ -220,7 +220,8 @@
 	scale(325) // Returns 323.37
 	scale(750) // Returns 807.67
 	d3.scaleLinear()
-
+		
+	NOTE: Remember ther is array in domain and range
 	Notice that the scale uses the linear relationship between the domain and range values to figure out what the output should be for a 		given number. The minimum value in the domain (50) maps to the minimum value (10) in the range.
 	
 20) d3.max() and d3.mind()	
@@ -253,7 +254,19 @@
 	    
 	    const output = yScale(411); // Returns 30
 
-
+22) add axes in charts
+	    const xAxis = d3.axisBottom(xScale);
+    	    svg.append("g")
+            .attr("transform", "translate(0," + (h -padding) + ")")
+            .call(xAxis);
+    
+    
+    	    const yAxis = d3.axisLeft(yScale);
+ 	    svg.append("g")
+   	    .attr("transform", "translate("+padding+",0)")
+    	    .call(yAxis);
+    
+    // Add your code above this line
 						JSON APIs and AJAX
 1) onclick event and DOMContentLoaded event
  	// event listener that will be triggered when the DOM will be loaded
@@ -282,3 +295,8 @@
 	  }
 	};
 	req.send(userName);
+
+
+					Useful tags for jsdocs 3 documentation
+
+1) @todo,@param,@return,@type,@author,@listens,@callback,@throws,@this,@see,@requires,@public,@protected,@private,@property,@function (if variable will have a value after a right hand side function call),@mixin,@typedef,@namespace,@global,@event,@listens,@fires,@generator,@external, {@link www.google.com|Google},@enum,@constant,@copyright,@constructor,@alias,@async

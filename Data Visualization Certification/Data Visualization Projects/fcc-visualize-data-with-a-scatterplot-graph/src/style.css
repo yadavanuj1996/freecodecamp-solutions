@@ -1,0 +1,32 @@
+h1{
+  text-align: center;
+}
+#tooltip{
+  position: absolute;
+  background-color: #e36f1c !important;
+  color: white;
+  font-size: 15px;
+  max-width: 200px;
+  border-radius: 2%;
+  padding: 5px;
+  border: 1px solid gray;
+	border-radius: 2px;
+	background-color: tan;
+}
+
+svg {
+	border: 1px solid gray;
+	position: relative;
+}
+
+/*#tooltip {
+	top: 0px;
+	left: 0px;
+	border: 1px solid gray;
+	border-radius: 2px;
+	padding: 4px;
+	background-color: tan;
+}*/
+#legend{
+  position:absolute;
+}
