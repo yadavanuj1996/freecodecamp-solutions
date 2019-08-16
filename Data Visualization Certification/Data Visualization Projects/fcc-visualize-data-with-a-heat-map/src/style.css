@@ -1,0 +1,22 @@
+h1,h3{
+  text-align: center;
+}
+#tooltip{
+  position: absolute;
+  background-color: #414141 !important;
+  color: white;
+  font-size: 15px;
+  max-width: 100px;
+  border-radius: 2%;
+  padding: 5px;
+  border: 1px solid gray;
+	border-radius: 2px;
+}
+
+svg {
+	position: relative;
+}
+svg2{
+  display: flex;
+  justify-content: center;
+}

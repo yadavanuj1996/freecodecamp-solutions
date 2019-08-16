@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 /** 
 *  The function will send ajax request to get cyclist dataset for cyclist data setclick 
-*  {@link https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-  data.json|Datasource}
+*  {@link https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json|Datasource}
 *  @external XMLHttpRequest
 *  @see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest 
 */
@@ -92,8 +92,11 @@ let loadDopingChart=(dopingDataset)=>{
   
            
 }
+/** Return chart height.*/
 const getChartHeight=()=>600;
+/** Return chart width.*/
 const getChartWidth=()=>1200;
+/** Return chart padding.*/
 const getChartPadding=()=>100;
 /** Add svg in body and return it.*/
 const loadSvg=(height,width)=>{
@@ -105,7 +108,7 @@ const loadSvg=(height,width)=>{
 /**
 *  This function will add circles equal to number of elements in dataset inside svg.
 *  @param {object} svg The svg element.
-*  @param {Array<object>} svg The svg element.
+*  @param {Array<object>} dataset The doping Dataset.
 *  @return {object} The svg element with number of cicles equal to number of elements in dataset. 
 */
 const addCirclesInSvg=(svg,dataset)=>{
@@ -188,4 +191,5 @@ let ySecondsScale=(dataset,height,padding)=>{
            .domain([d3.min(dataset,(d,i)=>d.Seconds),d3.max(dataset,(d,i)=>d.Seconds)])
            .range([padding,height-padding]);          
 };
+
 
