@@ -1,0 +1,21 @@
+h1,h3{
+  text-align:center;
+}
+#tooltip{
+  position: absolute;
+  background-color: #0cf3cd;
+  color: #ffffff;
+  font-size: 15px;
+  max-width: 200px;
+  border-radius: 2%;
+  padding: 5px;
+  border: 1px solid #0cf3cd;
+	border-radius: 2px;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
