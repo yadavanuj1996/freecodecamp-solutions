@@ -299,4 +299,7 @@
 
 					Useful tags for jsdocs 3 documentation
 
-1) @todo,@param,@return,@type,@author,@listens,@callback,@throws,@this,@see,@requires,@public,@protected,@private,@property,@function (if variable will have a value after a right hand side function call),@mixin,@typedef,@namespace,@global,@event,@listens,@fires,@generator,@external, {@link www.google.com|Google},@enum,@constant,@copyright,@constructor,@alias,@async
+1) @todo,@param,@return,@type,@author,@listens,@callback,@throws,@this,@see,@requires,@public,@protected,
+   @private,@property,@function (if variable will have a value after a right hand side function call),
+   @mixin,@typedef,@namespace,@global,@event,@listens,@fires,@generator,@external, 
+   {@link www.google.com|Google},@enum,@constant,@copyright,@constructor,@alias,@async
