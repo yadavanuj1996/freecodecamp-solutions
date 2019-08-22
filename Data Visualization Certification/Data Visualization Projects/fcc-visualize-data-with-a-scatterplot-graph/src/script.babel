@@ -1,97 +1,78 @@
 /** 
-*  @author Anuj Yadav <yadav.anuj.1996@gmail.com>
+*  @fileOverview Heat Map implementation for comapring Monthly Global Land-Surface Temperature
+*  across several years starting from 1753 to 2015 and with variation from the base temperature.
+*  The data is represented month wise across the years using D3.js library.
+*  @author Anuj Yadav
+*  @see Access Source Data {@link https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json|Datasource} 
+*  @see Other Charts {@link https://github.com/yadavanuj1996/D3.js-Charts|D3.js-Charts}
+*  @see Cod Pen {@link https://codepen.io/yadavanuj1996/pen/mdbVgGb|Codpen}
 */
 /** 
-*  This event listener will run on DOM loading and will call the getCyclistsData.
+*  Function listens to DOM loading and will will call getTemperatureData function on loading of DOM. 
+*  @function
+*  @name DOMContentLoadedFunction
 *  @listens DOMContentLoaded
 */
 document.addEventListener("DOMContentLoaded",()=>{
-  getCyclistData();
+  getTemperatureData();
 });
 /** 
-*  The function will send ajax request to get cyclist dataset for cyclist data setclick 
-*  {@link https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json|Datasource}
 *  @external XMLHttpRequest
 *  @see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest 
 */
-let getCyclistData= ()=>{
+/**
+*  The function will send ajax request to get temperature dataset, access the data set at 
+*  {@link https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json|Datasource}  
+*/
+let getTemperatureData= ()=>{
   let ajaxRequest=new XMLHttpRequest();
-  ajaxRequest.open("GET","https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json","true");
+  ajaxRequest.open("GET","https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json","true");
   ajaxRequest.send();
   ajaxRequest.onload=()=>{
     const responseData=ajaxRequest.responseText;
     const responseDatasetInJSON=JSON.parse(responseData);
-    loadDopingChart(responseDatasetInJSON);
+    loadTemperatureChart(responseDatasetInJSON);
   }
 }
 /** 
-*  This function will load the chart create svg add circles and display them on screen.
-*  @param {Array<Object>} dopingDataset The dataset for construcing the chart
+*  This function will load the chart after creating svg, adding circles and display them on screen.
+*  @param {Array<Object>} tempDataset The dataset for construcing the chart.
 */
-let loadDopingChart=(dopingDataset)=>{
+let loadTemperatureChart=(tempDataset)=>{
   const svgHeight=getChartHeight();
   const svgWidth=getChartWidth();
   const padding=getChartPadding();
-  const specifier="%M:%S";
-  const parsedData=getParsedData(dopingDataset,specifier);
-  
+  const baseTemperature=tempDataset.baseTemperature;
   let svg=loadSvg(svgHeight,svgWidth);
-  let legend=d3.select("body")
-      .append("div")
-      .attr("id","legend")
-      .attr("height",100)
-      .attr("width",100)
-      .attr("fill","red")
-      .style("left",`50px`)
-      .style("top", `100px`)
-      .html(`<div style="display:flex;font-size:13px;">
-              <div style="background-color:#5790C2;width:20px;height:20px;">
-              </div>
-              <div style="padding-left:10px;">Riders with doping allegations</div>
-             </div>
-             <div style="display:flex;padding-top:5px;font-size:13px;">
-              <div style="background-color:#FC813F;width:20px;height:20px;">
-              </div>
-              <div style="padding-left:10px;">No doping allegations</div>
-             </div>`);
-                   
-  let tooltip=d3.select("body")
-                 .append("div")
-                .attr("id","tooltip")
-                .style("opacity",0);
   
-  let circlesInSvg=addCirclesInSvg(svg,dopingDataset)
-      circlesInSvg.attr("cx",(d,i)=>xScale(dopingDataset,svgWidth,padding)(new Date(d.Year)))
-                  .attr("cy",(d,i)=>yScale(parsedData,svgHeight,padding)(d3.timeParse(specifier)(d.Time)))
-                  .attr("r",6)
-                  .attr("data-xvalue",(d)=>d.Year)
-                  .attr("data-yvalue",(d,i)=>d3.timeParse(specifier)(d.Time).toISOString())
-                  .attr("fill",(d,i)=>{
-                    if(d.Doping){
-                      return "#5790C2";
-                    }
-                    return "#FC813F";
-                  })
-                  .on("mouseover", (d)=> {
-                    tooltip.style("opacity", 1)
-                           .attr("data-year", d.Year)
-                           .html(`${d.Name}: ${d.Nationality}<br>
-                                  Year: ${d.Year} Time: ${d.Time}<br></br>${d.Doping}`)
-                           .style("left",`${20+xScale(dopingDataset,svgWidth,padding)(new Date(d.Year))}px`)
-                           .style("top", `${yScale(parsedData,svgHeight,padding)(d3.timeParse(specifier)(d.Time))}px`);
-                  })
-                  .on("mouseout",(d,i)=>{
-                    tooltip.style("opacity",0);
-                  });
-   
-  let xAxis=d3.axisBottom(xScale(dopingDataset,svgWidth,padding)).tickFormat(d3.format("d"));
+  let xAxis=d3.axisBottom(xScale(tempDataset,svgWidth,padding)).tickFormat(d3.format("d"));
   loadXAxis(svg,xAxis,svgHeight,padding);
   
-  let yAxis = d3.axisLeft(yScale(parsedData,svgHeight,padding)).tickFormat((d)=> d3.timeFormat(specifier)(d));
+  let yAxis = d3.axisLeft(yScale(tempDataset,svgHeight,padding)).tickFormat((d)=>convertMonthDigitToName(d));
   loadYAxis(svg,yAxis,padding);
   
-           
+  let tooltip=loadTooltip();
+  let rectanglesInSvg=addRectanglesInSvg(svg,tempDataset.monthlyVariance);
+  rectanglesInSvg.attr("class","cell")
+                 .attr("x",(d,i)=>xScale(tempDataset,svgWidth,padding)(d.year))
+                 .attr("y",(d,i)=>yScale(tempDataset,svgHeight,padding)(d.month-1))
+                 .attr("height",`${(svgHeight-2*padding)/12}px`)
+                 .attr("width","7px");
+  rectanglesInSvg=addCustomPropertiesInSvgRectangles(rectanglesInSvg,baseTemperature);
+  rectanglesInSvg=addMouseEventsInSvgRectangles(rectanglesInSvg,tooltip,tempDataset,svgHeight,svgWidth,padding,baseTemperature);  
+      
+  let legendSvg=loadSvg(100,300);
+  let legend=legendSvg.attr("id","legend")
+                      .style("float","right");
+  let legendTempRange=getLegendTempRange();
+  let rectanglesInLegendSvg=addRectanglesInSvg(legendSvg,legendTempRange);
+  rectanglesInLegendSvg.attr("x",(d,i)=>20*i)
+                       .attr("y",(d,i)=>20)
+                       .attr("height",(d,i)=>"20px")
+                       .attr("width",(d,i)=>"20px");
+  rectanglesInLegendSvg=addCustomPropertiesInLegendRectangles(rectanglesInLegendSvg);
 }
+
 /** Return chart height.*/
 const getChartHeight=()=>600;
 /** Return chart width.*/
@@ -104,28 +85,6 @@ const loadSvg=(height,width)=>{
            .append("svg")
            .attr("height",height)
            .attr("width",width);
-};
-/**
-*  This function will add circles equal to number of elements in dataset inside svg.
-*  @param {object} svg The svg element.
-*  @param {Array<object>} dataset The doping Dataset.
-*  @return {object} The svg element with number of cicles equal to number of elements in dataset. 
-*/
-const addCirclesInSvg=(svg,dataset)=>{
-  return svg.selectAll("circle")
-            .data(dataset)
-            .enter()
-            .append("circle")
-            .attr("class","dot");
-};
-/** Add labels in svg.*/
-const addLabelsOnCircles=(svg,dataset,fontSize)=>{
-  return svg.selectAll("text")
-            .data(dataset)
-            .enter()
-            .append("text")
-            .style("font-size",fontSize)
-            .text((d,i)=>`${d.Time}`);        
 };
 /** Load X axis for chart.*/
 const loadXAxis=(svg,xAxis,height,padding)=>{
@@ -141,55 +100,199 @@ const loadYAxis=(svg,yAxis,padding)=>{
       .attr("id","y-axis")
       .call(yAxis);
 };
-/** This will return array of Time(MM:SS) format after extracting it from dataset.*/
-const getParsedData=(dataset,specifier)=>{
-  return dataset.map((d)=> {
-      return d3.timeParse(specifier)(d.Time);
-  });
+/** Takes month number(1,2,3,...,11) to month name(jan,feb,mar,...,dec).*/
+const convertMonthDigitToName=(monthNumber)=>d3.timeFormat("%B")(new Date(0).setUTCMonth(monthNumber));
+/** Return tooltip that will show inforamtion about a rectangle when it is hovered.*/
+const loadTooltip=()=>{
+  return d3.select("body")
+           .append("div")
+           .attr("id","tooltip")
+           .style("opacity",0);
+};
+/**
+*  This function will add rectangles in svg equaling the number of elements in dataset.
+*  @param {object} svg The svg element.
+*  @param {Array<object>} dataset The doping Dataset.
+*  @return {object} The svg.selectAll("rect") element or all the rectangles inside svg element. 
+*/
+const addRectanglesInSvg=(svg,dataset)=>{
+  return svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect");
+};
+/** 
+*  This will add custom properties such as fill color and data attributes to the input rect
+*  elements and return reference of input param object with new added attributes.
+*  @function
+*  @param {object} rectanglesInSvg This will contain all the rectagles inside an svg, svg.selectAll("rect") element.
+*  @param {number} baseTemperature This is the base temperature of earth.
+*  @return {object} A object that will have all the attributes and values of input 
+*  svg rect elements and also newly added custom porperties. 
+*/
+const addCustomPropertiesInSvgRectangles=(rectanglesInSvg,baseTemperature)=>{
+  return rectanglesInSvg.attr("data-month",(d,i)=>d.month-1)
+                        .attr("data-year",(d,i)=>d.year)
+                        .attr("data-temp",(d,i)=>d.variance)
+                        .attr("fill",(d,i)=> {
+                          let temperature=getTemperatureFromVariance(baseTemperature,d.variance);
+                          return getTemperatureColor(temperature);                      
+                        });
+};
+/**
+*  This function will add mouse events like mouseover and mouseout to input recanglesInSvg 
+*  param (all rect elements in svg) and will show tooltip on mouseover and hide tooltip on 
+*  mouseout, the tooltip will reflect the data on hover of individual rectangle. 
+*  @function
+*  @param {object} rectanglesInSvg All the selected rect elements (rect is a svg element).
+*  @param {object} tooltip The tooltip is a object that is a div appended in body element.
+*  @param {object} datset The dataset object contains the json dataset that is used to construct
+*  the chart.
+*  @param {number} height Height of chart.
+*  @param {number} width Width of chart.
+*  @param {number} padding Padding of chart.
+*  @param {number} baseTemp Base temperature of earth.
+*/
+const addMouseEventsInSvgRectangles=(rectanglesInSvg,tooltip,datset,height,width,padding,baseTemp)=>{
+  return rectanglesInSvg.on("mouseover", (d,i)=> { 
+                              tooltip.style("opacity", 0.8)
+                                     .attr("data-year", d.year)
+                                     .html(`${d.year}-${convertMonthDigitToName(d.month-1)}
+                                            <br>${Math.floor(baseTemp+d.variance*100)/100}
+                                            <br>${d.variance}`)
+                               .style("left",`${15+xScale(datset,width,padding)(d.year)}px`)
+                               .style("top", `${60+yScale(datset,height,padding)(d.month-1)}px`)
+                               .style("text-align","center");
+                        })
+                        .on("mouseout",(d,i)=>{
+                               tooltip.style("opacity",0);
+                        });
 };
 /**
  * The Curried Function that will return interpolated value on x axis and will return 
- * function on first call then number value in second
- * @callback xScaleCallback 
+ * function on first call then number value in second, the xScale function is used 
+ * for getting the coordinate on x axis on basis of the year value and also used as
+ * callback in generating both axes i.e., x and y axis.
+ * @function
  * @param {Array<object>} dataset Dataset of all elements.
- * @param {number} padding Padding for chart inside svg.
- * @param {number} height Height for chart area.
  * @param {number} width Width for chart area.
- * @return {number} The interpolated value on that the point will be represented on chart
+ * @param {number} padding Padding for chart inside svg.
+ * @return {number} The interpolated value that will be represented on the chart corresponding to x-axis.
  */
-let xScale=(dataset,width,padding)=>{
-  return d3.scaleTime()
-           .domain([d3.min(dataset,(d,i)=>new Date(d.Year-1)),d3.max(dataset,(d,i)=>new Date(d.Year+1))])
+const xScale=(dataset,width,padding)=>{
+  return d3.scaleLinear()
+           .domain([d3.min(dataset.monthlyVariance,(d,i)=>d.year),d3.max(dataset.monthlyVariance,(d,i)=>d.year)])
            .range([padding,width-padding]);          
 };
 /**
  * The Curried Function that will return interpolated value on y axis and return 
  * function in first call then number value in second
- * @callback yScaleCallback 
+ * @function 
  * @param {Array<object>} dataset Dataset of all elements.
  * @param {number} height Height for chart area.
  * @param {number} padding Padding for chart inside svg.
- * @return {number} The interpolated value on that the point will be represented on chart
+ * @return {number} The interpolated value that will be represented on the chart corresponding to y-axis.
  */
-let yScale=(parsedData,height,padding)=>{
-  return d3.scaleTime()
-           .domain(d3.extent(parsedData))
-           .range([padding,height-padding])
-            .nice();
-};
-/**
- * The Curried Function that will return interpolated value on y axis and return 
- * function in first call then number value in second
- * @callback yScaleSecondsCallback 
- * @param {Array<object>} dataset Dataset of all elements.
- * @param {number} height Height for chart area.
- * @param {number} padding Padding for chart inside svg.
- * @return {number} The interpolated value on that the point will be represented on chart
- */
-let ySecondsScale=(dataset,height,padding)=>{
-  return d3.scaleTime()
-           .domain([d3.min(dataset,(d,i)=>d.Seconds),d3.max(dataset,(d,i)=>d.Seconds)])
+const yScale=(dataset,height,padding)=>{
+  return d3.scaleBand()
+           .domain([0,1,2,3,4,5,6,7,8,9,10,11])
            .range([padding,height-padding]);          
 };
-
+/** 
+*  This will add the baseTemperature & variance and will return the value,
+*  the variance can be both negative or positive so the net sum or difference
+*  value will be returned.
+*  @param {number} baseTemperature The base temperature of earth.
+*  @param {number} variance The variance in this month's temperature.
+*  @return {number} The sum of base temperature and variance.
+*/
+const getTemperatureFromVariance=(baseTemperature,variance)=> baseTemperature + variance;
+/**
+*  This function will get the temperature value as input parameter and return the color 
+*  corresponding to the temperature range.
+*  @function
+*  @param {number} temperatureValue Value of temperature.
+*/
+const getTemperatureColor=(temperatureValue)=>{
+   let colorRange=getLegendColorRange();
+   if(temperatureValue < 2.8)
+     return colorRange[0];
+   else if(temperatureValue < 3.9)
+     return colorRange[1];
+   else if(temperatureValue < 5.0)
+     return colorRange[2];
+   else if(temperatureValue < 6.1)
+     return colorRange[3];
+   else if(temperatureValue < 7.2)
+     return colorRange[4];
+   else if(temperatureValue < 8.3)
+     return colorRange[5];
+   else if(temperatureValue < 9.5)
+     return colorRange[6];
+   else if(temperatureValue < 10.6)
+     return colorRange[7];
+   else if(temperatureValue < 11.7)
+     return colorRange[8];
+   else if(temperatureValue < 12.8)
+     return colorRange[9];
+   else
+     return colorRange[10];
+};
+/** Return temperature range.*/
+const getLegendTempRange=()=>{
+  return ["<2.8","<3.9","<5.0","<6.1","<7.2","<8.3","<9.5","<10.6","<11.7","<12.8",">12.8"];
+};
+/** Return the color range corresponding to the temperature ranges.*/
+const getLegendColorRange=()=>{
+  return ["#344595","#4575B4","#74ADD1","#ABD9E9","#E0F3F8","#FDF4BF","#FEE090","#FDAE61","#F46D43","#D73836","#A52A27"];
+};
+/** Add custom properties to all the rect elements of legend svg element. */
+const addCustomPropertiesInLegendRectangles=(legendSvgRectangles)=>{
+  let colorData=getLegendColorRange();
+  return legendSvgRectangles.attr("fill",(d,i)=> colorData[i])
+        .append("title")
+        .text((d,i)=>d)
+};
+/** 
+*  Return legend html, this is other way of generating the legend section.This is 
+*  alternate way of generating the section, comment other one and append it so 
+*  this gets visible.
+*/
+let getLegendHTML=()=>{
+  return `<div style="display:flex;justify-content:center;align-items:center;font-size:13px;">
+              <div style="background-color:#344595;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"> <2.8 </div>
+              <div style="background-color:#4575B4;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"> <3.9 </div>
+              <div style="background-color:#74ADD1;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><5.0</div>
+              <div style="background-color:#ABD9E9;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><6.1</div>
+              <div style="background-color:#E0F3F8;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><7.2</div>
+              <div style="background-color:#FDF4BF;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><8.3</div>
+              <div style="background-color:#FEE090;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><9.5</div>
+              <div style="background-color:#FDAE61;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><10.6</div>
+              <div style="background-color:#F46D43;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"><11.7</div>
+              <div style="background-color:#D73836;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;padding-right:10px;"> < 12.8</div>
+              <div style="background-color:#A52A27;width:20px;height:20px;">
+              </div>
+              <div style="padding-left:10px;"> >12.8</div>
+             </div>`;
+}
 
