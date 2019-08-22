@@ -1,5 +1,11 @@
 /** 
-*  @author Anuj Yadav <yadav.anuj.1996@gmail.com>
+*  @fileOverview Heat Map implementation for comapring international professional cyclists across 
+*  several years and with information about the doping allegations on them, the scatter plot is created 
+*  using D3.js library.
+*  @author Anuj Yadav
+*  @see Access Source Data {@link https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json|Datasource} 
+*  @see Other Charts {@link https://github.com/yadavanuj1996/D3.js-Charts|Other D3.js-Charts}
+*  @see Cod Pen {@link https://codepen.io/yadavanuj1996/pen/PMQEeW|Codpen}
 */
 /** 
 *  This event listener will run on DOM loading and will call the getTemperatureData function.
@@ -29,7 +35,6 @@ let getTemperatureData= ()=>{
 *  @param {Array<Object>} tempDataset The dataset for construcing the chart
 */
 let loadTemperatureChart=(tempDataset)=>{
- // alert(JSON.stringify(tempDataset));
   const svgHeight=getChartHeight();
   const svgWidth=getChartWidth();
   const padding=getChartPadding();
@@ -54,7 +59,10 @@ let loadTemperatureChart=(tempDataset)=>{
   
   let rectanglesInSvg=addRectanglesInSvg(svg,tempDataset);
       rectanglesInSvg.attr("x",(d,i)=>xScale(tempDataset,svgWidth,padding)(d.year))
-                     .attr("y",(d,i)=>yScale(tempDataset,svgHeight,padding)(d.month-1))
+                     .attr("y",(d,i)=>{
+                        console.log(`${yScale(tempDataset,svgHeight,padding)(d.month-1)} ${ JSON.stringify(d)}`);
+                        return yScale(tempDataset,svgHeight,padding)(d.month-1);
+                     })
                      .attr("height",`${(svgHeight-2*padding)/12}px`)
                      .attr("width","7px")
                      .attr("data-month",(d,i)=>d.month-1)
@@ -67,7 +75,7 @@ let loadTemperatureChart=(tempDataset)=>{
                      .on("mouseover", (d,i)=> { //alert(JSON.stringify(d.year));
                         tooltip.style("opacity", 0.8)
                                .attr("data-year", d.year)
-                               .html(`${d.year}-${convertMonthDigitToName(d.month)}<br>${Math.floor(baseTemperature+d.variance*100)/100}<br>${d.variance}`)
+                               .html(`${d.year}-${convertMonthDigitToName(d.month-1)}<br>${Math.floor(baseTemperature+d.variance*100)/100}<br>${d.variance}`)
                                .style("left",`${15+xScale(tempDataset,svgWidth,padding)(d.year)}px`)
                                .style("top", `${60+yScale(tempDataset,svgHeight,padding)(d.month-1)}px`)
                                .style("text-align","center");
