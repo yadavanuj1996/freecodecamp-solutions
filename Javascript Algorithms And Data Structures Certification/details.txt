@@ -9,16 +9,17 @@
 	a) when the property is created or added on the fly and not been defined in the first assignment.
 	b) when the key contains space 
 	c) The key name is stored in a variable.
-5) jsonObj.hasOwnProperty check in javascript object whether such key is presenet or not in object.
+5) jsonObj.hasOwnProperty check in javascript object whether such key is present or not in object.
 6) Math.random() generate a floating number between 0 and 1 excluding 1.
    Math.floor is used to round off a number to nearest whole number
 	Math.floor(Math.random()*10) will generate single digit integer number between 0 and 10 (10 is exclusive)
 	Math.floor((Math.random()*(max-min+1))+min); will generate a random number between min and max (inclusive both).
    Math.round()
-	Mat.floor() will always round down ie., it returns LESSER integer. While Math.round() will return the NEAREST integer
+	Math.floor() will always round down ie., it returns LESSER integer. While Math.round() will return the NEAREST integer
 
 For ex, round(2.8) = 3 but floor(2.8) = 2
-7) The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the 	number in the string. The radix can be an integer between 2 and 36.
+7) The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base
+of the 	number in the string. The radix can be an integer between 2 and 36.
     
    The function call looks like:
    parseInt(string, radix);
@@ -27,7 +28,8 @@ For ex, round(2.8) = 3 but floor(2.8) = 2
 							
 							ES6
 
-1) ECMAScript is a standardized version of JavaScript with the goal of unifying the language's specifications and features. As all major browsers and JavaScript-runtimes follow this specification, the term ECMAScript is interchangeable with the term JavaScript.
+1) ECMAScript is a standardized version of JavaScript with the goal of unifying the language's specifications and features. As all
+major browsers and JavaScript-runtimes follow this specification, the term ECMAScript is interchangeable with the term JavaScript.
 
 2) let camper = 'James';
    let camper = 'David'; // throws an error
@@ -122,7 +124,8 @@ x = 3.14; // throws an error because x is not declared
 	  tomorrow: { min: 73.3, max: 84.6 }
 	};
 
-	const {tomorrow: {max: maxOfTomorrow}} = forecast;  // 84.6
+	const {tomorrow: {max: maxOfTomorrow}} = forecast;  
+	console.log(maxOfTomorrow); // 84.6
 13) const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
     console.log(a, b, c); // 1, 2, 5
 
