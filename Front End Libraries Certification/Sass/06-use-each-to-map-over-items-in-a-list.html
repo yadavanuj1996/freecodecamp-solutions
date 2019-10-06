@@ -1,0 +1,25 @@
+<style type='text/sass'>
+     // list solution
+    @each $color in blue,black,red{
+        .#{$color}-bg{
+            background-color: $color;
+        }
+    }
+    
+    $colorChoices: (color1:blue, color2: black,color3: red);
+    // map solution
+    @each $key,$color in $colorChoices {
+        .#{$color}-bg{
+            background-color: $color;
+        }
+    }
+
+  div {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div class="blue-bg"></div>
+<div class="black-bg"></div>
+<div class="red-bg"></div>

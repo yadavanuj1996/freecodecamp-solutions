@@ -25,3 +25,166 @@
 	$(".target:even").addClass("animated shake");
 12) To Select body and add class to whole html
     $("body").addClass("animated hinge");
+	
+	
+											Sass
+											
+1) Sass stands for Syntactically Awesome Style Sheet and the file extension used is .scss
+	NOTE: double quotes and single quotes are not used in Sass.
+2) $var-name Declare a variable (using $ sign just like PHP)
+	<style type='text/sass'>
+		$text-color: red;
+	</style>
+3) Nesting is possible
+	.blog-post {
+		h1{
+		  text-align: center;
+		  color: blue;
+		}
+		p{
+		  font-size: 20px;
+		}
+	}
+	
+	insted of traditional .blog-post h1{} and .blog-post p{} 
+4) @mixin (they are like functions for Sass) write code once and execute it multiple times
+	Keywords: @mixin and @include
+	@mixin border-radius($radius){
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+		box-border-radius: $radius;
+	}
+	
+	#awesome {
+		width: 150px;
+		height: 150px;
+		background-color: green;
+		@include border-radius(15px);
+	}
+  
+5)  @if @else in Sass
+	NOTE: In `@else if`  the if will not be succeded by @ and the if else in Sass does not permit 
+	() bracket notation like in other Programming languages.
+	
+	@mixin border-stroke($val){
+		@if $val==light{
+		  border: 1px solid black;
+		}
+		@else if $val==heavy{
+		  border: 6px solid black;
+		}
+		@else {
+		  border:none;
+		}
+	}
+	#box {
+		@include border-stroke(heavy);
+	}
+6) @for loop
+	NOTE: The for does not follow bracket notation ( or ) like js on using variable name for html elements
+	or class or id  #{$i} should be used for appending text while using inside the class or id we cannot
+	use the $i value for forming or appending the text .
+	Two variations of @for are present
+	
+	@for $i from 1 to 5  		(iteration over  1,2,3,4,5) 
+	@for $i from 1 through 6    (i value will be 1,2,3,4,5,6)
+	
+	<style type='text/sass'>
+	  @for $i from 1 to 6 {
+		.text-#{$i}{
+		  font-size: 10px * $i;
+		}
+	  }
+	</style>
+
+	<p class="text-1">Hello</p>
+	<p class="text-2">Hello</p>
+	<p class="text-3">Hello</p>
+	<p class="text-4">Hello</p>
+	<p class="text-5">Hello</p>
+	
+7) @each used for iterating over a list or map
+	TO fill background color using the @each 
+	NOTE: In map solution $key,$color is used because if we will not use $key the $color will have
+	values as color1,color2,color3 in each successive iteration
+	
+	<style type='text/sass'>
+		 // list solution
+		@each $color in blue,black,red{
+			.#{$color}-bg{
+				background-color: $color;
+			}
+		}
+		
+		$colorChoices: (color1:blue, color2: black,color3: red);
+		// map solution
+		@each $key,$color in $colorChoices {
+			.#{$color}-bg{
+				background-color: $color;
+			}
+		}
+
+	  div {
+		height: 200px;
+		width: 200px;
+	  }
+	</style>
+
+	<div class="blue-bg"></div>
+	<div class="black-bg"></div>
+	<div class="red-bg"></div>
+
+8) @while loop
+	<style type='text/sass'>
+	  $i: 1;
+
+	  @while $i < 5{
+		.text-#{$i}{
+			font-size: 5px * $i;
+		}
+		$i: $i+1;
+	  }
+	  
+	</style>
+
+	<p class="text-1">Hello</p>
+	<p class="text-2">Hello</p>
+	<p class="text-3">Hello</p>
+	<p class="text-4">Hello</p>
+
+9) Partials 
+	NOTE: _ is not used in main scss file but the partial name should start from _ (unders)
+	(ex: _variables.scss)
+	
+	Partials in Sass are separate files that hold segments of CSS code. These are imported and 
+	used in other Sass files. This is a great way to group similar code into a module to keep
+	it organized.Names for partialsstart with the underscore (_) character, which tells Sass it
+	is a small segment of CSS and not to convert it into a CSS file. Also, Sass files end with
+	the .scssfile extension. To bring the code in the partialinto another Sass file, use the
+	@import directive.
+	For example, if all your mixinsare saved in a partialnamed "_mixins.scss", and they are needed
+	in the "main.scss" file, this is how to use them in the main file:
+
+	// In the main.scss file
+	@import 'mixins'
+10) @extend , to extend properties of one class or id to another	
+	<style type='text/sass'>
+	  .info{
+		width: 200px;
+		border: 1px solid black;
+		margin: 0 auto;
+	  }
+	  .info-important{
+		@extend .info;
+		background-color: magenta;
+	  }
+	  
+	</style>
+	<div class="info-important">
+	  <p>This is an important post.</p>
+	</div>
+
+	<div class="info">
+	  <p>This is a simple post.</p>
+	</div>
