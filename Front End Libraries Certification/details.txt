@@ -188,3 +188,111 @@
 	<div class="info">
 	  <p>This is a simple post.</p>
 	</div>
+	
+	
+												React
+												
+1) Babel is used to convert JSX to JS ,JSX is extension of JS which has both html and js code in it.
+2) Declaring JSX element
+	const JSX = <h1>Hello JSX!</h1>;
+3) Comments in JSX
+	
+	const JSX = (
+	  <div>
+	  {/* Comment */}
+		<h1>This is a block of JSX</h1>
+		<p>Here's a subtitle</p>
+	  </div>
+	);
+4) Render HTML elements in DOM ReactDOM.render(componentToRender, targetNode);
+	const JSX = (
+	  <div>
+		<h1>Hello World</h1>
+		<p>Lets render this to the DOM</p>
+	  </div>
+	);
+	// change code below this line
+
+	ReactDOM.render(JSX,document.getElementById("challenge-node"));
+5) 	The naming convention for all HTML attributes and event references in JSX become camelCase.
+	class becomes className
+	For example, a click event in JSX is onClick, instead of onclick. Likewise, onchangebecomes onChange
+6) Define React Component
+	i) Stateless function component
+		const MyComponent = ()=> (<div>Beyonce Halo</div>);
+	ii) ES6 Way 
+	class MyComponent extends React.Component {
+		constructor(props) {
+		  super(props);
+		}
+		render() {
+		  return (
+			<div>
+			  <h1>Hello React!</h1>
+			</div>
+		  );
+		}
+	  };
+7)	Function name starts with Capital letter in React (😝)
+
+8) 3 Concepts are explained in this example:
+	i)  Componenet Nesting: A component can be nested in another component and can 
+		be rendered using <componentName /> 
+	    syntax (self closing tag syntax).
+	ii) Component Nesting Chains: A component who has a child component can itself
+		be further used in other component making a chain of nesting components.
+	iii) ES6 Component Nesting : A ES6 component defined using class syntax can also
+		 be nested in a similar manner as to the stateless components.
+	
+	const GrandChildComponent = () => {
+		return (
+		  <div>
+			<p>I am the Grand Child</p>
+		  </div>
+		);
+	  };
+	  
+	const ChildComponent = () => {
+		return (
+		  <div>
+			<GrandChildComponent />   {/* Nesting a component into another component that will*/}
+			<p>I am the child</p>     {/* further be nested  in some another component. */}
+		  </div>
+		);
+	  };
+	  
+	  class ParentComponent {
+		constructor(props) {
+		  super(props);
+		}
+		render() {
+		  return (
+			<div>
+			  <h1>I am the Parent</h1>
+			  <ChildComponent />		{/* Calling child component */}
+			</div>
+		  );
+		}
+	  };
+	  
+	  class GrandParentComponent extends React.Component {
+		constructor(props) {
+		  super(props);
+		}
+		render() {
+		  return (
+			<div>
+			  <h1>I am the Grand Parent</h1>
+			  <ParentComponent />		{/* Calling Parent component */}
+			</div>
+		  );
+		}
+	  };
+	  
+9)  ReactDOM.render(componentToLoad,targetNode) is executed in 2 ways:   
+	i)  JSX Element (Loading)
+		  const JSX=("<div><h1>JSX </h1></div>");
+		  ReactDOM.render(JSX,document.getElementById("challenge-node"));  
+	ii) Component(Loading)
+		  ReactDOM.render(<MyComponent />,document.getElementById("challenge-node"));
+		
