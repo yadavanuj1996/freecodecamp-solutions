@@ -291,8 +291,230 @@
 	  
 9)  ReactDOM.render(componentToLoad,targetNode) is executed in 2 ways:   
 	i)  JSX Element (Loading)
-		  const JSX=("<div><h1>JSX </h1></div>");
+		  const JSX=("<div><h1>JSX</h1></div>");
 		  ReactDOM.render(JSX,document.getElementById("challenge-node"));  
 	ii) Component(Loading)
 		  ReactDOM.render(<MyComponent />,document.getElementById("challenge-node"));
+
+10) Props (5 concepts)
+	NOTE: While passing value to props from JSX return we put the value part inside {}.
+	i) Passing props to stateless functional component
+	
+	const CurrentDate = (props) => {
+	  return (
+		<div>
+		  {props.user}
+		  <p>The current date is: {props.date}</p>
+		</div>
+	  );
+	};
+
+	class Calendar extends React.Component {
+	  constructor(props) {
+		super(props);
+	  }
+	  render() {
+		return (
+		  <div>
+			<h3>What date is it?</h3>
+			<CurrentDate date={Date()} />
+		  </div>
+		);
+	  }
+	};
+	
+	ii) Array in props 
+		functional component
+		return <p>{props.tasks.join(", ")}</p>
 		
+		React component
+		<List  tasks={["read", "workout","Code"]} />
+	
+	iii) Default props
+	
+		const ShoppingCart = (props) => {
+			return (
+			  <div>
+				<h1>Shopping Cart Component</h1>
+			  </div>
+			)
+		};
+		 // change code below this line
+		 ShoppingCart.defaultProps={items: 0};
+	
+	iv) Override default props
+		const Items = (props) => {
+			return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+		}
+		  
+		Items.defaultProps = {
+			quantity: 0
+		}
+		  
+		class ShoppingCart extends React.Component {
+			constructor(props) {
+			  super(props);
+			}
+			render() {
+			  return <Items quantity={10} />
+			}
+		};
+	
+	v) Define TYPE of prop
+		const Items = (props) => {
+			return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+		};
+		  
+		Items.defaultProps = {
+			quantity: 0
+		};
+		  
+		Items.propTypes={
+			quantity: PropTypes.number.isRequired
+		};
+		
+11) A stateless functional component is any function you write which accepts props and returns JSX.
+	A stateless component, on the other hand, is a class that extends React.Component, but does not use 
+	internal state (covered in the next challenge). Finally, a stateful component is any component that
+	does maintain its own internal state. You may see stateful components referred to simply as components
+	or React components.
+
+12) Using props inside React ES6 (class) component
+	NOTE: using `this` keyword ,the same is not needed for stateless functional component
+	class ReturnTempPassword extends React.Component {
+		constructor(props) {
+		  super(props);
+		}
+		render() {
+		  return (
+			<p>Your temporary password is: <strong>{this.props.tempPassword}</strong></p>
+		  );
+		}
+	};
+
+13)	Using props with stateless function
+	const Camper=(props)=>(<p>{props.name}</p>);
+	Camper.defaultProps={
+		name:'CamperBot'
+	};
+	  
+	Camper.propTypes={
+		name: PropTypes.string.isRequired
+	};
+14) Creating Stateful component
+	We can also use variables that can be declared in render method , we can
+	define variable and functions in render method outside of return.
+	class StatefulComponent extends React.Component {
+		constructor(props) {
+		  super(props);
+		  // initialize state here
+		  this.state={
+			name:'Anuj'
+		  }
+		}
+		render() {
+		  return (
+			<div>
+			  <h1>{this.state.name}</h1> {/* Use of state */}
+			</div>
+		  );
+		}
+	  };
+
+15) setState and bind
+	The setState is used to update the state of stateful component and bind is used to link `this`
+	to class method that refrences class in this case to other methods of class (NOTE: class is just syntactic sugar
+	in JS).
+	
+	class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: 'Initial State'
+      };
+      this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick() {
+      // change code below this line
+      this.setState({name:'React Rocks!'});
+      // change code above this line
+    }
+    render() {
+      return (
+        <div>
+          <button onClick={this.handleClick}>Click Me</button>
+          <h1>{this.state.name}</h1>
+        </div>
+      );
+    }
+  };
+  
+16) User Events 
+	
+	i)Button onClick
+	In JSX
+	<button onClick={this.toggleVisibility}>Click Me</button>
+	
+	Class method (outside render)
+	toggleVisibility(){
+      if(this.state.visibility)
+        this.setState({visibility:false});
+      else
+        this.setState({visibility:true});
+    }
+	
+	ii) Reading input text on any change
+	event.target.value will return the value of input text field at time of 
+	submission.
+	
+	In JSX
+	<input type="text" value={this.state.input} onChange={this.handleChanges} />
+	<h4>Controlled Input:</h4>
+      <p>{this.state.input}</p>
+		  
+	Class method (outside render)
+	handleChanges(event){
+      this.setState({input: event.target.value});
+    }
+	
+	iii) Handling Form submission events
+		In JSX (NOTE: form tag has onSubmit)
+		<form onSubmit={this.handleSubmit}>
+            <input type="text" value={this.state.input} onChange={this.handleChange} />
+            <button type='submit' >Submit!</button>
+        </form>
+			  
+		Class method (outside render)
+		handleSubmit(event) {
+		  this.setState({
+			submit: this.state.input
+		  });
+		}
+ 
+17) Props are used so that if only particular data of state has to be passed to a child component
+	we can send as props instead of sending access to whole state. (React has unidirectional data
+	flow).
+	
+18) React Hooks
+	componentWillMount()
+
+	componentDidMount()
+
+	componentWillReceiveProps()
+
+	shouldComponentUpdate()
+
+	componentWillUpdate()
+
+	componentDidUpdate()
+
+	componentWillUnmount()
+	
+19) Most web developers, at some point, need to call an API endpoint to retrieve data. If you're
+	working with React, it's important to know where to perform this action.
+	
+	The best practice with React is to place API calls or any calls to your server in the
+	lifecycle method componentDidMount().
+	
+	The componentDidMount()method is also the best place to attach any event listeners you 
+	need to add for specific functionality
