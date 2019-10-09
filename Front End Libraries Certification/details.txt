@@ -496,13 +496,16 @@
 	flow).
 	
 18) React Hooks
-	componentWillMount()
+	componentWillMount()  -Run during the only time before component loads into DOM
+	
+	componentDidMount()   -After first time the component is loaded into DOM
 
-	componentDidMount()
+	componentWillReceiveProps()		- Instead of updating on everytime new props will come using this 
+									  function will improve performace as we can check whether the new
+									  input props are different or not.
 
-	componentWillReceiveProps()
-
-	shouldComponentUpdate()
+	shouldComponentUpdate()			- returns true or false on the basis the DOM is reloaded or not using
+									  if else decide whether we want the DOM to reload or not.
 
 	componentWillUpdate()
 
@@ -518,3 +521,187 @@
 	
 	The componentDidMount()method is also the best place to attach any event listeners you 
 	need to add for specific functionality
+	
+	Event listeners added via React
+	componentDidMount() {
+      document.addEventListener("keydown",this.handleKeyPress);
+    }
+    componentWillUnmount() {
+      document.removeEventListener("keydown",this.handleKeyPress);
+    }
+	
+20) We can pass callback as props
+	handleChange(event) {
+      this.setState({
+        inputValue: event.target.value
+      });
+    }
+    render() {
+      return (
+         <div>
+          { /* change code below this line */ }
+          <GetInput input={this.state.inputValue} handleChange={this.handleChange} />
+          <RenderInput input={this.state.inputValue} />
+          { /* change code above this line */ }
+         </div>
+      );
+    }
+
+	  
+	  class GetInput extends React.Component {
+		constructor(props) {
+		  super(props);
+		}
+		render() {
+		  return (
+			<div>
+			  <h3>Get Input:</h3>
+			  <input
+				value={this.props.input}
+				onChange={this.props.handleChange}/>
+			</div>
+		  );
+		}
+	  };
+
+21) Inline styles
+	
+	class Colorful extends React.Component {
+		render() {
+		  const textStyle={color:"yellow",fontSize:20};
+		  return (
+			<div style={{color:"red",fontSize: "72px"}}>Big Red</div>
+			<p style={textStyle}>Text Paragraph</p>
+		  );
+		}
+	};
+	
+	The camelCase convention is used instead of hyphen and js object has to be passed to style
+	attribute the key-> value value's should be in quotes ('' or "") and if fontSize is in numbers
+	it is default taken as px.
+	
+22) Conditional Opearators in render() method
+
+	i) if else:-
+	 render() {
+      // change code below this line
+      if(this.state.display){
+        return (
+         <div>
+           <button onClick={this.toggleDisplay}>Toggle Display</button>
+           <h1>Displayed!</h1>
+         </div>
+      );
+      }
+      else{
+        return (
+         <div>
+           <button onClick={this.toggleDisplay}>Toggle Display</button>
+         </div>
+      );
+      }
+      
+    }
+	
+	ii) && operator this.state.display should return true for display 
+	render() {
+      // change code below this line
+      return (
+         <div>
+           <button onClick={this.toggleDisplay}>Toggle Display</button>
+           {this.state.display && <h1>Displayed!</h1>}
+         </div>
+      );
+    }
+	
+	iii) ? : (ternary operator)
+	 render() {
+      const buttonOne = <button onClick={this.submit}>Submit</button>;
+      const buttonTwo = <button>You May Enter</button>;
+      const buttonThree = <button>You Shall Not Pass</button>;
+      return (
+        <div>
+          <h3>Enter Your Age to Continue</h3>
+          <input
+            style={inputStyle}
+            type="number"
+            value={this.state.input}
+            onChange={this.handleChange} /><br />
+          {this.state.userAge==='' && buttonOne}
+          {this.state.userAge!=='' && (this.state.userAge<18?buttonThree:buttonTwo)}
+        </div>
+      );
+    }
+
+23) Using map to display list items (li) to dynamically render elements. 
+	render() {
+      const items = this.state.toDoList.map((element)=>{
+        return (<li>{element}</li>);
+      }); 
+      return (
+        <div>
+          <textarea
+            onChange={this.handleChange}
+            value={this.state.userInput}
+            style={textAreaStyles}
+            placeholder="Separate Items With Commas" /><br />
+          <button onClick={this.handleSubmit}>Create List</button>
+          <h1>My "To Do" List:</h1>
+          <ul>
+            {items}
+          </ul>
+        </div>
+      );
+    }
+
+24) Providing unique key 
+	function Frameworks() {
+		const renderFrameworks = frontEndFrameworks.map((element)=>{
+		  return <li key={element}>{element}</li>;
+		});
+		return (
+		  <div>
+			<h1>Popular Front End JavaScript Frameworks</h1>
+			<ul>
+			  {renderFrameworks}
+			</ul>
+		  </div>
+		);
+  }
+  
+25) Rendering React on server
+	React is rendered on server because as we load our normal html at load time and then
+	add eventListeners and data fetching from happend during componentDidMount() lifecycle 
+	hook that makes our page mostly of html during first and load and the Search engines
+	cannot find much useful content to list our page so we render our react on server
+	and then the server sends complete page to client (much like JSP).
+	
+	class App extends React.Component {
+		constructor(props) {
+		  super(props);
+		}
+		render() {
+		  return <div/>
+		}
+	};
+  
+  // change code below this line
+   ReactDOMServer.renderToString(<App />);
+   
+											
+												Redux
+												
+1)	A reducer takes state and action as arguments, and it always returns a new state. It is
+	important to see that this is the only role of the reducer. It has no side effects — it
+	never calls an API endpoint and it never has any hidden surprises. The reducer is simply 
+	a pure function that takes state and action, then returns new state.
+
+2)  Another key principle in Redux is that stateis read-only. In other words, the reducer
+	function must always return a new copy of stateand never modify state directly.
+	
+3)  If you took a snapshot of the state of a Redux app over time, you would see something
+	like state 1, state 2, state 3,state 4, ...and so on where each state may be similar to the 
+	last, but each is a distinct piece of data. This immutability, in fact, is what provides 
+	such features as time-travel debugging that you may have heard about.
+
+4)  
