@@ -429,7 +429,7 @@ x = 3.14; // throws an error because x is not declared
 2) to reverse a string	
 	stringVal.split('') will split the string into array elements
 	arr.reverse();		will reverse the value of array [1,2,3] becomes [3,2,1] //reverse only works on string
-	arr.join('');		will unite a array elements into a new string
+	arr.join('');		will unite a array elements into a new string, array to string conversion
 4) arr.find(functionName) (without () call)
 	both functions will find and return first element that satisfies functions condition or else will return undefined.
 	const findElement=(arr, func) =>  arr.find(func);
