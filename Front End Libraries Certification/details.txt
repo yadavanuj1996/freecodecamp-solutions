@@ -216,7 +216,7 @@
 	ReactDOM.render(JSX,document.getElementById("challenge-node"));
 5) 	The naming convention for all HTML attributes and event references in JSX become camelCase.
 	class becomes className
-	For example, a click event in JSX is onClick, instead of onclick. Likewise, onchangebecomes onChange
+	For example, a click event in JSX is onClick, instead of onclick. Likewise, onchange becomes onChange
 6) Define React Component
 	i) Stateless function component
 		const MyComponent = ()=> (<div>Beyonce Halo</div>);
@@ -236,7 +236,7 @@
 7)	Function name starts with Capital letter in React (😝)
 
 8) 3 Concepts are explained in this example:
-	i)  Componenet Nesting: A component can be nested in another component and can 
+	i)  Component Nesting: A component can be nested in another component and can 
 		be rendered using <componentName /> 
 	    syntax (self closing tag syntax).
 	ii) Component Nesting Chains: A component who has a child component can itself
@@ -422,9 +422,9 @@
 	  };
 
 15) setState and bind
-	The setState is used to update the state of stateful component and bind is used to link `this`
-	to class method that refrences class in this case to other methods of class (NOTE: class is just syntactic sugar
-	in JS).
+	The setState is used to update the state of stateful component and bind is 
+	used to link `this` to class method that refrences class in this case to other
+	methods of class (NOTE: class is just syntactic sugar in JS).
 	
 	class MyComponent extends React.Component {
     constructor(props) {
@@ -705,3 +705,105 @@
 	such features as time-travel debugging that you may have heard about.
 
 4)  
+
+
+
+											React and Redux
+											
+1)  To make React access to the Redux store and the actions it needs to dispatch updates.
+	React Redux provides its `react-redux` package to help accomplish these tasks.
+
+2)  Using Provider to connect React Redux 
+	
+	// Redux Code:
+	const ADD = 'ADD';
+
+	const addMessage = (message) => {
+	  return {
+		type: ADD,
+		message
+	  }
+	};
+
+	const messageReducer = (state = [], action) => {
+	  switch (action.type) {
+		case ADD:
+		  return [
+			...state,
+			action.message
+		  ];
+		default:
+		  return state;
+	  }
+	};
+
+
+
+	const store = Redux.createStore(messageReducer);
+
+	// React Code:
+
+	class DisplayMessages extends React.Component {
+	  constructor(props) {
+		super(props);
+		this.state = {
+		  input: '',
+		  messages: []
+		}
+		this.handleChange = this.handleChange.bind(this);
+		this.submitMessage = this.submitMessage.bind(this);
+	  }
+	  handleChange(event) {
+		this.setState({
+		  input: event.target.value
+		});
+	  }
+	  submitMessage() {
+		const currentMessage = this.state.input;
+		this.setState({
+		  input: '',
+		  messages: this.state.messages.concat(currentMessage)
+		});
+	  }
+	  render() {
+		return (
+		  <div>
+			<h2>Type in a new Message:</h2>
+			<input
+			  value={this.state.input}
+			  onChange={this.handleChange}/><br/>
+			<button onClick={this.submitMessage}>Submit</button>
+			<ul>
+			  {this.state.messages.map( (message, idx) => {
+				  return (
+					 <li key={idx}>{message}</li>
+				  )
+				})
+			  }
+			</ul>
+		  </div>
+		);
+	  }
+	};
+
+	const Provider = ReactRedux.Provider;
+
+	class AppWrapper extends React.Component {
+	  // render the Provider here
+		constructor(props){
+			super(props);
+		}
+		render(){
+			return(
+				<Provider store={store}>
+					<DisplayMessages />
+				</Provider>
+			);
+		}
+	   
+	  // change code above this line
+	};
+
+3)  The component you connected to Redux was named Presentational, and this
+	wasn't arbitrary. This term generally refers to React components that are 
+	not directly connected to Redux
