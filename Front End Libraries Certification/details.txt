@@ -1,4 +1,4 @@
-													jQuery
+							jQuery
 1) To add class using jQuery
 	$("button").addClass("animated");
     $(".btn").addClass("shake");
@@ -27,7 +27,7 @@
     $("body").addClass("animated hinge");
 	
 	
-											Sass
+							Sass
 											
 1) Sass stands for Syntactically Awesome Style Sheet and the file extension used is .scss
 	NOTE: double quotes and single quotes are not used in Sass.
@@ -190,7 +190,7 @@
 	</div>
 	
 	
-												React
+							React
 												
 1) Babel is used to convert JSX to JS ,JSX is extension of JS which has both html and js code in it.
 2) Declaring JSX element
@@ -233,7 +233,7 @@
 		  );
 		}
 	  };
-7)	Function name starts with Capital letter in React (😝)
+7)	Function name starts with Capital letter in React (ðŸ˜)
 
 8) 3 Concepts are explained in this example:
 	i)  Component Nesting: A component can be nested in another component and can 
@@ -501,11 +501,11 @@
 	componentDidMount()   -After first time the component is loaded into DOM
 
 	componentWillReceiveProps()		- Instead of updating on everytime new props will come using this 
-									  function will improve performace as we can check whether the new
-									  input props are different or not.
+					          function will improve performace as we can check whether the new
+						  input props are different or not.
 
 	shouldComponentUpdate()			- returns true or false on the basis the DOM is reloaded or not using
-									  if else decide whether we want the DOM to reload or not.
+						  if else decide whether we want the DOM to reload or not.
 
 	componentWillUpdate()
 
@@ -689,10 +689,10 @@
    ReactDOMServer.renderToString(<App />);
    
 											
-												Redux
+							Redux
 												
 1)	A reducer takes state and action as arguments, and it always returns a new state. It is
-	important to see that this is the only role of the reducer. It has no side effects � it
+	important to see that this is the only role of the reducer. It has no side effects — it
 	never calls an API endpoint and it never has any hidden surprises. The reducer is simply 
 	a pure function that takes state and action, then returns new state.
 
@@ -708,7 +708,7 @@
 
 
 
-											React and Redux
+							React and Redux
 											
 1)  To make React access to the Redux store and the actions it needs to dispatch updates.
 	React Redux provides its `react-redux` package to help accomplish these tasks.
