@@ -11,7 +11,9 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 ## Full Stack Developer Roadmap 
    (Six Certifications) with my completion status:-
 
-* [x] Responsive Web Design Certification
+
+ ### **Responsive Web Design Certification** :heavy_check_mark: 
+
 * [x] Basic HTML and HTML5
 * [x] Basic CSS
 * [x] Applied Visual Design
@@ -21,7 +23,7 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 * [x] CSS Grid
 * [x] Responsive Web Design Projects
 
-* [x] JavaScript Algorithms and Data Structures Certification
+### JavaScript Algorithms and Data Structures Certification :heavy_check_mark: 
 * [x] Basic JavaScript
 * [x] ES6
 * [x] Regular Expressions
@@ -33,7 +35,7 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 * [x] Intermediate Algorithm Scripting
 * [x] JavaScript Algorithms and Data Structures Projects
 
-* [ ] Front End Libraries Certification
+### Front End Libraries Certification :x:
 * [x] Bootstrap
 * [x] jQuery
 * [x] Sass
@@ -42,18 +44,18 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 * [x] React and Redux
 * [ ] Front End Libraries Projects
 
-* [x] Data Visualization Certification
+### Data Visualization Certification :heavy_check_mark:
 * [x] Data Visualization with D3
 * [x] JSON APIs and Ajax
 * [x] Data Visualization Projects
 
-* [ ] APIs and Microservices Certification
+### APIs and Microservices Certification :x:
 * [ ] Managing Packages with Npm
 * [ ] Basic Node and Express
 * [ ] MongoDB and Mongoose
 * [ ] Apis and Microservices Projects
 
-* [ ] Information Security and Quality Assurance Certification
+### Information Security and Quality Assurance Certification :x:
 * [ ] Information Security with HelmetJS
 * [ ] Quality Assurance and Testing with Chai
 * [ ] Advanced Node and Express
