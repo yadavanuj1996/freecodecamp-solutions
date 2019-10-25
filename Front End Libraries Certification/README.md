@@ -750,6 +750,7 @@
 	such features as time-travel debugging that you may have heard about.
 
 4) Redux.createStore(reducer)
+	```
 	 const reducer = (state = 5) => {
 	    return state;
 	  }
@@ -759,13 +760,17 @@
 	  // Define the store here:
 
 	  let store=Redux.createStore(reducer);
+	  ```
+
 
 5)  store.getState()
 	We can retrieve the current state held in the Redux store object with the getState() method
+	```
 	const store = Redux.createStore(
 	  (state = 5) => state
 	);
 	const currentState=store.getState();
+	```
 	
 6)  Action: 
 	Since Redux is a state management framework, updating state is one of its core tasks. In Redux, 
@@ -774,22 +779,23 @@
 	action objects, then updates its state accordingly. 
 	   Sometimes a Redux action also carries some data.
 	
-	const action={type:'LOGIN'};
+	`const action={type:'LOGIN'};`
 	
 7)  Action Creator	
 	After creating an action, the next step is sending the action to the Redux store so it can update its 
 	state. In Redux, you define action creators to accomplish this. An action creator is simply a JavaScript
 	function that returns an action
-	
+	```
 	const action = {
 	    type: 'LOGIN'
 	  }
 	  // Define an action creator here:
 	  const actionCreator=()=>action;
+	```
 	
 8)	store.dispatch()
 	dispatch method is what you use to dispatch actions to the Redux store. Calling store.dispatch() and passing the value 		returned from an action creator sends an action back to the store.
-	
+	```
 	const store = Redux.createStore(
 	  (state = {login: false}) => state
 	);
@@ -802,9 +808,10 @@
 
 	// Dispatch the action here:
 	store.dispatch(loginAction());
+	```
 	
 9)  Reducer
-
+	```
 	const reducer = (state = defaultState, action) => {
 	    // change code below this line
 	    if(action.type==='LOGIN'){
@@ -814,7 +821,166 @@
 	      return defaultState;
 	    // change code above this line
 	  };
-							React and Redux
+	  ```
+	  
+10)	Reducer contains state and action
+	```
+	const LOGIN='LOGIN';
+	const LOGOUT='LOGOUT';
+	// change code above this line
+
+	const defaultState = {
+	  authenticated: false
+	};
+
+	const authReducer = (state = defaultState, action) => {
+
+	  switch (action.type) {
+
+	    case LOGIN:
+	      return {
+		authenticated: true
+	      }
+
+	    case LOGOUT:
+	      return {
+		authenticated: false
+	      }
+
+	    default:
+	      return state;
+
+	  }
+
+	};
+	```
+
+11) Store Listener
+	```
+	const store = Redux.createStore(reducer);
+
+	// global count variable:
+	let count = 0;
+
+	// change code below this line
+	let counterIncrement=()=>{
+	  count++;
+	};
+	store.subscribe(counterIncrement);
+	// change code above this line
+
+	store.dispatch({type: ADD});
+	console.log(count);
+	```
+
+12)  root reducer
+	
+	Combine reducers to create root reducer
+	```
+	const INCREMENT = 'INCREMENT';
+	const DECREMENT = 'DECREMENT';
+
+	const counterReducer = (state = 0, action) => {
+	  switch(action.type) {
+	    case INCREMENT:
+	      return state + 1;
+	    case DECREMENT:
+	      return state - 1;
+	    default:
+	      return state;
+	  }
+	};
+
+	const LOGIN = 'LOGIN';
+	const LOGOUT = 'LOGOUT';
+
+	const authReducer = (state = {authenticated: false}, action) => {
+	  switch(action.type) {
+	    case LOGIN:
+	      return {
+		authenticated: true
+	      }
+	    case LOGOUT:
+	      return {
+		authenticated: false
+	      }
+	    default:
+	      return state;
+	  }
+	};
+
+	const rootReducer = Redux.combineReducers({
+	  auth: authReducer,
+	  count: counterReducer
+
+	});
+
+	const store = Redux.createStore(rootReducer);
+	```
+13) Send action data along with type
+	```
+	const ADD_NOTE = 'ADD_NOTE';
+
+	const notesReducer = (state = 'Initial State', action) => {
+	  switch(action.type) {
+	    // change code below this line
+	    case ADD_NOTE: return action.text;
+	    // change code above this line
+	    default:
+	      return state;
+	  }
+	};
+
+	const addNoteText = (note) => {
+	  // change code below this line
+	  return {type: ADD_NOTE,text: note};
+	  // change code above this line
+	};
+
+	const store = Redux.createStore(notesReducer);
+
+	console.log(store.getState());
+	store.dispatch(addNoteText('Hello!'));
+	console.log(JSON.stringify(store.getState()));
+	```
+14) Redux.applyMiddleware(ReduxThunk.default) use it for async data fetching.
+
+15) Never mutate state (returning updated state data without mutating)
+	```
+	const ADD_TO_DO = 'ADD_TO_DO';
+
+	// A list of strings representing tasks to do:
+	const todos = [
+	  'Go to the store',
+	  'Clean the house',
+	  'Cook dinner',
+	  'Learn to code',
+	];
+
+	const immutableReducer = (state = todos, action) => {
+	  switch(action.type) {
+	    case ADD_TO_DO: 
+	      return [...state,action.data];
+	    // sol2 return state.concat(action.data);
+	    // sol3 return (`${state.join(',')},${action.data}`).split(',');
+	    default:
+	      return state;
+	  }
+	};
+
+	// an example todo argument would be 'Learn React',
+	const addToDo = (todo) => {
+	  return {
+	    type: ADD_TO_DO,
+	    data: todo
+	  }
+	}
+
+	const store = Redux.createStore(immutableReducer);
+	```
+	
+
+						     `React and Redux`
 											
 1)  To make React access to the Redux store and the actions it needs to dispatch updates.
 	React Redux provides its `react-redux` package to help accomplish these tasks.
@@ -822,6 +988,7 @@
 2)  Using Provider to connect React Redux 
 	
 	// Redux Code:
+	```
 	const ADD = 'ADD';
 
 	const addMessage = (message) => {
@@ -846,9 +1013,9 @@
 
 
 	const store = Redux.createStore(messageReducer);
-
+	```
 	// React Code:
-
+	```
 	class DisplayMessages extends React.Component {
 	  constructor(props) {
 		super(props);
@@ -909,6 +1076,7 @@
 	   
 	  // change code above this line
 	};
+	```
 
 3)  The component you connected to Redux was named Presentational, and this
 	wasn't arbitrary. This term generally refers to React components that are 
