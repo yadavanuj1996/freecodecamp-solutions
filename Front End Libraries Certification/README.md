@@ -193,10 +193,13 @@
 							React
 												
 1) Babel is used to convert JSX to JS ,JSX is extension of JS which has both html and js code in it.
+
 2) Declaring JSX element
-	const JSX = <h1>Hello JSX!</h1>;
+	`const JSX = <h1>Hello JSX!</h1>;`
+	
 3) Comments in JSX
 	
+	```
 	const JSX = (
 	  <div>
 	  {/* Comment */}
@@ -204,7 +207,11 @@
 		<p>Here's a subtitle</p>
 	  </div>
 	);
+	```
+
+	
 4) Render HTML elements in DOM ReactDOM.render(componentToRender, targetNode);
+	```
 	const JSX = (
 	  <div>
 		<h1>Hello World</h1>
@@ -214,13 +221,15 @@
 	// change code below this line
 
 	ReactDOM.render(JSX,document.getElementById("challenge-node"));
+	```
 5) 	The naming convention for all HTML attributes and event references in JSX become camelCase.
 	class becomes className
 	For example, a click event in JSX is onClick, instead of onclick. Likewise, onchange becomes onChange
 6) Define React Component
 	i) Stateless function component
-		const MyComponent = ()=> (<div>Beyonce Halo</div>);
+		`const MyComponent = ()=> (<div>Beyonce Halo</div>);`
 	ii) ES6 Way 
+	```
 	class MyComponent extends React.Component {
 		constructor(props) {
 		  super(props);
@@ -233,17 +242,18 @@
 		  );
 		}
 	  };
-7)	Function name starts with Capital letter in React (ðŸ˜)
+	  ```
+7)	Function name starts with Capital letter in React (:stuck_out_tongue_closed_eyes: )
 
 8) 3 Concepts are explained in this example:
 	i)  Component Nesting: A component can be nested in another component and can 
-		be rendered using <componentName /> 
-	    syntax (self closing tag syntax).
+		be rendered using <componentName />   
+	    syntax (self closing tag syntax). </br>
 	ii) Component Nesting Chains: A component who has a child component can itself
-		be further used in other component making a chain of nesting components.
+		be further used in other component making a chain of nesting components. </br>
 	iii) ES6 Component Nesting : A ES6 component defined using class syntax can also
-		 be nested in a similar manner as to the stateless components.
-	
+		 be nested in a similar manner as to the stateless components.</br>
+	```
 	const GrandChildComponent = () => {
 		return (
 		  <div>
@@ -288,18 +298,20 @@
 		  );
 		}
 	  };
-	  
+	  ```
 9)  ReactDOM.render(componentToLoad,targetNode) is executed in 2 ways:   
 	i)  JSX Element (Loading)
+		  ```
 		  const JSX=("<div><h1>JSX</h1></div>");
 		  ReactDOM.render(JSX,document.getElementById("challenge-node"));  
+		  ```
 	ii) Component(Loading)
-		  ReactDOM.render(<MyComponent />,document.getElementById("challenge-node"));
+		  `ReactDOM.render(<MyComponent />,document.getElementById("challenge-node"));`
 
 10) Props (5 concepts)
 	NOTE: While passing value to props from JSX return we put the value part inside {}.
 	i) Passing props to stateless functional component
-	
+	```
 	const CurrentDate = (props) => {
 	  return (
 		<div>
@@ -322,16 +334,17 @@
 		);
 	  }
 	};
-	
+	```
 	ii) Array in props 
 		functional component
 		return <p>{props.tasks.join(", ")}</p>
-		
+		```
 		React component
 		<List  tasks={["read", "workout","Code"]} />
+		```
 	
 	iii) Default props
-	
+		```
 		const ShoppingCart = (props) => {
 			return (
 			  <div>
@@ -341,8 +354,10 @@
 		};
 		 // change code below this line
 		 ShoppingCart.defaultProps={items: 0};
+		 ```
 	
 	iv) Override default props
+	```
 		const Items = (props) => {
 			return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
 		}
@@ -359,8 +374,9 @@
 			  return <Items quantity={10} />
 			}
 		};
-	
+	```
 	v) Define TYPE of prop
+	```
 		const Items = (props) => {
 			return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
 		};
@@ -372,6 +388,7 @@
 		Items.propTypes={
 			quantity: PropTypes.number.isRequired
 		};
+		```
 		
 11) A stateless functional component is any function you write which accepts props and returns JSX.
 	A stateless component, on the other hand, is a class that extends React.Component, but does not use 
@@ -381,6 +398,7 @@
 
 12) Using props inside React ES6 (class) component
 	NOTE: using `this` keyword ,the same is not needed for stateless functional component
+	```
 	class ReturnTempPassword extends React.Component {
 		constructor(props) {
 		  super(props);
@@ -391,8 +409,10 @@
 		  );
 		}
 	};
+	```
 
 13)	Using props with stateless function
+	```
 	const Camper=(props)=>(<p>{props.name}</p>);
 	Camper.defaultProps={
 		name:'CamperBot'
@@ -401,9 +421,11 @@
 	Camper.propTypes={
 		name: PropTypes.string.isRequired
 	};
+	```
 14) Creating Stateful component
 	We can also use variables that can be declared in render method , we can
 	define variable and functions in render method outside of return.
+	```
 	class StatefulComponent extends React.Component {
 		constructor(props) {
 		  super(props);
@@ -420,76 +442,83 @@
 		  );
 		}
 	  };
+	  ```
 
 15) setState and bind
 	The setState is used to update the state of stateful component and bind is 
 	used to link `this` to class method that refrences class in this case to other
 	methods of class (NOTE: class is just syntactic sugar in JS).
-	
+	```
 	class MyComponent extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        name: 'Initial State'
-      };
-      this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick() {
-      // change code below this line
-      this.setState({name:'React Rocks!'});
-      // change code above this line
-    }
-    render() {
-      return (
-        <div>
-          <button onClick={this.handleClick}>Click Me</button>
-          <h1>{this.state.name}</h1>
-        </div>
-      );
-    }
-  };
-  
+	    constructor(props) {
+	      super(props);
+	      this.state = {
+		name: 'Initial State'
+	      };
+	      this.handleClick = this.handleClick.bind(this);
+	    }
+	    handleClick() {
+	      // change code below this line
+	      this.setState({name:'React Rocks!'});
+	      // change code above this line
+	    }
+	    render() {
+	      return (
+		<div>
+		  <button onClick={this.handleClick}>Click Me</button>
+		  <h1>{this.state.name}</h1>
+		</div>
+	      );
+	    }
+  	};
+  	```
 16) User Events 
 	
 	i)Button onClick
 	In JSX
-	<button onClick={this.toggleVisibility}>Click Me</button>
+	`<button onClick={this.toggleVisibility}>Click Me</button>`
 	
 	Class method (outside render)
+	```
 	toggleVisibility(){
-      if(this.state.visibility)
-        this.setState({visibility:false});
-      else
-        this.setState({visibility:true});
-    }
-	
+      	  if(this.state.visibility)
+            this.setState({visibility:false});
+      	  else
+            this.setState({visibility:true});
+    	}
+	```
 	ii) Reading input text on any change
 	event.target.value will return the value of input text field at time of 
 	submission.
 	
 	In JSX
+	```
 	<input type="text" value={this.state.input} onChange={this.handleChanges} />
 	<h4>Controlled Input:</h4>
-      <p>{this.state.input}</p>
-		  
+        <p>{this.state.input}</p>
+	```	  
 	Class method (outside render)
+	```
 	handleChanges(event){
-      this.setState({input: event.target.value});
-    }
-	
+          this.setState({input: event.target.value});
+    	}
+	```
 	iii) Handling Form submission events
 		In JSX (NOTE: form tag has onSubmit)
-		<form onSubmit={this.handleSubmit}>
+	```	
+	<form onSubmit={this.handleSubmit}>
             <input type="text" value={this.state.input} onChange={this.handleChange} />
             <button type='submit' >Submit!</button>
         </form>
-			  
+	```
+	```
 		Class method (outside render)
 		handleSubmit(event) {
 		  this.setState({
 			submit: this.state.input
 		  });
 		}
+		```
  
 17) Props are used so that if only particular data of state has to be passed to a child component
 	we can send as props instead of sending access to whole state. (React has unidirectional data
@@ -523,29 +552,34 @@
 	need to add for specific functionality
 	
 	Event listeners added via React
-	componentDidMount() {
-      document.addEventListener("keydown",this.handleKeyPress);
-    }
-    componentWillUnmount() {
-      document.removeEventListener("keydown",this.handleKeyPress);
-    }
+	```
+	    componentDidMount() {
+	      document.addEventListener("keydown",this.handleKeyPress);
+	    }
+	    ```
+	    ```
+	    componentWillUnmount() {
+	      document.removeEventListener("keydown",this.handleKeyPress);
+	    }
+    ```
 	
 20) We can pass callback as props
+	```
 	handleChange(event) {
-      this.setState({
-        inputValue: event.target.value
-      });
-    }
-    render() {
-      return (
-         <div>
-          { /* change code below this line */ }
-          <GetInput input={this.state.inputValue} handleChange={this.handleChange} />
-          <RenderInput input={this.state.inputValue} />
-          { /* change code above this line */ }
-         </div>
-      );
-    }
+	      this.setState({
+		inputValue: event.target.value
+	      });
+	    }
+	    render() {
+	      return (
+		 <div>
+		  { /* change code below this line */ }
+		  <GetInput input={this.state.inputValue} handleChange={this.handleChange} />
+		  <RenderInput input={this.state.inputValue} />
+		  { /* change code above this line */ }
+		 </div>
+	      );
+	    }
 
 	  
 	  class GetInput extends React.Component {
@@ -563,9 +597,10 @@
 		  );
 		}
 	  };
+	  ```
 
 21) Inline styles
-	
+	```
 	class Colorful extends React.Component {
 		render() {
 		  const textStyle={color:"yellow",fontSize:20};
@@ -575,7 +610,7 @@
 		  );
 		}
 	};
-	
+	```
 	The camelCase convention is used instead of hyphen and js object has to be passed to style
 	attribute the key-> value value's should be in quotes ('' or "") and if fontSize is in numbers
 	it is default taken as px.
@@ -583,78 +618,84 @@
 22) Conditional Opearators in render() method
 
 	i) if else:-
-	 render() {
-      // change code below this line
-      if(this.state.display){
-        return (
-         <div>
-           <button onClick={this.toggleDisplay}>Toggle Display</button>
-           <h1>Displayed!</h1>
-         </div>
-      );
-      }
-      else{
-        return (
-         <div>
-           <button onClick={this.toggleDisplay}>Toggle Display</button>
-         </div>
-      );
-      }
-      
-    }
-	
+	```
+	  render() {
+	      // change code below this line
+	      if(this.state.display){
+		return (
+		 <div>
+		   <button onClick={this.toggleDisplay}>Toggle Display</button>
+		   <h1>Displayed!</h1>
+		 </div>
+	      );
+	      }
+	      else{
+		return (
+		 <div>
+		   <button onClick={this.toggleDisplay}>Toggle Display</button>
+		 </div>
+	      );
+	      }
+
+	    }
+	```
 	ii) && operator this.state.display should return true for display 
-	render() {
-      // change code below this line
-      return (
-         <div>
-           <button onClick={this.toggleDisplay}>Toggle Display</button>
-           {this.state.display && <h1>Displayed!</h1>}
-         </div>
-      );
-    }
+	```
+	   render() {
+	      // change code below this line
+	      return (
+		 <div>
+		   <button onClick={this.toggleDisplay}>Toggle Display</button>
+		   {this.state.display && <h1>Displayed!</h1>}
+		 </div>
+	      );
+	    }
 	
 	iii) ? : (ternary operator)
-	 render() {
-      const buttonOne = <button onClick={this.submit}>Submit</button>;
-      const buttonTwo = <button>You May Enter</button>;
-      const buttonThree = <button>You Shall Not Pass</button>;
-      return (
-        <div>
-          <h3>Enter Your Age to Continue</h3>
-          <input
-            style={inputStyle}
-            type="number"
-            value={this.state.input}
-            onChange={this.handleChange} /><br />
-          {this.state.userAge==='' && buttonOne}
-          {this.state.userAge!=='' && (this.state.userAge<18?buttonThree:buttonTwo)}
-        </div>
-      );
-    }
+	```
+	    render() {
+	      const buttonOne = <button onClick={this.submit}>Submit</button>;
+	      const buttonTwo = <button>You May Enter</button>;
+	      const buttonThree = <button>You Shall Not Pass</button>;
+	      return (
+		<div>
+		  <h3>Enter Your Age to Continue</h3>
+		  <input
+		    style={inputStyle}
+		    type="number"
+		    value={this.state.input}
+		    onChange={this.handleChange} /><br />
+		  {this.state.userAge==='' && buttonOne}
+		  {this.state.userAge!=='' && (this.state.userAge<18?buttonThree:buttonTwo)}
+		</div>
+	      );
+	    }
+	```
 
 23) Using map to display list items (li) to dynamically render elements. 
-	render() {
-      const items = this.state.toDoList.map((element)=>{
-        return (<li>{element}</li>);
-      }); 
-      return (
-        <div>
-          <textarea
-            onChange={this.handleChange}
-            value={this.state.userInput}
-            style={textAreaStyles}
-            placeholder="Separate Items With Commas" /><br />
-          <button onClick={this.handleSubmit}>Create List</button>
-          <h1>My "To Do" List:</h1>
-          <ul>
-            {items}
-          </ul>
-        </div>
-      );
-    }
-
+```
+	   render() {
+	      const items = this.state.toDoList.map((element)=>{
+		return (<li>{element}</li>);
+	      }); 
+	      return (
+		<div>
+		  <textarea
+		    onChange={this.handleChange}
+		    value={this.state.userInput}
+		    style={textAreaStyles}
+		    placeholder="Separate Items With Commas" /><br />
+		  <button onClick={this.handleSubmit}>Create List</button>
+		  <h1>My "To Do" List:</h1>
+		  <ul>
+		    {items}
+		  </ul>
+		</div>
+	      );
+	    }
+```
 24) Providing unique key 
+```
 	function Frameworks() {
 		const renderFrameworks = frontEndFrameworks.map((element)=>{
 		  return <li key={element}>{element}</li>;
@@ -668,6 +709,7 @@
 		  </div>
 		);
   }
+  ```
   
 25) Rendering React on server
 	React is rendered on server because as we load our normal html at load time and then
@@ -675,7 +717,7 @@
 	hook that makes our page mostly of html during first and load and the Search engines
 	cannot find much useful content to list our page so we render our react on server
 	and then the server sends complete page to client (much like JSP).
-	
+	```
 	class App extends React.Component {
 		constructor(props) {
 		  super(props);
@@ -686,11 +728,14 @@
 	};
   
   // change code below this line
-   ReactDOMServer.renderToString(<App />);
+   ReactDOMServer.renderToString(<App />);```
+   
+   
    
 											
-							Redux
+							`Redux`
 												
+	
 1)	A reducer takes state and action as arguments, and it always returns a new state. It is
 	important to see that this is the only role of the reducer. It has no side effects — it
 	never calls an API endpoint and it never has any hidden surprises. The reducer is simply 
