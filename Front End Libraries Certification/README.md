@@ -696,18 +696,79 @@
 	never calls an API endpoint and it never has any hidden surprises. The reducer is simply 
 	a pure function that takes state and action, then returns new state.
 
-2)  Another key principle in Redux is that stateis read-only. In other words, the reducer
-	function must always return a new copy of stateand never modify state directly.
+2)  	Another key principle in Redux is that state is read-only. In other words, the reducer
+	function must always return a new copy of state and never modify state directly.
 	
-3)  If you took a snapshot of the state of a Redux app over time, you would see something
+3)  	If you took a snapshot of the state of a Redux app over time, you would see something
 	like state 1, state 2, state 3,state 4, ...and so on where each state may be similar to the 
 	last, but each is a distinct piece of data. This immutability, in fact, is what provides 
 	such features as time-travel debugging that you may have heard about.
 
-4)  
+4) Redux.createStore(reducer)
+	 const reducer = (state = 5) => {
+	    return state;
+	  }
 
+	  // Redux methods are available from a Redux object
+	  // For example: Redux.createStore()
+	  // Define the store here:
 
+	  let store=Redux.createStore(reducer);
 
+5)  store.getState()
+	We can retrieve the current state held in the Redux store object with the getState() method
+	const store = Redux.createStore(
+	  (state = 5) => state
+	);
+	const currentState=store.getState();
+	
+6)  Action: 
+	Since Redux is a state management framework, updating state is one of its core tasks. In Redux, 
+	all state updates are triggered by dispatching actions. An action is simply a JavaScript object
+	that contains information about an action event that has occurred. The Redux store receives these 
+	action objects, then updates its state accordingly. 
+	   Sometimes a Redux action also carries some data.
+	
+	const action={type:'LOGIN'};
+	
+7)  Action Creator	
+	After creating an action, the next step is sending the action to the Redux store so it can update its 
+	state. In Redux, you define action creators to accomplish this. An action creator is simply a JavaScript
+	function that returns an action
+	
+	const action = {
+	    type: 'LOGIN'
+	  }
+	  // Define an action creator here:
+	  const actionCreator=()=>action;
+	
+8)	store.dispatch()
+	dispatch method is what you use to dispatch actions to the Redux store. Calling store.dispatch() and passing the value 		returned from an action creator sends an action back to the store.
+	
+	const store = Redux.createStore(
+	  (state = {login: false}) => state
+	);
+
+	const loginAction = () => {
+	  return {
+	    type: 'LOGIN'
+	  }
+	};
+
+	// Dispatch the action here:
+	store.dispatch(loginAction());
+	
+9)  Reducer
+
+	const reducer = (state = defaultState, action) => {
+	    // change code below this line
+	    if(action.type==='LOGIN'){
+	      return {login: true};
+	    }
+	    else
+	      return defaultState;
+	    // change code above this line
+	  };
 							React and Redux
 											
 1)  To make React access to the Redux store and the actions it needs to dispatch updates.
