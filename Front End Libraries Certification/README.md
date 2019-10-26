@@ -1,30 +1,32 @@
 							jQuery
 1) To add class using jQuery
+	```
 	$("button").addClass("animated");
-    $(".btn").addClass("shake");
-    $("#target1").addClass("btn-primary");												
+	    $(".btn").addClass("shake");
+	    $("#target1").addClass("btn-primary");
+	 ```
 2) Remove class
-	$("#target2").removeClass("btn-default");
+	`$("#target2").removeClass("btn-default");`
 3) To add css
-	 $("#target1").css("color", "red");
+	`$("#target1").css("color", "red");``
 4) To disable an element. 
-	$("#target1").prop("disabled", true);
+	`$("#target1").prop("disabled", true);``
 5) To remove a element
-    $("#target4").remove();
+   	 `$("#target4").remove();``
 6) To append element to other div (remove and move)
-    $("#target2").appendTo("#right-well");
+    	`$("#target2").appendTo("#right-well");`
 7) To clone element and append (copy and move)
-    $("#target5").clone().appendTo("#left-well");
+    	`$("#target5").clone().appendTo("#left-well");`
 8) To call the parent and change parent's properties.
-    $("#target1").parent().css("background-color","red")
+    	`$("#target1").parent().css("background-color","red")`
 9) To get all children elements and change it's color
-	$("#right-well").children().css("color", "orange");
+	`$("#right-well").children().css("color", "orange");`
 10)To select nth element of multiple elements having same class or html element (p or button)
-	 $(".target:nth-child(2)").addClass("animated bounce");
+	`$(".target:nth-child(2)").addClass("animated bounce");`
 11)To get even element of a all elements containing particular class
-	$(".target:even").addClass("animated shake");
-12) To Select body and add class to whole html
-    $("body").addClass("animated hinge");
+	`$(".target:even").addClass("animated shake");
+12) To Select body and add class to whole html`
+    	`$("body").addClass("animated hinge");`
 	
 	
 							Sass
@@ -32,10 +34,13 @@
 1) Sass stands for Syntactically Awesome Style Sheet and the file extension used is .scss
 	NOTE: double quotes and single quotes are not used in Sass.
 2) $var-name Declare a variable (using $ sign just like PHP)
+	```
 	<style type='text/sass'>
 		$text-color: red;
 	</style>
+	```
 3) Nesting is possible
+	```
 	.blog-post {
 		h1{
 		  text-align: center;
@@ -45,10 +50,12 @@
 		  font-size: 20px;
 		}
 	}
+	```
 	
 	insted of traditional .blog-post h1{} and .blog-post p{} 
 4) @mixin (they are like functions for Sass) write code once and execute it multiple times
 	Keywords: @mixin and @include
+	```
 	@mixin border-radius($radius){
 		-webkit-border-radius: $radius;
 		-moz-border-radius: $radius;
@@ -62,11 +69,11 @@
 		background-color: green;
 		@include border-radius(15px);
 	}
-  
+  	```
 5)  @if @else in Sass
 	NOTE: In `@else if`  the if will not be succeded by @ and the if else in Sass does not permit 
 	() bracket notation like in other Programming languages.
-	
+	```
 	@mixin border-stroke($val){
 		@if $val==light{
 		  border: 1px solid black;
@@ -81,6 +88,7 @@
 	#box {
 		@include border-stroke(heavy);
 	}
+	```
 6) @for loop
 	NOTE: The for does not follow bracket notation ( or ) like js on using variable name for html elements
 	or class or id  #{$i} should be used for appending text while using inside the class or id we cannot
@@ -89,7 +97,7 @@
 	
 	@for $i from 1 to 5  		(iteration over  1,2,3,4,5) 
 	@for $i from 1 through 6    (i value will be 1,2,3,4,5,6)
-	
+	```
 	<style type='text/sass'>
 	  @for $i from 1 to 6 {
 		.text-#{$i}{
@@ -103,12 +111,13 @@
 	<p class="text-3">Hello</p>
 	<p class="text-4">Hello</p>
 	<p class="text-5">Hello</p>
+	```
 	
 7) @each used for iterating over a list or map
 	TO fill background color using the @each 
 	NOTE: In map solution $key,$color is used because if we will not use $key the $color will have
 	values as color1,color2,color3 in each successive iteration
-	
+	```
 	<style type='text/sass'>
 		 // list solution
 		@each $color in blue,black,red{
@@ -134,8 +143,9 @@
 	<div class="blue-bg"></div>
 	<div class="black-bg"></div>
 	<div class="red-bg"></div>
-
+	```
 8) @while loop
+	```
 	<style type='text/sass'>
 	  $i: 1;
 
@@ -152,7 +162,7 @@
 	<p class="text-2">Hello</p>
 	<p class="text-3">Hello</p>
 	<p class="text-4">Hello</p>
-
+	```
 9) Partials 
 	NOTE: _ is not used in main scss file but the partial name should start from _ (unders)
 	(ex: _variables.scss)
@@ -168,7 +178,8 @@
 
 	// In the main.scss file
 	@import 'mixins'
-10) @extend , to extend properties of one class or id to another	
+10) @extend , to extend properties of one class or id to another
+	```
 	<style type='text/sass'>
 	  .info{
 		width: 200px;
@@ -188,6 +199,7 @@
 	<div class="info">
 	  <p>This is a simple post.</p>
 	</div>
+	```
 	
 	
 							React
