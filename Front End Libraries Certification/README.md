@@ -38,15 +38,15 @@
 
 	`$("#right-well").children().css("color", "orange");`
 	
-10)To select nth element of multiple elements having same class or html element (p or button)
+10. To select nth element of multiple elements having same class or html element (p or button)
 
 	`$(".target:nth-child(2)").addClass("animated bounce");`
 	
-11)To get even element of a all elements containing particular class
+11. To get even element of a all elements containing particular class
 
 	`$(".target:even").addClass("animated shake");`
 	
-12) To Select body and add class to whole html`
+12. To Select body and add class to whole html`
 	```
     	$("body").addClass("animated hinge");
 	```
@@ -224,11 +224,12 @@
 	```
 	
 	
+	
 							React
 												
-1) Babel is used to convert JSX to JS ,JSX is extension of JS which has both html and js code in it.
+1. Babel is used to convert JSX to JS ,JSX is extension of JS which has both html and js code in it.
 
-2) Declaring JSX element
+2. Declaring JSX element
 	`const JSX = <h1>Hello JSX!</h1>;`
 	
 3) Comments in JSX
@@ -761,8 +762,9 @@
 		}
 	};
   
-  // change code below this line
-   ReactDOMServer.renderToString(<App />);```
+	// change code below this line
+	ReactDOMServer.renderToString(<App />);
+   	```
    
    
    
@@ -770,12 +772,12 @@
 							`Redux`
 												
 	
-1)	A reducer takes state and action as arguments, and it always returns a new state. It is
+1.	A reducer takes state and action as arguments, and it always returns a new state. It is
 	important to see that this is the only role of the reducer. It has no side effects — it
 	never calls an API endpoint and it never has any hidden surprises. The reducer is simply 
 	a pure function that takes state and action, then returns new state.
 
-2)  	Another key principle in Redux is that state is read-only. In other words, the reducer
+2.  	Another key principle in Redux is that state is read-only. In other words, the reducer
 	function must always return a new copy of state and never modify state directly.
 	
 3)  	If you took a snapshot of the state of a Redux app over time, you would see something
@@ -1016,10 +1018,10 @@
 
 						     `React and Redux`
 											
-1)  To make React access to the Redux store and the actions it needs to dispatch updates.
+1.  To make React access to the Redux store and the actions it needs to dispatch updates.
 	React Redux provides its `react-redux` package to help accomplish these tasks.
 
-2)  Using Provider to connect React Redux 
+2.  Using Provider to connect React Redux 
 	
 	// Redux Code:
 	```
