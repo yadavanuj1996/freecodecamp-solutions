@@ -117,7 +117,7 @@
 	use the $i value for forming or appending the text .
 	Two variations of @for are present
 	
-	@for $i from 1 to 5  		(iteration over  1,2,3,4,5) 
+	@for $i from 1 to 6  		(iteration over  1,2,3,4,5) 
 	@for $i from 1 through 6    (i value will be 1,2,3,4,5,6)
 	```
 	<style type='text/sass'>
