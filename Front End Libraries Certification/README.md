@@ -1,36 +1,58 @@
 							jQuery
 1) To add class using jQuery
+
 	```
 	$("button").addClass("animated");
-	    $(".btn").addClass("shake");
-	    $("#target1").addClass("btn-primary");
+	$(".btn").addClass("shake");
+	$("#target1").addClass("btn-primary");
 	 ```
 2) Remove class
+
 	`$("#target2").removeClass("btn-default");`
+	
 3) To add css
-	`$("#target1").css("color", "red");``
+
+	`$("#target1").css("color", "red");`
+	
 4) To disable an element. 
-	`$("#target1").prop("disabled", true);``
+
+   `$("#target1").prop("disabled", true);`
+	
 5) To remove a element
-   	 `$("#target4").remove();``
+
+   	 `$("#target4").remove();`
+	 
 6) To append element to other div (remove and move)
+
     	`$("#target2").appendTo("#right-well");`
+	
 7) To clone element and append (copy and move)
+
     	`$("#target5").clone().appendTo("#left-well");`
+	
 8) To call the parent and change parent's properties.
+
     	`$("#target1").parent().css("background-color","red")`
+	
 9) To get all children elements and change it's color
+
 	`$("#right-well").children().css("color", "orange");`
+	
 10)To select nth element of multiple elements having same class or html element (p or button)
+
 	`$(".target:nth-child(2)").addClass("animated bounce");`
+	
 11)To get even element of a all elements containing particular class
-	`$(".target:even").addClass("animated shake");
+
+	`$(".target:even").addClass("animated shake");`
+	
 12) To Select body and add class to whole html`
-    	`$("body").addClass("animated hinge");`
-	
-	
-							Sass
-											
+	```
+    	$("body").addClass("animated hinge");
+	```
+							
+						`Sass`
+						
 1) Sass stands for Syntactically Awesome Style Sheet and the file extension used is .scss
 	NOTE: double quotes and single quotes are not used in Sass.
 2) $var-name Declare a variable (using $ sign just like PHP)
