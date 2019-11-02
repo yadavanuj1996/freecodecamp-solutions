@@ -676,18 +676,24 @@
 	```
 	ii) && operator this.state.display should return true for display 
 	```
-	   render() {
-	      // change code below this line
-	      return (
-		 <div>
-		   <button onClick={this.toggleDisplay}>Toggle Display</button>
-		   {this.state.display && <h1>Displayed!</h1>}
-		 </div>
-	      );
-	    }
 	
-	iii) ? : (ternary operator)
+		render() {
+			// change code below this line
+	     		return (
+			 <div>
+			   <button onClick={this.toggleDisplay}>Toggle Display</button>
+			   {this.state.display && <h1>Displayed!</h1>}
+			 </div>
+		      );
+		}
+	
+	
 	```
+	
+ 	iii) ? : (ternary operator)
+	    
+	    ```
+	    
 	    render() {
 	      const buttonOne = <button onClick={this.submit}>Submit</button>;
 	      const buttonTwo = <button>You May Enter</button>;
@@ -705,7 +711,8 @@
 		</div>
 	      );
 	    }
-	```
+	    
+	    ```
 
 23) Using map to display list items (li) to dynamically render elements. 
 ```
