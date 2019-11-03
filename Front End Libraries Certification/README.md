@@ -596,6 +596,11 @@
 	    componentWillUnmount() {
 	      document.removeEventListener("keydown",this.handleKeyPress);
 	    }
+	    handleKeyPress(event) {
+	      if (event.keyCode === 13) {
+		this.handleEnter();
+	      }
+	    }
     ```
 	
 20) We can pass callback as props
