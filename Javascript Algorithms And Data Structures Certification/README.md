@@ -613,7 +613,7 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	stringVal.split('') will split the string into array elements
 	
 	arr.reverse(); //will reverse the value of array [1,2,3] becomes [3,2,1] 
-		       //reverse only works on string
+		       //reverse only works on arrays
 	
 	arr.join('');  //will unite a array elements into a new string, array to string conversion
 	```
