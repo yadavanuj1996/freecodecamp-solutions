@@ -352,10 +352,10 @@ x = 3.14; // throws an error because x is not declared
 	multipleA.test(A4); // Returns true
 	multipleA.test(A2); // Returns false
 
-    For ower number of repetition of characters
+    For lower number of repetition of characters
 	let haStr = "Hazzzzah";
 	let haRegex = /haz{4,}ah/i; // Change this line
-	let result = haRegex.test(haStr);
+	let result = haRegex.test(haStr); // true
 
     For minimum number of repetiton of a character
 	use /ha{100}s/	for exact 100 a's
