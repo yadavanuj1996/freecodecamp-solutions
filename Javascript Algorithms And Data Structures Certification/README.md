@@ -524,14 +524,36 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	fruits.indexOf('oranges') // returns 2
 
 	fruits.indexOf('pears') // returns 1, the first index at which the element exists
+	fruits.lastIndexOf('pears') // returns 4, the last index at which the element exists
 	```
 6) Objects are nothing but key value pairs data
 
 7) hasOwnProperty()
 	```
-	users.hasOwnProperty('Alan');
-	'Alan' in users;
-	// both return true
+	let users = {
+	  Alan: {
+	    age: 27,
+	    online: true
+	  },
+	  Jeff: {
+	    age: 32,
+	    online: true
+	  },
+	  Sarah: {
+	    age: 48,
+	    online: true
+	  },
+	  Ryan: {
+	    age: 19,
+	    online: true
+	  }
+	};
+	```
+	
+	```
+	users.hasOwnProperty('Alan'); // return true
+	above statement will search 'Alan' as key in users object;
+	
 	```
 8)	```
 	for (let user in users) {
@@ -552,6 +574,15 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	
 10) use combination of . [] (dot & bracket) notation along with for in loop and push to alter an object's value.
 
+11)
+	```
+	var array1 = [5, 12, 8, 130, 44];
+
+	var found = array1.find(function(element) {
+	  return element > 10;
+	});
+	console.log(found); // 12 
+	```
 						
 
 						Basic Algorithm Scripting
