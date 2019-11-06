@@ -517,6 +517,8 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	```
 	
 5) indexOf() 	
+	indexOf (String.prototype.indexOf() & String.prototype.indexOf() both exists) so
+	we can use indexOf on both string and array.
 	```
 	let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
 
