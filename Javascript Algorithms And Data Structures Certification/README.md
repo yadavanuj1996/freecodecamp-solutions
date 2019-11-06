@@ -162,7 +162,7 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	  tomorrow: { min: 73.3, max: 84.6 }
 	};
 
-	const {tomorrow: {max: maxOfTomorrow}} = forecast;  
+	const {tomorrow: {max: maxOfTomorrow}} = LOCAL_FORECAST;  
 	console.log(maxOfTomorrow); // 84.6
 	```
 	
