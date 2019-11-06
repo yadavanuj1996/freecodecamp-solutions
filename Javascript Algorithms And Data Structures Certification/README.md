@@ -46,18 +46,24 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 							
 							ES6
 
-1. ECMAScript is a standardized version of JavaScript with the goal of unifying the language's specifications and features. As all
-major browsers and JavaScript-runtimes follow this specification, the term ECMAScript is interchangeable with the term JavaScript.
+1. ECMAScript is a standardized version of JavaScript with the goal of unifying the language's 
+   specifications and features. As all major browsers and JavaScript-runtimes follow this specification,
+   the term ECMAScript is interchangeable with the term JavaScript.
 
-2. let camper = 'James';
+2. ```
+   let camper = 'James';
    let camper = 'David'; // throws an error
-	while with var there is no error generated
-3) Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
+   while with var there is no error generated
+   ```
+3) Note the "use strict". This enables Strict Mode, which catches common coding mistakes
+   and "unsafe" actions. For instance:
+	```
+	"use strict";
+	x = 3.14; // throws an error because x is not declared
+	```
 
-"use strict";
-x = 3.14; // throws an error because x is not declared
-
-4) 	var printNumTwo;
+4) 	```
+	var printNumTwo;
 	for (var i = 0; i < 3; i++) {
 	  if(i === 2){
 	    printNumTwo = function() {
@@ -77,28 +83,33 @@ x = 3.14; // throws an error because x is not declared
 	  }
 	}
 	console.log(printNumTwo()); // Output: 2
+	```
 
-5) const FAV_PET , const acts as let except it cannot be updated and is read.
-	all uppercase letters for declaration.
+5) const FAV_PET , const acts as let except it cannot be updated and is read.  
+	Use all uppercase letters for declaration.  
+	```
 	console.log(i);		    // undefined
 	"use strict";
 	const s = [5, 6, 7];
 	s = [1, 2, 3]; // throws error, trying to assign a const
 	s[2] = 45; // works just as it would with an array declared with var or let
 	console.log(s); // returns [5, 6, 45]
-6)	To fetch present time and date 	 
+	```
+6)	To fetch present time and date 	  
 	new Date();
 
 7) concat(arr1, arr2) function 
-	 "use strict";
+	```
+	"use strict";
 	const myConcat = (arr1, arr2) => arr1.concat(arr2);
 
 	// test your code
 	console.log(myConcat([1, 2], [3, 4, 5]));  // [1,2,3,4,5]
 	concat can similarly be used on string
-
-8) filter(), map(), reduce()
+	```
 	
+8) filter(), map(), reduce()
+	```
 	var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 	const result = words.filter(word => word.length > 6);
 	console.log(result);	// expected output: Array ["exuberant", "destruction", "present"]
@@ -114,29 +125,36 @@ x = 3.14; // throws an error because x is not declared
 	console.log(array1.reduce(reducer));	// expected output: 10
 	// 5 + 1 + 2 + 3 + 4
 	console.log(array1.reduce(reducer, 5));	// expected output: 15
-
+	```
 	NOTE: all 3 functions mentioned in this point does not alter the original array.
 
 9) Setting default parameter for your function
+	```
 	function greeting(name = "Anonymous") {
 	  return "Hello " + name;
 	}
 	console.log(greeting("John")); // Hello John
 	console.log(greeting()); // Hello Anonymous
+	```
 
-10) Rest operator
+10) Rest operator (...)
+	```
 	function sum(...args){
 		console.log(`you have passed {args.length} parameters`)
 	} 
+	```
 
 11) Spread operator
+	```
 	arr2 = [1,2,...arr1]; will copy all elements of arr1 in arr2
 
 	To find max or min element in array
 	Math.max(...arr);
 	Math.min(...arr);
+	```
 
 12) Destructing object
+	```
 	const LOCAL_FORECAST = {
 	  today:    { min: 72, max: 83 },
 	  tomorrow: { min: 73.3, max: 84.6 }
@@ -144,22 +162,31 @@ x = 3.14; // throws an error because x is not declared
 
 	const {tomorrow: {max: maxOfTomorrow}} = forecast;  
 	console.log(maxOfTomorrow); // 84.6
-13) const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
-    console.log(a, b, c); // 1, 2, 5
+	```
+	
+13) 	```
+	const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+    	console.log(a, b, c); // 1, 2, 5
+	```
 
 14) Destructing Array
-	const list = [1,2,3,4,5,6,7,8,9,10];
-	ES 6
-	const [a,b,...arr]=list;	// arr=[3,4,5,6,7,8,9,10] no change in list
+	
+	const list = [1,2,3,4,5,6,7,8,9,10];  
+	
+	ES 6  
+	const [a,b,...arr]=list;  // arr=[3,4,5,6,7,8,9,10] no change in list
 	 
 	ES 5 methods
-	//indexing works similar to  .substring method in java (startIndex, lastIndex+1)	 for slice
+	//indexing works similar to  .substring method in java (startIndex, lastIndex+1) for slice
 	arr=list.slice(2,10); or arr=list.slice(2); //arr =[3,4,5,6,7,8,9,10] list will not be affected	
 	
-	splice will remove element from original array and 2 represent starting index 4 represent present + next 3 index to be cut out
+	splice will remove element from original array and 2 represent starting index 4 represent 
+	present + next 3 index to be cut out
+	
 	const arr=list.splice(2,4);	// arr= [3,4,5,6] ,list=[1,2,7,8,9,10]
-
+	
 15) Destructuring Assignment to Pass an Object as a Function's Parameters
+	```
 	profileData={
 		name:"Anuj",
 		age: 29,
@@ -176,35 +203,47 @@ x = 3.14; // throws an error because x is not declared
 	const profileUpdate = ({ name, age, nationality, location }) => {
 	  /* do something with these fields */
 	}
+	```
 	only ({name}) is also valid if we just want one parameter
+	
 16) Template Literal
 	`hello ${arr[0]}
 	 this will appear in next line`
+	 
 17) Pass arguments to function and return an object
+	```
 	"use strict";
 	const createPerson = (name, age, gender) => ({name,age,gender});
 	console.log(createPerson("Zodiac Hasbro", 56, "male")); // returns a proper object
-
-	NOTE: use () around the object in function body as when the one line function generally does not need a return statement in es6
-	but for object creation and return we need to wrap one line block around () brackets.
+	```
+	
+	NOTE: use () around the object in function body as when the one line function generally 
+	does not need a return statement in es6 but for object creation and return we need to 
+	wrap one line block around () brackets.
+	
 18) When defining functions within objects in ES5, we have to use the keyword function as follows:
-
+	```
 	const person = {
 	  name: "Taylor",
 	  sayHello: function() {
 	    return `Hello! My name is ${this.name}.`;
 	  }
 	};
-	With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this 	 syntax:
-
+	```
+	With ES6, You can remove the function keyword and colon altogether when defining 
+	functions in objects. Here's an example of this syntax:
+	```
 	const person = {
 	  name: "Taylor",
 	  sayHello() {
 	    return `Hello! My name is ${this.name}.`;
 	  }
 	}; 
+	```
+	
 19)	In ES5, we usually define a constructor function, and use the new keyword to instantiate an object.
 	Note: We recognize a function is contructor if it starts with Capital letter.
+	```
 	var SpaceShuttle = function(targetPlanet){
 	  this.targetPlanet = targetPlanet;
 	}
@@ -218,10 +257,12 @@ x = 3.14; // throws an error because x is not declared
 	  }
 	}
 	const zeus = new SpaceShuttle('Jupiter');
-
+	```
+	
 	the keyword class is just syntactic sugar
 
-20)	class Book {
+20)	```
+	class Book {
 	  constructor(author) {
 	    this._author = author;
 	  }
@@ -238,30 +279,41 @@ x = 3.14; // throws an error because x is not declared
 	console.log(lol.writer);  // anonymous
 	lol.writer = 'wut';
 	console.log(lol.writer);  // wut
-	Notice the syntax we are using to invoke the getter and setter - as if they are not even functions.
-
+	```
+	
+	Notice the syntax we are using to invoke the getter and setter - as if they are not even functions.   
 	Getters and setters are important, because they hide internal implementation details.
 
-21)	In the past, the function require() would be used to import the functions and code in external files and modules. While handy, this 		presents a problem: some files and modules are rather large, and you may only need certain code from those external resources.
+21)	In the past, the function require() would be used to import the functions and code in external
+	files and modules. While handy, this presents a problem: some files and modules are rather large,
+	and you may only need certain code from those external resources.
 
-	ES6 gives us a very handy tool known as import. With it, we can choose which parts of a module or file to load into a given file, 		saving time and memory.
-	import { countItems } from "math_array_functions"
-	The whitespace surrounding the function inside the curly braces is a best practice - it makes it easier to read the import statement
-	countItems can either be a function or variable.
+	ES6 gives us a very handy tool known as import. With it, we can choose which parts of a module 
+	or file to load into a given file,saving time and memory.
+	
+	`import { countItems } from "math_array_functions"
+	
+	The whitespace surrounding the function inside the curly braces is a best practice 
+	- it makes it easier to read the import statement countItems can either be a function or variable.
 
-	In most cases, the file path requires a ./ before it; otherwise, node will look in the node_modules directory first trying to load it 		as a dependency.
+	In most cases,the file path requires a ./ before it; otherwise, node will look in the
+	node_modules directory first trying to load it as a dependency.
 
-22) 	const capitalizeString = (string) => {
+22) 	```
+	const capitalizeString = (string) => {
 	  return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 	export { capitalizeString } //How to export functions.
 	export const foo = "bar"; //How to export variables.
-
+	```
 	or you can also export all variables in same line
+	
 23) To import all contents of files
+	```
 	import * as myMathModule from "math_functions";
 	myMathModule.add(2,3);
 	myMathModule.subtract(5,3);
+	```
 
 
 							Regular Expressions
