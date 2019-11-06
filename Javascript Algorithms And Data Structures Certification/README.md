@@ -46,10 +46,10 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 							
 							ES6
 
-1) ECMAScript is a standardized version of JavaScript with the goal of unifying the language's specifications and features. As all
+1. ECMAScript is a standardized version of JavaScript with the goal of unifying the language's specifications and features. As all
 major browsers and JavaScript-runtimes follow this specification, the term ECMAScript is interchangeable with the term JavaScript.
 
-2) let camper = 'James';
+2. let camper = 'James';
    let camper = 'David'; // throws an error
 	while with var there is no error generated
 3) Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
@@ -267,7 +267,7 @@ x = 3.14; // throws an error because x is not declared
 							Regular Expressions
 
 
-1) Regex are written between // and should not be placed in quotes (both single or double)
+1. Regex are written between // and should not be placed in quotes (both single or double)
 	The .test() method takes the regex, applies it to a string (which is placed inside the parentheses),
 	and returns true or false if your pattern finds something or not.
 	test() returns true or false
@@ -421,7 +421,7 @@ x = 3.14; // throws an error because x is not declared
 					
 					     Basic Data Structures
 
-1) Arrays are mutable in JS, arr.length returns the no of elements in array, JS array can contain items of different Data type elements.
+1. Arrays are mutable in JS, arr.length returns the no of elements in array, JS array can contain items of different Data type elements.
 2) 
 	arr.push(2);		// push() adds element in end of array
 	arr.unshift(2);		// unshift() adds element in start of array
@@ -468,7 +468,7 @@ x = 3.14; // throws an error because x is not declared
 							Basic Algorithm Scripting
 
 
-1) string to array and applying logic on each element
+1. string to array and applying logic on each element
 	var str = 'The quick brown fox jumps over the lazy dog.';
 
 	var words = str.split(' ');
@@ -520,7 +520,7 @@ x = 3.14; // throws an error because x is not declared
 
 							Object Oriented Programming
 
-1) Constructors and creating objects	
+1. Constructors and creating objects	
 	function Bird() {
 	  this.name = "Albert";
 	  this.color = "blue";
@@ -798,7 +798,7 @@ x = 3.14; // throws an error because x is not declared
 
 							Functional Programming
 
-1)	Functional programming is about:
+1.	Functional programming is about:
 
 	a) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
 
@@ -864,7 +864,7 @@ x = 3.14; // throws an error because x is not declared
 
 						Intermediate Algorithm Scripting				
 
-1)	// the global Array
+1.	// the global Array
 	var s = [23, 65, 98, 5];
 
 	Array.prototype.myFilter = function(callback){
