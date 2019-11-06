@@ -96,7 +96,9 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	console.log(s); // returns [5, 6, 45]
 	```
 6)	To fetch present time and date 	  
+	```
 	new Date();
+	```
 
 7) concat(arr1, arr2) function 
 	```
@@ -164,26 +166,32 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	console.log(maxOfTomorrow); // 84.6
 	```
 	
-13) 	```
+13) 	
+	```
 	const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
     	console.log(a, b, c); // 1, 2, 5
 	```
 
 14) Destructing Array
-	
+	```
 	const list = [1,2,3,4,5,6,7,8,9,10];  
-	
+	```
 	ES 6  
+	```
 	const [a,b,...arr]=list;  // arr=[3,4,5,6,7,8,9,10] no change in list
-	 
+	```
+	
 	ES 5 methods
+	```
 	//indexing works similar to  .substring method in java (startIndex, lastIndex+1) for slice
 	arr=list.slice(2,10); or arr=list.slice(2); //arr =[3,4,5,6,7,8,9,10] list will not be affected	
+	```
 	
 	splice will remove element from original array and 2 represent starting index 4 represent 
 	present + next 3 index to be cut out
-	
+	```
 	const arr=list.splice(2,4);	// arr= [3,4,5,6] ,list=[1,2,7,8,9,10]
+	```
 	
 15) Destructuring Assignment to Pass an Object as a Function's Parameters
 	```
@@ -291,7 +299,9 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	ES6 gives us a very handy tool known as import. With it, we can choose which parts of a module 
 	or file to load into a given file,saving time and memory.
 	
-	`import { countItems } from "math_array_functions"
+	```
+	import { countItems } from "math_array_functions"
+	```
 	
 	The whitespace surrounding the function inside the curly braces is a best practice 
 	- it makes it easier to read the import statement countItems can either be a function or variable.
@@ -299,7 +309,8 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	In most cases,the file path requires a ./ before it; otherwise, node will look in the
 	node_modules directory first trying to load it as a dependency.
 
-22) 	```
+22) 	
+	```
 	const capitalizeString = (string) => {
 	  return string.charAt(0).toUpperCase() + string.slice(1);
 	}
