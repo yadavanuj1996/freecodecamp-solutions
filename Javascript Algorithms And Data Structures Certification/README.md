@@ -1,5 +1,5 @@
 
-							Basic Javascript (ES5)
+						 Basic Javascript (ES5)
 
 1) Variables which are used without the var keyword are automatically created in the global scope.
 2) Variables can contain alphabets,number $ and _ but cannot start with a number.
@@ -267,7 +267,9 @@ x = 3.14; // throws an error because x is not declared
 	
 3) .match is other way of matching a regexp
 	```
-	match() returns extracted word if we searcg /coding/i then if there is CoDiNG present it will return that string
+	match() returns extracted word if we searcg /coding/i then if there is CoDiNG word 
+	present it will return that string.
+	
 	checkingString.match(regExp); this will extrach the pattern
 
 	use /code/g with match()  to get all multiple matchings
@@ -320,15 +322,16 @@ x = 3.14; // throws an error because x is not declared
 	```
 	let text = "<h1>Winter is coming</h1>";
 
-	let myRegex = /<h.*1>/;     //result=<h1>Winter is coming</h1>    // Default GREEDY search	
-	let myRegex = /<h.*?1>/;    //result=<h1>	// ? LAZY search (? should come afterwards not before *)
+	let myRegex = /<h.*1>/; //result=<h1>Winter is coming</h1> // Default GREEDY search	
+	let myRegex = /<h.*?1>/;//result=<h1> // ? LAZY search (? should come afterwards not before *)
 	
 	let result = text.match(myRegex);
 	```
 	
 10) \w alphanumeric class shortcut and not alphanumeric \W (capital W)
 	```
-	The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]
+	The closest character class in JavaScript to match the alphabet is \w. 
+	This shortcut is equal to [A-Za-z0-9_]
 	Note: _ (underscore) is also present
 	
 	\W will find all other characters such as . and " " space 
@@ -381,8 +384,9 @@ x = 3.14; // throws an error because x is not declared
 	positive lookahead
 	```
 	let pwRegex = /(?=\w{6,})(?=\D*\d\d\D*)/i; 
-	this will match that a password or string should have 6 or more alphanumeric characters and out
-	of all	there should be 2 consecutive digits
+	
+	This will match that tht password string should have minimum of 6 alphanumeric 
+	characters([A-Za-z0-9_]) and the password string should contain atleast 2 consecutive digits.
 	```
 	
 	negative lookahead
