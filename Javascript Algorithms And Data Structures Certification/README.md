@@ -216,7 +216,7 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	
 16) Template Literal
 	```
-	`hello ${arr[0]}**
+	`hello ${arr[0]}
 	this will appear in next line`
 	```
 	 
