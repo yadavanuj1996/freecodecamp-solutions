@@ -550,10 +550,11 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 
 						
 
-							Basic Algorithm Scripting
+						Basic Algorithm Scripting
 
 
 1. string to array and applying logic on each element
+	```
 	var str = 'The quick brown fox jumps over the lazy dog.';
 
 	var words = str.split(' ');
@@ -566,30 +567,43 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	// expected output: Array [2, 4, 6]
 
 	str.substring(startIndex, lastIndex+1);
+	```
 
-2) to reverse a string	
+2) Reverse a string	
+	```
 	stringVal.split('') will split the string into array elements
-	arr.reverse();		will reverse the value of array [1,2,3] becomes [3,2,1] //reverse only works on string
-	arr.join('');		will unite a array elements into a new string, array to string conversion
+	
+	arr.reverse(); //will reverse the value of array [1,2,3] becomes [3,2,1] 
+		       //reverse only works on string
+	
+	arr.join('');  //will unite a array elements into a new string, array to string conversion
+	```
 4) arr.find(functionName) (without () call)
-	both functions will find and return first element that satisfies functions condition or else will return undefined.
+	Both functions below will find and return first element that satisfies functions
+	condition or else will return undefined.
+	
+	```
 	const findElement=(arr, func) =>  arr.find(func);
+	
 	const findElement=(arr, func) => arr.map(func).indexOf(true)>-1 ?arr[arr.map(func).indexOf(true)] :undefined;
 	
 	console.log(findElement([1, 20, 3, 5], num => num % 5 === 0));
+	```
 
 	We can search a element in array using indexOf() if indexOf() returns > -1 then items exist
 	arr.filter() will run for complete array while find stops at first time the condition is met. 
 	
 5) Capitalize a sentence			
-	toUpperCase()
-	toLowerCase()
-	
+	toUpperCase()  
+	toLowerCase()  
+	```
 	const titleCase=(str) => str.split(' ').map(x=> x.charAt(0).toUpperCase()+x.substring(1).toLowerCase()).join(' ');
 	const titleCase=(str) => str.toLowerCase().replace(/(^|\s)\w/g, (L)=> L.toUpperCase());
-
+	```
+	
 6) truthy and falsy values
-	All the values in JS are truthy except 6 values.
+	```
+	**All the values in JS are truthy except 6 values.**
 	Only 6 falsy values are:-
 	a) undefined 
 	b) null
@@ -597,13 +611,14 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	d) false
 	e) 0
 	f) ""	
-	arr.filter(Boolean);
+	```
+	`arr.filter(Boolean);
 	to filter all the boolean type values in hs array
 
 7) 	to sort and array in js
-	arr.sort(currentVal, nextVal=> currentVal-nextVal);
+	`arr.sort(currentVal, nextVal=> currentVal-nextVal);
 
-							Object Oriented Programming
+						Object Oriented Programming
 
 1. Constructors and creating objects	
 	function Bird() {
