@@ -1,5 +1,5 @@
 
-						 Basic Javascript (ES5)
+					  Basic Javascript (ES5)
 
 1) Variables which are used without the var keyword are automatically created in the global scope.
 
@@ -182,12 +182,16 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	```
 	
 	ES 5 methods
+	slice (Array.prototype.slice() & String.prototype.slice both exists 
+	so slice can be used with string and array)
+	
 	```
 	//indexing works similar to  .substring method in java (startIndex, lastIndex+1) for slice
 	arr=list.slice(2,10); or arr=list.slice(2); //arr =[3,4,5,6,7,8,9,10] list will not be affected	
 	```
 	
-	splice will remove element from original array and 2 represent starting index 4 represent 
+	splice (Array.prototype.splice() only exists so splice cannot be used with string)
+	will remove element from original array and 2 represent starting index 4 represent 
 	present + next 3 index to be cut out
 	```
 	const arr=list.splice(2,4);	// arr= [3,4,5,6] ,list=[1,2,7,8,9,10]
