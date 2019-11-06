@@ -2,22 +2,40 @@
 						 Basic Javascript (ES5)
 
 1) Variables which are used without the var keyword are automatically created in the global scope.
-2) Variables can contain alphabets,number $ and _ but cannot start with a number.
-3) js objects can contain number and strings and if it's single word or number quotes("") are not mandatory.
-4) . and [] notation to access objects properties.
-	Cases where bracket notation rescues us
-	a) when the property is created or added on the fly and not been defined in the first assignment.
-	b) when the key contains space 
-	c) The key name is stored in a variable.
-5) jsonObj.hasOwnProperty check in javascript object whether such key is present or not in object.
-6) Math.random() generate a floating number between 0 and 1 excluding 1.
-   Math.floor is used to round off a number to nearest whole number
-	Math.floor(Math.random()*10) will generate single digit integer number between 0 and 10 (10 is exclusive)
-	Math.floor((Math.random()*(max-min+1))+min); will generate a random number between min and max (inclusive both).
-   Math.round()
-	Math.floor() will always round down ie., it returns LESSER integer. While Math.round() will return the NEAREST integer
 
-For ex, round(2.8) = 3 but floor(2.8) = 2
+2) Variables can contain alphabets,number $ and _ but cannot start with a number.
+
+3) js objects can contain number and strings and if it's single word or number quotes("") are not mandatory.
+
+4) . and [] notation to access objects properties.  
+	Cases where bracket notation rescues us  
+	a) when the property is created or added on the fly and not been defined in the first assignment.  
+	b) when the key contains space   
+	c) The key name is stored in a variable.  
+	
+5) jsonObj.hasOwnProperty check in javascript object whether such key is present or not in object.
+
+6) ```
+   Math.random() generate a floating number between 0 and 1 excluding 1.
+   
+   Math.floor is used to round off a number to nearest whole number. 
+   
+   Math.floor(Math.random()*10) will generate single digit integer number
+   between 0 and 10 (10 is exclusive)  	  
+   
+   Math.floor((Math.random()*(max-min+1))+min); will generate a random number 
+   between min and max (inclusive both).  
+   
+   Math.round() // Math.round() will **round off** to the NEAREST integer. Math.round(2.8) = 3 
+   
+   Math.floor() will always **round down**. Math.floor(2.8)=2
+   
+   Math.ceil() will always return **round up**. Math.ceil(2.2)=3
+   
+   For ex, round(2.8) = 3 but floor(2.8) = 2 and ceil(2.2)=3
+   ```
+  
+   
 7) The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base
 of the 	number in the string. The radix can be an integer between 2 and 36.
     
