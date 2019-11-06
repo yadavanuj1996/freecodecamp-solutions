@@ -215,8 +215,10 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	only ({name}) is also valid if we just want one parameter
 	
 16) Template Literal
-	`hello ${arr[0]}
-	 this will appear in next line`
+	```
+	`hello ${arr[0]}**
+	this will appear in next line`
+	```
 	 
 17) Pass arguments to function and return an object
 	```
