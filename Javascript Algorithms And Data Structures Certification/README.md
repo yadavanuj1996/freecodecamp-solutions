@@ -654,7 +654,21 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 	`arr.filter(Boolean);
 	to filter all the boolean type values in hs array
 
-7) 	to sort and array in js
+7) 	to sort an array in alphabetic order in js
+	Note: Even numbers will be converted to string and then will be compared 
+	then their utf-16 value gets compared not the numbers themselves.
+	```
+	var months = ['March', 'Jan', 'Feb', 'Dec'];
+	months.sort();
+	console.log(months);
+	// expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+	var array1 = [1, 30, 4, 21, 100000];
+	array1.sort();
+	console.log(array1);
+	// expected output: Array [1, 100000, 21, 30, 4]
+
+	```
 	`arr.sort(currentVal, nextVal=> currentVal-nextVal);
 
 						Object Oriented Programming
