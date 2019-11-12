@@ -35,14 +35,14 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 * [x] [Intermediate Algorithm Scripting](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Javascript%20Algorithms%20And%20Data%20Structures%20Certification/Intermediate%20Algorithm%20Scripting)
 * [x] [JavaScript Algorithms and Data Structures Projects](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Javascript%20Algorithms%20And%20Data%20Structures%20Certification/JavaScript%20Algorithms%20and%20Data%20Structures%20Projects)
 
-### Front End Libraries Certification :x:
+### Front End Libraries Certification :heavy_check_mark:
 * [x] [Bootstrap](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Front%20End%20Libraries%20Certification/Bootstrap)
 * [x] [jQuery](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Front%20End%20Libraries%20Certification/jQuery)
 * [x] [Sass](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Front%20End%20Libraries%20Certification/Sass)
 * [x] [React](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Front%20End%20Libraries%20Certification/React)
 * [x] [Redux](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Front%20End%20Libraries%20Certification/Redux)
 * [x] [React and Redux](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Front%20End%20Libraries%20Certification/React%20and%20Redux)
-* [ ] Front End Libraries Projects
+* [x] Front End Libraries Projects
 
 ### Data Visualization Certification :heavy_check_mark:
 * [x] [Data Visualization with D3](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Data%20Visualization%20Certification/Data%20Visualization%20with%20D3)
