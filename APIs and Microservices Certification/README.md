@@ -259,9 +259,9 @@
     can have a payload (i.e. the data into the request body). The body-parser 
     middleware works with these methods as well.
 
-					MongoDB and Mongoose
+						MongoDB and Mongoose
 
-1) MongoDB is a database that stores data records (documents) for use by an
+1. MongoDB is a database that stores data records (documents) for use by an
    application. Mongo is a non-relational, "NoSQL" database. This means Mongo stores
    all associated data within one record, instead of storing it across many preset 
    tables as in a SQL database. Some benefits of this storage model are:
@@ -285,16 +285,18 @@
    Mongo as you would in JavaScript. This can make it easier to construct documents
    for storage in Mongo.
 
-2) Do not declare methods using ES6 arrow functions (=>) in mongoose. Arrow functions 
+2. Do not declare methods using ES6 arrow functions (=>) in mongoose. Arrow functions 
    explicitly prevent binding this, so your method will not have access to the document and the
    above examples will not work.
 
 3)  Mongoose connection with MongoDB.
+    ```
     var mongoose=require('mongoose');
     mongoose.connect(process.env.MONGO_URI);
+    ```
 
 4) Creating a model in mongoose
-	// <Your code here >
+	```
 	var Schema=mongoose.Schema;
 	var PersonSchema=new Schema({
 	  name: {type: String, required:true},
@@ -302,6 +304,7 @@
 	  favoriteFoods: [{type: String,unique: true}]  
 	});
 	var Person=mongoose.model('Person',PersonSchema); //model
+	```
 
 5) Glitch is a real server, and in real servers the interactions with the db happen
    in handler 	functions. These function are executed when some event happens 
@@ -311,23 +314,27 @@
    deleting. It’s following the Node convention and should be called as done(null, data)
    on success, or done(err) on error. Warning - When interacting with remote services, 
    errors may occur!
-
+   ```	
    /* Example */
-
+	
    var someFunc = function(done) {
      //... do something (risky) ...
      if(error) return done(error);
      done(null, result);
    };
-
-6)  var createAndSavePerson = function(done) {
-	  const person=new Person({name: 'Case Closed',age: 23,
-				 favoriteFoods: ['Chicken Curry']});
-	  person.save((err,data)=>err?done(null):done(null , data));
+   ```
+   
+6)  	
+	```
+	var createAndSavePerson = function(done) {
+		const person=new Person({name: 'Case Closed',age: 23, favoriteFoods: ['Chicken Curry']});
+		person.save((err,data)=>err?done(null):done(null , data));
 	};
+	```
 
 7) All concepts with comments
-
+	
+	```
 		/**********************************************
 	* 3. FCC Mongo & Mongoose Challenges
 	* ==================================
@@ -595,7 +602,8 @@
 	var queryChain = function(done) {
 	  var foodToSearch = "burrito";
 	  
-	  Person.find({favoriteFoods: foodToSearch}).sort({name: 'asc'}).limit(2).select("-age").exec(function(error, people) {
+	  Person.find({favoriteFoods: foodToSearch}).sort({name: 'asc'}).limit(2).select("-age")
+	  				            .exec(function(error, people) {
 	    if(error){
 	       done(error);
 	    }
@@ -633,4 +641,4 @@
 	exports.removeById = removeById;
 	exports.removeManyPeople = removeManyPeople;
 	exports.queryChain = queryChain;
-
+	```
