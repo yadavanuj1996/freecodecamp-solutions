@@ -49,7 +49,7 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 * [x] [JSON APIs and Ajax](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Data%20Visualization%20Certification/JSON%20APIs%20and%20Ajax)
 * [x] [Data Visualization Projects](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/Data%20Visualization%20Certification/Data%20Visualization%20Projects)
 
-### APIs and Microservices Certification :x:
+### APIs and Microservices Certification :heavy_check_mark:
 * [x] [Managing Packages with Npm](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/APIs%20and%20Microservices%20Certification/Managing%20Packages%20with%20Npm)
 * [x] [Basic Node and Express](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/APIs%20and%20Microservices%20Certification/Basic%20Node%20and%20Express)
 * [x] [MongoDB and Mongoose](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/APIs%20and%20Microservices%20Certification/MongoDB%20and%20Mongoose)
