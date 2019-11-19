@@ -411,8 +411,7 @@
 	// });
 
 	var createAndSavePerson = function(done) {
-	  const person=new Person({name: 'Anuj Yadav',age: 23,favoriteFoods: ['Chicken Curry']});
-	 
+	  const person=new Person({name: 'Anuj Yadav',age: 23,favoriteFoods: ['Chicken Curry']}); 
 	  person.save((err,data)=>err?done(null):done(null , data));
 	};
 
