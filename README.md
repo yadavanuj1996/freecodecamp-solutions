@@ -55,11 +55,11 @@ Each of these 30 projects in the freeCodeCamp.org curriculum has its own agile u
 * [x] [MongoDB and Mongoose](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/APIs%20and%20Microservices%20Certification/MongoDB%20and%20Mongoose)
 * [x] [Apis and Microservices Projects](https://github.com/yadavanuj1996/freecodecamp-solutions/tree/master/APIs%20and%20Microservices%20Certification/APIs%20and%20Microservices%20Projects)
 
-### Information Security and Quality Assurance Certification :x:
+### Information Security and Quality Assurance Certification :heavy_check_mark:
 * [x] Information Security with HelmetJS
 * [x] Quality Assurance and Testing with Chai
-* [ ] Advanced Node and Express
-* [ ] Information Security and Quality Assurance Projects
+* [x] Advanced Node and Express
+* [x] Information Security and Quality Assurance Projects
 
 
 ## License
