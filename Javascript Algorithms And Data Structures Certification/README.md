@@ -454,7 +454,7 @@ of the 	number in the string. The radix can be an integer between 2 and 36.
 
 13) repeat function	 (Not part of Regex)
 	```
-	let timStr =  "h" + "a".repeat(100) + "h";
+	let timStr =  "h" + "a".repeat(100) + "s";
 	will create a string haaaaaa_______________________________aaaaaaaaas
 	100 times a
 	```
