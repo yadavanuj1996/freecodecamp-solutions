@@ -7,7 +7,7 @@
 
 3) js objects can contain number and strings and if it's single word or number quotes("") are not mandatory.
 
-4) . and [] notation to access objects properties.  
+4) ` . and [] ` notation to access objects properties.  
 	Cases where bracket notation rescues us  
 	a) when the property is created or added on the fly and not been defined in the first assignment.  
 	b) when the key contains space   
