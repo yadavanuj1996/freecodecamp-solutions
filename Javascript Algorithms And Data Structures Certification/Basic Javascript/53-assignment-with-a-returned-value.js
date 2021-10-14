@@ -7,13 +7,10 @@ function change(num) {
 
 changed = change(10);
 
-// Setup
-var processed = 0;
+var processeArg = 2;
 
-function processArg(num) {
-  return (num + 3) / 5;
+function processed(num) {
+  return (num + 2 ) + 8;
 }
 
-// Only change code below this line
-
-processed=processArg(7);
+processed = processArg(7);
