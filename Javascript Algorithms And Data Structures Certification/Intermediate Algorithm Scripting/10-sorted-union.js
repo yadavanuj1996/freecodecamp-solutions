@@ -1,12 +1,13 @@
 function uniteUnique(...arr) {
-  let result=[];
-  arr.forEach(x=>{
-    x.forEach(y=>{
-      if(!result.includes(y))    // other way result.indexOf(y)==-1
-        result.push(y);
-    });    
-  });
-  return result;
+  for(let i=1;i<arr.length;i++){
+    for(let j=0;j<arr[i].length;j++){
+      if(!arr[0].includes(arr[i][j])){
+        arr[0].push(arr[i][j]);
+      }
+    }
+  }
+  return arr[0];
 }
 
-console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
