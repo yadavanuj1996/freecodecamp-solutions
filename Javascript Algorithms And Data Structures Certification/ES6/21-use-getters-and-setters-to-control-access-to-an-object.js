@@ -1,15 +1,14 @@
-
 class Thermostat{
-  constructor(tempreatureF){
-    this.temperatureC=(tempreatureF-32)*(5/9);
+  constructor(temperature){
+    this.temperature=(temperature-32)*(5/9);
   }
   //getter
-  get  temperatureInC(){
-    return this.temperatureC;
+get temperatureInC(){
+  return this.temperature;
   }
   //setter
-  set  temperatureInC(updatedTempInC){
-    this.temperatureC=updatedTempInC;
+set temperatureInC(updatedTempInC){
+  this.temperature=updatedTempInC;
   }
 }
 
