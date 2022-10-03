@@ -1,3 +1,3 @@
-var myStr= "FirstLine\n\ttab\\SecondLine\nThirdLine"; // Change this line
+var myStr= "FirstLine\n\t\\SecondLine\nThirdLine"; // Change this line
 
 
