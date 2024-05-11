@@ -59,3 +59,32 @@ const findGCD=(num1,num2)=>{
 }
 
 console.log(smallestCommons([1,5]));
+
+/*
+Simpler solution
+
+function smallestCommons(arr) {
+  var loop=true
+  var maxNum=arr[0]>arr[1]?arr[0]:arr[1];
+  var minNum=arr[0]>arr[1]?arr[1]:arr[0];
+  
+  var counter=maxNum*2;
+  while(loop){
+    var checker=0
+    for(let i=minNum;i<=maxNum;i++){
+      if(counter%i==0){
+        checker+=1;
+      }
+      else {break}
+    }
+    if(checker==maxNum-minNum+1){
+      loop=false;
+    }else{
+      counter+=1;
+    }
+   
+  }
+  return counter;
+}
+console.log(smallestCommons([5,1]));
+*/
